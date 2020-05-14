@@ -1,5 +1,7 @@
 # knit.dev
 
+![](https://github.com/knit-dev/knit.dev/workflows/Node.js%20CI/badge.svg)
+
 > Public website for Knit LLC
 
 ## Build Setup
