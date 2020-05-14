@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
   mode: 'spa',
@@ -7,7 +8,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s - ' + process.env.SITE_NAME,
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
