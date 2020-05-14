@@ -70,6 +70,12 @@ export default {
   components: {
     Logo,
     VuetifyLogo
+  },
+  head() {
+    return {
+      titleTemplate: '%s',
+      title: 'Knit'
+    }
   }
 }
 </script>
