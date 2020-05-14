@@ -1,4 +1,4 @@
-# knit-site
+# knit.dev
 
 > Public website for Knit LLC
 
