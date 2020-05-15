@@ -5,14 +5,14 @@ COPY package*.json ./
 RUN npm install
 COPY . . 
 EXPOSE 3000
+ENV HOST 0.0.0.0
 
+# generate stage
+FROM develop-stage as generate-stage
+RUN npm run generate
 
-# build stage
-FROM develop-stage as build-stage
-RUN npm run build
-
-# production stage
-FROM nginx:alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 90
-CMD ["nginx", "-g", "daemon off;"]
+# # production stage
+FROM generate-stage as production-stage
+# install simple http server for serving static content
+RUN npm install -g http-server
+CMD [ "http-server", "dist", "-p3000" ]
