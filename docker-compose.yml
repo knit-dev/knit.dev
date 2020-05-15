@@ -1,0 +1,14 @@
+# for local development
+version: '3.7'
+services:
+  knit:
+    build:
+      context: .
+      target: 'develop-stage'
+    ports:
+      - '3000:3000'
+    environment:
+      HOST: 0.0.0.0
+    volumes:
+      - '.:/app'
+    command: /bin/sh -c "npm run dev"
