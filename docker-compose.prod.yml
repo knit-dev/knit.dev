@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  knit:
+    build:
+      context: .
+      target: 'production-stage'
+    environment:
+      NODE_ENV: production
