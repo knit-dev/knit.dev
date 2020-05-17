@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "devtools": "./node_modules/.bin/vue-devtools",
+    "dev-devtools": "npm run devtools & env VUE_DEVTOOLS=true npm run dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -37,6 +39,7 @@
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
     "@nuxtjs/tailwindcss": "^2.0.0",
+    "@vue/devtools": "^5.3.3",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
