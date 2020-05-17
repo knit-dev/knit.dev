@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        tailwind-test
+        buefy-test
       </h1>
       <h2 class="subtitle">
         My striking Nuxt.js project
@@ -36,12 +36,7 @@ export default Vue.extend({
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
+*/ .container {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
