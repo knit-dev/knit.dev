@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "devtools": "./node_modules/.bin/vue-devtools",
-    "dev-devtools": "npm run devtools & env VUE_DEVTOOLS=true npm run dev",
+    "dev-devtools": "npm run devtools & env VUE_DEVTOOLS_LOCAL=true npm run dev",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

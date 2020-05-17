@@ -1,6 +1,6 @@
 # knit.dev
 
-[![Github CI Status](https://github.com/knit-dev/knit.dev/workflows/Node.js%20CI/badge.svg)](https://github.com/knit-dev/knit.dev/actions?query=workflow%3A%22Node.js+CI%22)
+[![Node.js CI](https://github.com/knit-dev/knit.dev/workflows/Node.js%20CI/badge.svg)](https://github.com/knit-dev/knit.dev/actions?query=workflow%3A%22Node.js+CI%22)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ea8a477c-0660-452d-ba18-1a2afac56e74/deploy-status)](https://app.netlify.com/sites/competent-almeida-f8edd4/deploys)
 
 > Website for Knit LLC
@@ -31,7 +31,7 @@ Command to run standalone electron version of vue-devtools in parallel with app.
 $ npm run dev-devtools
 
 # using global package (requires global install of vue-devtools)
-$ vue-devtools & env VUE_DEVTOOLS=true npm run dev
+$ vue-devtools & env VUE_DEVTOOLS_GLOBAL=true npm run dev
 ```
 
 ## Docker

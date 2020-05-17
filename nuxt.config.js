@@ -20,9 +20,12 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    ...(process.env.VUE_DEVTOOLS === 'true' && {
+    ...(process.env.VUE_DEVTOOLS_GLOBAL === 'true' && {
       script: [{ src: 'http://localhost:8098' }]
     })
+  },
+  env: {
+    vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL
   },
   /*
    ** Customize the progress-bar color
@@ -35,7 +38,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/composition-api'],
+  plugins: ['~plugins/vue-devtools-local', '~plugins/composition-api'],
   /*
    ** Nuxt.js dev-modules
    */
