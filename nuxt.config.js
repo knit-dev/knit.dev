@@ -19,7 +19,10 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    htmlAttrs: {
+      lang: 'en'
+    },
     ...(process.env.VUE_DEVTOOLS_GLOBAL === 'true' && {
       script: [{ src: 'http://localhost:8098' }]
     })
@@ -30,7 +33,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: 'blue', height: '5px' },
   /*
    ** Global CSS
    */
@@ -45,14 +48,13 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/vuetify'
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -69,6 +71,23 @@ export default {
   /*
    ** Build configuration
    */
+  /*
+   ** vuetify module configuration
+   ** https://github.com/nuxt-community/vuetify-module
+   */
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      themes: {
+        light: {
+          primary: '#FF6699'
+        },
+        dark: {
+          primary: '#FF6699'
+        }
+      }
+    }
+  },
   build: {
     /*
      ** You can extend webpack config here
@@ -84,5 +103,8 @@ export default {
         })
       }
     }
+  },
+  generate: {
+    fallback: true
   }
 }
