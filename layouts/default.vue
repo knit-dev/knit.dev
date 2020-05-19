@@ -55,6 +55,7 @@
     <v-app-bar
       id="global-app-bar"
       app
+      :height="appBarHeight"
       :bottom="$vuetify.breakpoint.smAndDown"
       elevate-on-scroll
     >
@@ -156,6 +157,10 @@ export default defineComponent({
         : require('~/assets/knit-logo-black.png')
     )
 
+    const appBarHeight = computed(() => {
+      return root.$vuetify.breakpoint.mdAndUp ? '68px' : ''
+    })
+
     const icons = ref(['mdi-github', 'mdi-twitter', 'mdi-linkedin'])
 
     const supportsColorSchemePreference =
@@ -194,6 +199,8 @@ export default defineComponent({
       logo,
       siteName,
       icons,
+
+      appBarHeight,
 
       colorSchemeModeIcon,
       colorSchemeModeText,
