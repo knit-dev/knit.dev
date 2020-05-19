@@ -5,6 +5,11 @@ const useColorScheme = (
   root: ComponentInstance,
   systemColorSchemePreference: boolean
 ) => {
+  const setLocalStorageDark = () =>
+    root.$store.dispatch('setLocalStorageDark', {
+      vm: root
+    })
+
   const dark = computed(() => root.$store.state.dark)
 
   const choseColorScheme = computed(() => root.$store.state.choseColorScheme)
@@ -87,6 +92,7 @@ const useColorScheme = (
   }
 
   return {
+    setLocalStorageDark,
     choseColorScheme,
     setDark,
     colorSchemeModeIcon,

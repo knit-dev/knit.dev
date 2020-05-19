@@ -150,14 +150,11 @@ export default defineComponent({
       'mdi-instagram'
     ])
 
-    root.$store.dispatch('setLocalStorageDark', {
-      vm: root
-    })
-
     const supportsColorSchemePreference =
       window.matchMedia('(prefers-color-scheme)').media !== 'not all'
 
     const {
+      setLocalStorageDark,
       choseColorScheme,
       setDark,
       colorSchemeModeIcon,
@@ -168,6 +165,8 @@ export default defineComponent({
       supportsColorSchemePreference &&
         window.matchMedia('(prefers-color-scheme: dark)').matches
     )
+
+    setLocalStorageDark()
 
     const prefersColorSchemeCallback = (event: MediaQueryListEvent) => {
       if (!choseColorScheme.value) {
