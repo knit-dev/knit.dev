@@ -25,6 +25,19 @@ const useColorScheme = (
       choseColorScheme
     })
 
+  const prefersColorSchemeCallback = () => {
+    if (!choseColorScheme.value) {
+      const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+      setDark({ value: mediaQueryList.matches, choseColorScheme: false })
+    }
+  }
+
+  const addPrefersColorSchemeListener = (callback: () => any) =>
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(callback)
+
+  const removePrefersColorSchemeListener = (callback: () => any) =>
+    window.matchMedia('(prefers-color-scheme: dark)').removeListener(callback)
+
   const colorSchemeModeSettings = [
     {
       mode: 'system',
@@ -93,8 +106,9 @@ const useColorScheme = (
 
   return {
     setLocalStorageDark,
-    choseColorScheme,
-    setDark,
+    prefersColorSchemeCallback,
+    addPrefersColorSchemeListener,
+    removePrefersColorSchemeListener,
     colorSchemeModeIcon,
     colorSchemeModeText,
     toggleColorSchemeMode

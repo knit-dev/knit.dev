@@ -155,8 +155,9 @@ export default defineComponent({
 
     const {
       setLocalStorageDark,
-      choseColorScheme,
-      setDark,
+      prefersColorSchemeCallback,
+      addPrefersColorSchemeListener,
+      removePrefersColorSchemeListener,
       colorSchemeModeIcon,
       colorSchemeModeText,
       toggleColorSchemeMode
@@ -168,25 +169,16 @@ export default defineComponent({
 
     setLocalStorageDark()
 
-    const prefersColorSchemeCallback = (event: MediaQueryListEvent) => {
-      if (!choseColorScheme.value) {
-        setDark({ value: event.matches, choseColorScheme: false })
-      }
-    }
     if (supportsColorSchemePreference) {
-      const prefersColorSchemeDarkMql = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      )
-      if (prefersColorSchemeDarkMql.matches) {
-        setDark({ value: true, choseColorScheme: false })
-      }
-      prefersColorSchemeDarkMql.addListener(prefersColorSchemeCallback)
+      prefersColorSchemeCallback()
+
+      addPrefersColorSchemeListener(prefersColorSchemeCallback)
     }
+
     onBeforeUnmount(() => {
-      if (supportsColorSchemePreference)
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .removeListener(prefersColorSchemeCallback)
+      if (supportsColorSchemePreference) {
+        removePrefersColorSchemeListener(prefersColorSchemeCallback)
+      }
     })
 
     return {
