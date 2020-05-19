@@ -1,11 +1,7 @@
 import { GetterTree, MutationTree, ActionTree } from 'vuex'
 
 export const state = () => ({
-  siteName: (
-    process.env.SITE_NAME ||
-    process.env.npm_package_name ||
-    'website'
-  ).toLowerCase(),
+  siteName: (process.env.siteName ?? 'website').toLowerCase(),
   dark: false,
   choseColorScheme: false
 })
