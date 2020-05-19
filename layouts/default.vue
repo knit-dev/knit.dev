@@ -7,6 +7,8 @@
       bottom
       disable-resize-watcher
     >
+      <TheNavigationDrawerList />
+
       <template v-slot:append>
         <v-container fluid class="pb-1">
           <v-row align="center">
@@ -131,6 +133,7 @@ import {
 import useColorSchemeMode from '~/utils/useColorSchemeMode'
 import ColorSchemeModeButton from '~/components/ColorSchemeModeButton.vue'
 import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
+import TheNavigationDrawerList from '~/components/TheNavigationDrawerList.vue'
 
 interface User {
   firstName: string
@@ -139,13 +142,20 @@ interface User {
 
 export default defineComponent({
   name: 'default',
-  components: { ColorSchemeModeButton, TheAppBarTabs },
+  components: { ColorSchemeModeButton, TheAppBarTabs, TheNavigationDrawerList },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
     const drawer = ref(false)
-    const logo = ref(require('~/assets/knit-logo-pink.png'))
+
     const siteName = computed(() => root.$store.state.siteName)
+    const dark = computed(() => root.$store.state.dark)
+    const logo = computed(() =>
+      dark.value
+        ? require('~/assets/knit-logo-white.png')
+        : require('~/assets/knit-logo-black.png')
+    )
+
     const icons = ref(['mdi-github', 'mdi-twitter', 'mdi-linkedin'])
 
     const supportsColorSchemePreference =
