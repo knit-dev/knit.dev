@@ -10,7 +10,7 @@
       <template v-slot:append>
         <v-container fluid class="pb-1">
           <v-row align="center">
-            <v-col cols="4" class="pl-3 py-1">
+            <v-col cols="4" class="pl-3 py-1 d-flex">
               <nuxt-link exact to="/">
                 <v-img
                   :src="logo"
@@ -21,24 +21,26 @@
                   alt="knit logo"
                 ></v-img>
               </nuxt-link>
+              <div class="display-1 font-weight-light ml-3">{{ siteName }}</div>
             </v-col>
-            <v-col cols="4" class="pa-0 d-flex justify-center">
-              <v-btn
-                icon
-                height="48px"
-                width="48px"
-                @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-              >
-                <v-icon>
-                  {{
-                    $vuetify.theme.dark
-                      ? 'mdi-brightness-4'
-                      : 'mdi-brightness-7'
-                  }}
-                </v-icon>
-              </v-btn>
-            </v-col>
-            <v-col cols="4" class="pa-0 d-flex justify-end">
+            <v-spacer></v-spacer>
+            <v-col cols="4" class="pa-0 d-flex justify-space-between">
+              <v-tooltip top>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    icon
+                    height="48px"
+                    width="48px"
+                    v-on="on"
+                    @click="toggleColorSchemeMode()"
+                  >
+                    <v-icon>
+                      {{ colorSchemeModeIcon }}
+                    </v-icon>
+                  </v-btn>
+                </template>
+                <span>{{ colorSchemeModeText }}</span>
+              </v-tooltip>
               <v-btn
                 icon
                 height="48px"
@@ -71,7 +73,9 @@
           alt="knit logo"
         ></v-img>
       </nuxt-link>
-
+      <v-toolbar-title class="display-1 font-weight-light ml-3">{{
+        siteName
+      }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <v-app-bar-nav-icon
@@ -124,7 +128,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import {
+  defineComponent,
+  computed,
+  ref,
+  onBeforeUnmount
+} from '@vue/composition-api'
 
 interface User {
   firstName: string
@@ -134,20 +143,126 @@ interface User {
 export default defineComponent({
   name: 'default',
 
-  setup() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
     const drawer = ref(false)
+    const logo = ref(require('~/assets/knit-logo-pink.png'))
+    const siteName = computed(() => root.$store.state.siteName)
     const icons = ref([
       'mdi-facebook',
       'mdi-twitter',
       'mdi-linkedin',
       'mdi-instagram'
     ])
-    const logo = ref(require('~/assets/knit-logo-pink.png'))
+
+    root.$store.dispatch('setLocalStorageDark', {
+      vm: root
+    })
+
+    const dark = computed(() => root.$store.state.dark)
+    const choseColorScheme = computed(() => root.$store.state.choseColorScheme)
+    const setDark = ({
+      value,
+      choseColorScheme = false
+    }: {
+      value: boolean
+      choseColorScheme: boolean
+    }) => root.$store.dispatch('setDark', { vm: root, value, choseColorScheme })
+
+    const supportsColorSchemePreference =
+      window.matchMedia('(prefers-color-scheme)').media !== 'not all'
+
+    const prefersColorSchemeCallback = (event: MediaQueryListEvent) => {
+      if (!choseColorScheme.value) {
+        setDark({ value: event.matches, choseColorScheme: false })
+      }
+    }
+    if (supportsColorSchemePreference) {
+      const prefersColorSchemeDarkMql = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      )
+      if (prefersColorSchemeDarkMql.matches) {
+        setDark({ value: true, choseColorScheme: false })
+      }
+      prefersColorSchemeDarkMql.addListener(prefersColorSchemeCallback)
+    }
+    onBeforeUnmount(() => {
+      if (supportsColorSchemePreference)
+        window
+          .matchMedia('(prefers-color-scheme: dark)')
+          .removeListener(prefersColorSchemeCallback)
+    })
+
+    const colorSchemeModeSettings = [
+      {
+        mode: 'system',
+        icon: 'mdi-theme-light-dark',
+        text: 'Toggle Dark',
+        nextMode: 'dark',
+        choseColorScheme: false,
+        value:
+          supportsColorSchemePreference &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+      },
+      {
+        mode: 'dark',
+        icon: 'mdi-weather-night',
+        text: 'Toggle Light',
+        nextMode: 'light',
+        choseColorScheme: true,
+        value: true
+      },
+      {
+        mode: 'light',
+        icon: 'mdi-weather-sunny',
+        text: 'Use System Preference',
+        nextMode: 'system',
+        choseColorScheme: true,
+        value: false
+      }
+    ]
+    const colorSchemeMode = computed(() => {
+      let result = 'system'
+      if (choseColorScheme.value) {
+        result = dark.value ? 'dark' : 'light'
+      }
+      return result
+    })
+    const colorSchemeModeIcon = computed(
+      () =>
+        colorSchemeModeSettings.find(
+          (setting) => setting.mode === colorSchemeMode.value
+        )?.icon
+    )
+    const colorSchemeModeText = computed(
+      () =>
+        colorSchemeModeSettings.find(
+          (setting) => setting.mode === colorSchemeMode.value
+        )?.text
+    )
+    const toggleColorSchemeMode = () => {
+      const nextSetting = colorSchemeModeSettings.find(
+        (setting) =>
+          setting.mode ===
+          colorSchemeModeSettings.find(
+            (setting) => setting.mode === colorSchemeMode.value
+          )?.nextMode
+      )
+      if (nextSetting) {
+        setDark(nextSetting)
+      }
+    }
 
     return {
       drawer,
+      logo,
+      siteName,
       icons,
-      logo
+
+      dark,
+      colorSchemeModeIcon,
+      colorSchemeModeText,
+      toggleColorSchemeMode
     }
   }
 })
