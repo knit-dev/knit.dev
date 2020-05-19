@@ -39,13 +39,17 @@ export const actions: ActionTree<RootState, RootState> = {
       commit('SET_CHOSE_COLOR_SCHEME', false)
     }
   },
-  setLocalStorageDark: ({ commit }, { vm }) => {
+  setLocalStorageDark: ({ dispatch }, { vm }) => {
     const darkString = localStorage.getItem('dark')
     if (darkString) {
       const darkValue = JSON.parse(darkString)
 
       if (typeof darkValue === 'boolean') {
-        commit('SET_DARK', { vm, value: darkValue as boolean })
+        dispatch('setDark', {
+          vm,
+          value: darkValue as boolean,
+          choseColorScheme: true
+        })
       }
     }
   }

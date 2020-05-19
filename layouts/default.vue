@@ -25,22 +25,14 @@
             </v-col>
             <v-spacer></v-spacer>
             <v-col cols="4" class="pa-0 d-flex justify-space-between">
-              <v-tooltip top>
-                <template v-slot:activator="{ on }">
-                  <v-btn
-                    icon
-                    height="48px"
-                    width="48px"
-                    v-on="on"
-                    @click="toggleColorSchemeMode()"
-                  >
-                    <v-icon>
-                      {{ colorSchemeModeIcon }}
-                    </v-icon>
-                  </v-btn>
-                </template>
-                <span>{{ colorSchemeModeText }}</span>
-              </v-tooltip>
+              <color-scheme-mode-button
+                v-bind="{
+                  icon: colorSchemeModeIcon,
+                  text: colorSchemeModeText,
+                  toggle: toggleColorSchemeMode
+                }"
+              />
+
               <v-btn
                 icon
                 height="48px"
@@ -134,6 +126,8 @@ import {
   ref,
   onBeforeUnmount
 } from '@vue/composition-api'
+import useColorSchemeMode from '~/utils/useColorSchemeMode'
+import ColorSchemeModeButton from '~/components/ColorSchemeModeButton.vue'
 
 interface User {
   firstName: string
@@ -142,6 +136,7 @@ interface User {
 
 export default defineComponent({
   name: 'default',
+  components: { ColorSchemeModeButton },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -159,18 +154,20 @@ export default defineComponent({
       vm: root
     })
 
-    const dark = computed(() => root.$store.state.dark)
-    const choseColorScheme = computed(() => root.$store.state.choseColorScheme)
-    const setDark = ({
-      value,
-      choseColorScheme = false
-    }: {
-      value: boolean
-      choseColorScheme: boolean
-    }) => root.$store.dispatch('setDark', { vm: root, value, choseColorScheme })
-
     const supportsColorSchemePreference =
       window.matchMedia('(prefers-color-scheme)').media !== 'not all'
+
+    const {
+      choseColorScheme,
+      setDark,
+      colorSchemeModeIcon,
+      colorSchemeModeText,
+      toggleColorSchemeMode
+    } = useColorSchemeMode(
+      root,
+      supportsColorSchemePreference &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+    )
 
     const prefersColorSchemeCallback = (event: MediaQueryListEvent) => {
       if (!choseColorScheme.value) {
@@ -193,73 +190,12 @@ export default defineComponent({
           .removeListener(prefersColorSchemeCallback)
     })
 
-    const colorSchemeModeSettings = [
-      {
-        mode: 'system',
-        icon: 'mdi-theme-light-dark',
-        text: 'Toggle Dark',
-        nextMode: 'dark',
-        choseColorScheme: false,
-        value:
-          supportsColorSchemePreference &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-      },
-      {
-        mode: 'dark',
-        icon: 'mdi-weather-night',
-        text: 'Toggle Light',
-        nextMode: 'light',
-        choseColorScheme: true,
-        value: true
-      },
-      {
-        mode: 'light',
-        icon: 'mdi-weather-sunny',
-        text: 'Use System Preference',
-        nextMode: 'system',
-        choseColorScheme: true,
-        value: false
-      }
-    ]
-    const colorSchemeMode = computed(() => {
-      let result = 'system'
-      if (choseColorScheme.value) {
-        result = dark.value ? 'dark' : 'light'
-      }
-      return result
-    })
-    const colorSchemeModeIcon = computed(
-      () =>
-        colorSchemeModeSettings.find(
-          (setting) => setting.mode === colorSchemeMode.value
-        )?.icon
-    )
-    const colorSchemeModeText = computed(
-      () =>
-        colorSchemeModeSettings.find(
-          (setting) => setting.mode === colorSchemeMode.value
-        )?.text
-    )
-    const toggleColorSchemeMode = () => {
-      const nextSetting = colorSchemeModeSettings.find(
-        (setting) =>
-          setting.mode ===
-          colorSchemeModeSettings.find(
-            (setting) => setting.mode === colorSchemeMode.value
-          )?.nextMode
-      )
-      if (nextSetting) {
-        setDark(nextSetting)
-      }
-    }
-
     return {
       drawer,
       logo,
       siteName,
       icons,
 
-      dark,
       colorSchemeModeIcon,
       colorSchemeModeText,
       toggleColorSchemeMode
