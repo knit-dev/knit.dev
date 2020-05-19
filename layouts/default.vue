@@ -25,7 +25,7 @@
             </v-col>
             <v-spacer></v-spacer>
             <v-col cols="4" class="pa-0 d-flex justify-space-between">
-              <color-scheme-mode-button
+              <ColorSchemeModeButton
                 v-bind="{
                   icon: colorSchemeModeIcon,
                   text: colorSchemeModeText,
@@ -53,7 +53,7 @@
     <v-app-bar
       id="global-app-bar"
       app
-      :bottom="$vuetify.breakpoint.mdAndDown"
+      :bottom="$vuetify.breakpoint.smAndDown"
       elevate-on-scroll
     >
       <nuxt-link exact to="/">
@@ -69,6 +69,8 @@
         siteName
       }}</v-toolbar-title>
       <v-spacer></v-spacer>
+
+      <TheAppBarTabs />
 
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
@@ -112,7 +114,7 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          {{ new Date().getFullYear() }} — <strong>{{ siteName }}</strong>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -128,6 +130,7 @@ import {
 } from '@vue/composition-api'
 import useColorSchemeMode from '~/utils/useColorSchemeMode'
 import ColorSchemeModeButton from '~/components/ColorSchemeModeButton.vue'
+import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
 
 interface User {
   firstName: string
@@ -136,19 +139,14 @@ interface User {
 
 export default defineComponent({
   name: 'default',
-  components: { ColorSchemeModeButton },
+  components: { ColorSchemeModeButton, TheAppBarTabs },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
     const drawer = ref(false)
     const logo = ref(require('~/assets/knit-logo-pink.png'))
     const siteName = computed(() => root.$store.state.siteName)
-    const icons = ref([
-      'mdi-facebook',
-      'mdi-twitter',
-      'mdi-linkedin',
-      'mdi-instagram'
-    ])
+    const icons = ref(['mdi-github', 'mdi-twitter', 'mdi-linkedin'])
 
     const supportsColorSchemePreference =
       window.matchMedia('(prefers-color-scheme)').media !== 'not all'
