@@ -97,16 +97,54 @@
     <v-footer padless>
       <v-card flat tile class="text-center" width="100%">
         <v-card-text>
-          <ColorSchemeModeButton
-            v-bind="{
-              icon: colorSchemeModeIcon,
-              text: colorSchemeModeText,
-              toggle: toggleColorSchemeMode
-            }"
-          />
-          <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
-            <v-icon size="24px">{{ icon }}</v-icon>
-          </v-btn>
+          <v-row no-gutters>
+            <v-col
+              cols="3"
+              align-self="center"
+              class="d-flex justify-start justify-md-center flex-shrink-1 flex-grow-0 "
+            >
+              <ColorSchemeModeButton
+                v-bind="{
+                  icon: colorSchemeModeIcon,
+                  text: colorSchemeModeText,
+                  toggle: toggleColorSchemeMode
+                }"
+              />
+            </v-col>
+            <v-col
+              align-self="center flex-shrink-0 d-flex justify-center"
+              style="flex-wrap: nowrap;"
+            >
+              <div>
+                <v-btn
+                  v-for="item in socials"
+                  :key="item.name"
+                  :href="item.link"
+                  target="_blank"
+                  class="mx-2"
+                  icon
+                >
+                  <v-icon size="24px">{{ item.icon }}</v-icon>
+                </v-btn>
+              </div>
+            </v-col>
+            <v-col
+              cols="3"
+              align-self="center"
+              class="d-flex justify-end flex-shrink-1 flex-grow-0 "
+            >
+              <div>
+                <div class="footer-hosting">Hosting by</div>
+                <a href="https://www.netlify.com" target="_blank">
+                  <img
+                    :src="require('~/assets/netlify-logo-and-text.svg')"
+                    alt="netlify-logo-and-text"
+                    class="footer-netlify"
+                  />
+                </a>
+              </div>
+            </v-col>
+          </v-row>
         </v-card-text>
 
         <v-divider></v-divider>
@@ -156,7 +194,19 @@ export default defineComponent({
       return root.$vuetify.breakpoint.mdAndUp ? '68px' : ''
     })
 
-    const icons = ref(['mdi-github', 'mdi-twitter', 'mdi-linkedin'])
+    const socials = ref([
+      {
+        name: 'github',
+        icon: 'mdi-github',
+        link: 'https://github.com/knit-dev'
+      },
+      { name: 'twitter', icon: 'mdi-twitter', link: 'https://twitter.com' },
+      {
+        name: 'linkedin',
+        icon: 'mdi-linkedin',
+        link: 'https://www.linkedin.com/company/knit-llc'
+      }
+    ])
 
     const supportsColorSchemePreference =
       window.matchMedia('(prefers-color-scheme)').media !== 'not all'
@@ -193,7 +243,7 @@ export default defineComponent({
       drawer,
       logo,
       siteName,
-      icons,
+      socials,
 
       appBarHeight,
 
@@ -223,5 +273,23 @@ export default defineComponent({
 }
 .hover-grow:hover {
   transform: scale(1.1);
+}
+
+.footer-hosting {
+  margin-bottom: 0.5rem;
+  color: rgb(153, 153, 153);
+}
+.footer-netlify {
+  height: 22px;
+  width: auto;
+  display: inline-block;
+  filter: grayscale(100%);
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  transition-delay: initial;
+  transition-property: all;
+}
+.footer-netlify:hover {
+  filter: grayscale(0%);
 }
 </style>

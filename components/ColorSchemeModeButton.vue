@@ -5,7 +5,7 @@
         icon
         height="48px"
         width="48px"
-        color="primary"
+        color="accent"
         v-on="on"
         @click="toggle()"
       >
