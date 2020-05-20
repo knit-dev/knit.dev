@@ -1,16 +1,21 @@
 <template>
-  <div>
-    <v-tooltip top>
-      <template v-slot:activator="{ on }">
-        <v-btn icon height="48px" width="48px" v-on="on" @click="toggle()">
-          <v-icon>
-            {{ icon }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>{{ text }}</span>
-    </v-tooltip>
-  </div>
+  <v-tooltip top>
+    <template v-slot:activator="{ on }">
+      <v-btn
+        icon
+        height="48px"
+        width="48px"
+        color="primary"
+        v-on="on"
+        @click="toggle()"
+      >
+        <v-icon>
+          {{ icon }}
+        </v-icon>
+      </v-btn>
+    </template>
+    <span>{{ text }}</span>
+  </v-tooltip>
 </template>
 
 <script lang="ts">

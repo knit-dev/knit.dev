@@ -42,7 +42,7 @@ const useColorScheme = (
     {
       mode: 'system',
       icon: 'mdi-theme-light-dark',
-      text: 'Default Preference',
+      text: 'Default Scheme',
       nextMode: 'dark',
       choseColorScheme: false,
       value: systemColorSchemePreference
@@ -57,7 +57,7 @@ const useColorScheme = (
     },
     {
       mode: 'light',
-      icon: 'mdi-weather-sunny',
+      icon: 'mdi-white-balance-sunny',
       text: 'Toggle Light',
       nextMode: 'system',
       choseColorScheme: true,

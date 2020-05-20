@@ -26,15 +26,7 @@
               <div class="display-1 font-weight-light ml-3">{{ siteName }}</div>
             </v-col>
             <v-spacer></v-spacer>
-            <v-col cols="4" class="pa-0 d-flex justify-space-between">
-              <ColorSchemeModeButton
-                v-bind="{
-                  icon: colorSchemeModeIcon,
-                  text: colorSchemeModeText,
-                  toggle: toggleColorSchemeMode
-                }"
-              />
-
+            <v-col cols="4" class="pa-0 d-flex justify-end">
               <v-btn
                 icon
                 height="48px"
@@ -75,6 +67,18 @@
 
       <TheAppBarTabs />
 
+      <v-spacer></v-spacer>
+
+      <v-btn
+        color="primary"
+        class="text-capitalize hover-grow"
+        :class="[$vuetify.breakpoint.smAndDown ? 'mr-3' : 'mr-1']"
+        large
+        rounded
+      >
+        Get started!</v-btn
+      >
+
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
         @click.stop="drawer = !drawer"
@@ -90,20 +94,22 @@
       </v-container>
     </v-content>
 
-    <v-footer dark padless>
-      <v-card flat tile class="indigo lighten-1 white--text text-center">
+    <v-footer padless>
+      <v-card flat tile class="text-center">
         <v-card-text>
-          <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4 white--text"
-            icon
-          >
+          <ColorSchemeModeButton
+            v-bind="{
+              icon: colorSchemeModeIcon,
+              text: colorSchemeModeText,
+              toggle: toggleColorSchemeMode
+            }"
+          />
+          <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
             <v-icon size="24px">{{ icon }}</v-icon>
           </v-btn>
         </v-card-text>
 
-        <v-card-text class="white--text pt-0">
+        <v-card-text class="pt-0">
           Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
           Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
           accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim
@@ -116,7 +122,7 @@
 
         <v-divider></v-divider>
 
-        <v-card-text class="white--text">
+        <v-card-text>
           {{ new Date().getFullYear() }} — <strong>{{ siteName }}</strong>
         </v-card-text>
       </v-card>
@@ -214,12 +220,19 @@ export default defineComponent({
 @supports (
   (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))
 ) {
+  #global-app-bar {
+    background-color: transparent;
+  }
   #global-app-bar > div:first-child {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
-  #global-app-bar {
-    background-color: transparent;
-  }
+}
+
+.hover-grow {
+  transition: all 0.2s ease-in-out;
+}
+.hover-grow:hover {
+  transform: scale(1.1);
 }
 </style>
