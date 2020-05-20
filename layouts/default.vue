@@ -101,8 +101,7 @@
           <v-row no-gutters>
             <v-col
               cols="3"
-              align-self="center"
-              class="d-flex justify-start justify-md-center flex-shrink-1 flex-grow-0 "
+              class="d-flex align-self-center justify-start justify-md-center flex-shrink-1 flex-grow-0 "
             >
               <ColorSchemeModeButton
                 v-bind="{
@@ -113,7 +112,7 @@
               />
             </v-col>
             <v-col
-              align-self="center flex-shrink-0 d-flex justify-center"
+              class="d-flex align-self-center flex-shrink-0 justify-center"
               style="flex-wrap: nowrap;"
             >
               <div>
@@ -131,8 +130,7 @@
             </v-col>
             <v-col
               cols="3"
-              align-self="center"
-              class="d-flex justify-end flex-shrink-1 flex-grow-0 "
+              class="d-flex align-self-center justify-end flex-shrink-1 flex-grow-0 "
             >
               <div>
                 <div class="footer-hosting">Hosting by</div>
@@ -263,13 +261,15 @@ export default defineComponent({
   }
 }
 
-#global-app-bar > .v-toolbar__content {
-  padding-bottom: max(4px, env(safe-area-inset-bottom));
-  height: auto !important;
-}
+@supports (padding-top: env(safe-area-inset-top)) {
+  #global-app-bar > .v-toolbar__content {
+    padding-bottom: max(4px, env(safe-area-inset-bottom));
+    height: auto !important;
+  }
 
-#global-footer {
-  padding-bottom: env(safe-area-inset-bottom);
+  #global-footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 .hover-grow {
