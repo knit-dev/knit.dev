@@ -268,6 +268,10 @@ export default defineComponent({
   }
 }
 
+#global-app-bar {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 .hover-grow {
   transition: all 0.2s ease-in-out;
 }
