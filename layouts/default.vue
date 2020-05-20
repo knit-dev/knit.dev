@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer
+      id="global-navigation-drawer"
       v-model="drawer"
       app
       right
@@ -47,8 +48,8 @@
     <v-app-bar
       id="global-app-bar"
       app
-      :height="appBarHeight"
       :bottom="$vuetify.breakpoint.smAndDown"
+      style="height: auto;"
       elevate-on-scroll
     >
       <nuxt-link exact to="/">
@@ -94,7 +95,7 @@
       </v-container>
     </v-content>
 
-    <v-footer padless>
+    <v-footer id="global-footer" padless>
       <v-card flat tile class="text-center" width="100%">
         <v-card-text>
           <v-row no-gutters>
@@ -190,10 +191,6 @@ export default defineComponent({
         : require('~/assets/knit-logo-black.png')
     )
 
-    const appBarHeight = computed(() => {
-      return root.$vuetify.breakpoint.mdAndUp ? '68px' : ''
-    })
-
     const socials = ref([
       {
         name: 'github',
@@ -245,8 +242,6 @@ export default defineComponent({
       siteName,
       socials,
 
-      appBarHeight,
-
       colorSchemeModeIcon,
       colorSchemeModeText,
       toggleColorSchemeMode
@@ -268,7 +263,12 @@ export default defineComponent({
   }
 }
 
-#global-app-bar {
+#global-app-bar > .v-toolbar__content {
+  padding-bottom: max(4px, env(safe-area-inset-bottom));
+  height: auto !important;
+}
+
+#global-footer {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
