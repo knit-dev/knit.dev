@@ -137,10 +137,11 @@
               <div>
                 <div class="footer-hosting">Hosting by</div>
                 <a href="https://www.netlify.com" target="_blank">
-                  <img
+                  <v-img
                     :src="require('~/assets/netlify-logo-and-text.svg')"
                     alt="netlify-logo-and-text"
                     class="footer-netlify"
+                    contain
                   />
                 </a>
               </div>
