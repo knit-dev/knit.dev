@@ -81,17 +81,12 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/css/variables.scss'],
-    // treeshake required for customVariables in dev
-    // treeshake: true,
-    theme: {
-      themes: {
-        light: {
-          primary: '#FF6699'
-        },
-        dark: {
-          primary: '#FF6699'
-        }
-      }
+    treeShake: true,
+    defaultAssets: {
+      font: {
+        family: 'Poppins'
+      },
+      icons: 'mdi'
     }
   },
   build: {

@@ -61,7 +61,7 @@
           alt="knit logo"
         ></v-img>
       </nuxt-link>
-      <v-toolbar-title class="display-1 font-weight-light ml-3">{{
+      <v-toolbar-title class="font-weight-bold ml-3 text-capitalize">{{
         siteName
       }}</v-toolbar-title>
       <v-spacer></v-spacer>
