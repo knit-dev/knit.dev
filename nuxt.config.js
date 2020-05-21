@@ -81,6 +81,8 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/css/variables.scss'],
+    // treeshake required for customVariables in dev
+    // treeshake: true,
     theme: {
       themes: {
         light: {
