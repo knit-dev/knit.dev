@@ -5,7 +5,7 @@
     <template v-slot:append>
       <v-container fluid class="pb-1">
         <v-row align="center">
-          <v-col cols="4" class="pl-3 py-1 d-flex">
+          <v-col cols="4" class="pl-3 py-1 d-flex align-center">
             <nuxt-link exact to="/">
               <v-img
                 :src="siteLogo"
@@ -16,7 +16,9 @@
                 alt="knit logo"
               ></v-img>
             </nuxt-link>
-            <div class="display-1 font-weight-light ml-3">{{ siteName }}</div>
+            <div class="ml-3 title font-weight-bold text-capitalize">
+              {{ siteName }}
+            </div>
           </v-col>
           <v-spacer></v-spacer>
           <v-col cols="4" class="pa-0 d-flex justify-end">
