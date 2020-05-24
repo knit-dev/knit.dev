@@ -1,10 +1,12 @@
 import { computed } from '@vue/composition-api'
 import { ComponentInstance } from '@vue/composition-api/dist/component'
+import {
+  mdiThemeLightDark,
+  mdiWeatherNight,
+  mdiWhiteBalanceSunny
+} from '@mdi/js'
 
-const useColorScheme = (
-  root: ComponentInstance,
-  systemColorSchemePreference: boolean
-) => {
+const useColorScheme = (root: ComponentInstance) => {
   const setLocalStorageDark = () =>
     root.$store.dispatch('setLocalStorageDark', {
       vm: root
@@ -25,6 +27,9 @@ const useColorScheme = (
       choseColorScheme
     })
 
+  const supportsColorSchemePreference =
+    window.matchMedia('(prefers-color-scheme)').media !== 'not all'
+
   const prefersColorSchemeCallback = () => {
     if (!choseColorScheme.value) {
       const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
@@ -41,15 +46,17 @@ const useColorScheme = (
   const colorSchemeModeSettings = [
     {
       mode: 'system',
-      icon: 'mdi-theme-light-dark',
+      icon: mdiThemeLightDark,
       text: 'Default Scheme',
       nextMode: 'dark',
       choseColorScheme: false,
-      value: systemColorSchemePreference
+      value:
+        supportsColorSchemePreference &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
     },
     {
       mode: 'dark',
-      icon: 'mdi-weather-night',
+      icon: mdiWeatherNight,
       text: 'Toggle Dark',
       nextMode: 'light',
       choseColorScheme: true,
@@ -57,7 +64,7 @@ const useColorScheme = (
     },
     {
       mode: 'light',
-      icon: 'mdi-white-balance-sunny',
+      icon: mdiWhiteBalanceSunny,
       text: 'Toggle Light',
       nextMode: 'system',
       choseColorScheme: true,
@@ -106,6 +113,7 @@ const useColorScheme = (
 
   return {
     setLocalStorageDark,
+    supportsColorSchemePreference,
     prefersColorSchemeCallback,
     addPrefersColorSchemeListener,
     removePrefersColorSchemeListener,

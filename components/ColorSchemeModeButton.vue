@@ -20,19 +20,19 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import useColorSchemeMode from '~/utils/useColorSchemeMode'
 
 export default defineComponent({
   name: 'ColorSchemeModeButton',
-  props: {
-    icon: {
-      type: String
-    },
-    text: {
-      type: String
-    },
-    toggle: {
-      type: Function
-    }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
+    const {
+      colorSchemeModeIcon: icon,
+      colorSchemeModeText: text,
+      toggleColorSchemeMode: toggle
+    } = useColorSchemeMode(root)
+
+    return { icon, text, toggle }
   }
 })
 </script>

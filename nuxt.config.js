@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
 
 export default {
@@ -86,7 +87,33 @@ export default {
       font: {
         family: 'Poppins'
       },
-      icons: 'mdi'
+      icons: false
+    },
+    icons: { iconfont: 'mdiSvg' },
+    theme: {
+      // options: {
+      //   customProperties: true
+      // },
+      themes: {
+        light: {
+          primary: '#FF6699',
+          secondary: '#F8F0EA',
+          accent: '#C6BDEF',
+          success: colors.green.base,
+          error: colors.red.accent2,
+          warning: colors.amber.base,
+          info: colors.blue.base
+        },
+        dark: {
+          primary: '#FF6699',
+          secondary: '#C6BDEF',
+          accent: '#C6BDEF',
+          success: colors.green.base,
+          error: colors.red.accent2,
+          warning: colors.amber.base,
+          info: colors.blue.base
+        }
+      }
     }
   },
   build: {
