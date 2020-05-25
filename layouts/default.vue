@@ -15,8 +15,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onBeforeUnmount } from '@vue/composition-api'
-import useColorSchemeMode from '~/utils/useColorSchemeMode'
+import {
+  defineComponent,
+  ref,
+  computed,
+  onBeforeUnmount
+} from '@vue/composition-api'
 
 import TheNavigationDrawer from '~/components/TheNavigationDrawer.vue'
 import TheAppBar from '~/components/TheAppBar.vue'
@@ -33,25 +37,39 @@ export default defineComponent({
       drawer.value = !drawer.value
     }
 
-    const {
-      setLocalStorageDark,
-      supportsColorSchemePreference,
-      prefersColorSchemeCallback,
-      addPrefersColorSchemeListener,
-      removePrefersColorSchemeListener
-    } = useColorSchemeMode(root)
+    root.$store.dispatch('theme/setLocalStorageDark', root)
 
-    setLocalStorageDark()
+    const isUserDefinedColorScheme = computed(
+      () => root.$store.getters['theme/isUserDefinedColorScheme']
+    )
+    const isPrefersColorSchemeCapable = computed(
+      () => root.$store.getters['theme/isPrefersColorSchemeCapable']
+    )
 
-    if (supportsColorSchemePreference) {
+    const prefersColorSchemeCallback = () => {
+      if (!isUserDefinedColorScheme.value) {
+        const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+        root.$store.dispatch('theme/setDark', {
+          vm: root,
+          value: mediaQueryList.matches,
+          userDefinedColorScheme: false
+        })
+      }
+    }
+
+    if (isPrefersColorSchemeCapable.value) {
       prefersColorSchemeCallback()
 
-      addPrefersColorSchemeListener(prefersColorSchemeCallback)
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addListener(prefersColorSchemeCallback)
     }
 
     onBeforeUnmount(() => {
-      if (supportsColorSchemePreference) {
-        removePrefersColorSchemeListener(prefersColorSchemeCallback)
+      if (isPrefersColorSchemeCapable.value) {
+        window
+          .matchMedia('(prefers-color-scheme: dark)')
+          .removeListener(prefersColorSchemeCallback)
       }
     })
 

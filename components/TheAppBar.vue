@@ -51,19 +51,17 @@ export default defineComponent({
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
-    const siteName = computed(() => root.$store.state.siteName)
+    const siteName = computed(() => root.$store.getters.getSiteName)
+    const isDark = computed(() => root.$store.getters['theme/isDark'])
     const siteLogo = computed(() =>
-      root.$store.state.dark
+      isDark.value
         ? require('~/assets/knit-logo-white.png')
         : require('~/assets/knit-logo-black.png')
     )
 
-    const toggleDrawer = () => {}
-
     return {
-      siteLogo,
       siteName,
-      toggleDrawer
+      siteLogo
     }
   }
 })

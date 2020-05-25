@@ -59,17 +59,17 @@ export default defineComponent({
   setup(props, { root }) {
     const closeIcon = ref(mdiClose)
 
-    const siteName = computed(() => root.$store.state.siteName)
+    const siteName = computed(() => root.$store.getters.getSiteName)
     const siteLogo = computed(() =>
-      root.$store.state.dark
+      root.$store.getters['theme/isDark']
         ? require('~/assets/knit-logo-white.png')
         : require('~/assets/knit-logo-black.png')
     )
 
     return {
       closeIcon,
-      siteLogo,
-      siteName
+      siteName,
+      siteLogo
     }
   }
 })

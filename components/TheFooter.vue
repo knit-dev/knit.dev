@@ -7,7 +7,7 @@
             cols="3"
             class="d-flex align-self-center justify-start justify-md-center flex-shrink-1 flex-grow-0 "
           >
-            <ColorSchemeModeButton />
+            <ColorSchemeModeToggles />
           </v-col>
           <v-col
             class="d-flex align-self-center flex-shrink-0 justify-center"
@@ -56,15 +56,15 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
 import { mdiGithub, mdiTwitter, mdiLinkedin } from '@mdi/js'
-import ColorSchemeModeButton from '~/components/ColorSchemeModeButton.vue'
+import ColorSchemeModeToggles from '~/components/ColorSchemeModeToggles.vue'
 
 export default defineComponent({
   components: {
-    ColorSchemeModeButton
+    ColorSchemeModeToggles
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
-    const siteName = computed(() => root.$store.state.siteName)
+    const siteName = computed(() => root.$store.getters.getSiteName)
 
     const socials = ref([
       {

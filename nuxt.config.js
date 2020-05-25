@@ -97,7 +97,7 @@ export default {
       themes: {
         light: {
           primary: '#FF6699',
-          secondary: '#F8F0EA',
+          secondary: '#FFDF8E',
           accent: '#C6BDEF',
           success: colors.green.base,
           error: colors.red.accent2,
@@ -106,7 +106,7 @@ export default {
         },
         dark: {
           primary: '#FF6699',
-          secondary: '#C6BDEF',
+          secondary: '#FFDF8E',
           accent: '#C6BDEF',
           success: colors.green.base,
           error: colors.red.accent2,
