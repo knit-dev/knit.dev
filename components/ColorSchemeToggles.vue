@@ -11,7 +11,13 @@
     <v-divider vertical inset class="ml-2"></v-divider>
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon class="ml-2" v-on="on" @click="toggleDefault()">
+        <v-btn
+          icon
+          class="ml-2"
+          aria-label="toggle use system color mode preference"
+          v-on="on"
+          @click="toggleDefault()"
+        >
           <v-icon :disabled="isUserDefinedColorScheme">
             {{ defaultIcon }}
           </v-icon>

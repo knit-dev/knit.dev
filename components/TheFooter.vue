@@ -39,6 +39,7 @@
                 rel="”noopener”"
                 class="mx-2"
                 icon
+                :aria-label="item.name"
               >
                 <v-icon>{{ item.icon }}</v-icon>
               </v-btn>
