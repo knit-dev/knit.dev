@@ -27,18 +27,24 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       {
         rel: 'preload',
-        as: 'style',
-        href: '~/fonts/61e2d96.woff2'
+        as: 'font',
+        type: 'font/woff2',
+        href: '~/fonts/61e2d96.woff2',
+        crossorigin: true
       },
       {
         rel: 'preload',
-        as: 'style',
-        href: '~/fonts/e535f78.woff2'
+        as: 'font',
+        type: 'font/woff2',
+        href: '~/fonts/e535f78.woff2',
+        crossorigin: true
       },
       {
         rel: 'preload',
-        as: 'style',
-        href: '~/fonts/1a28052.woff2'
+        as: 'font',
+        type: 'font/woff2',
+        href: '~/fonts/1a28052.woff2',
+        crossorigin: true
       }
     ],
     htmlAttrs: {
