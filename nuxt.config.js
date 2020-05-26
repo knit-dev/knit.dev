@@ -51,13 +51,6 @@ export default {
       script: [{ src: 'http://localhost:8098' }]
     })
   },
-  renderer: {
-    bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ['script', 'style', 'font'].includes(type)
-      }
-    }
-  },
   env: {
     vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL,
     siteName: process.env.SITE_NAME || process.env.npm_package_name,
