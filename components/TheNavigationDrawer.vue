@@ -16,7 +16,7 @@
                 alt="knit logo"
               ></v-img>
             </nuxt-link>
-            <div class="ml-3 title font-weight-bold text-capitalize">
+            <div class="ml-3 title font-weight-bold">
               {{ siteName }}
             </div>
           </v-col>

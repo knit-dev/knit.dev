@@ -15,7 +15,7 @@
         alt="site logo"
       ></v-img>
     </nuxt-link>
-    <v-toolbar-title class="ml-3 font-weight-bold text-capitalize">{{
+    <v-toolbar-title class="ml-3 font-weight-bold">{{
       siteName
     }}</v-toolbar-title>
     <v-spacer></v-spacer>

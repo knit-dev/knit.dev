@@ -1,8 +1,8 @@
 import { GetterTree } from 'vuex'
 
 export const state = () => ({
-  siteName: (process.env.siteName ?? 'website').toLowerCase(),
-  companyName: process.env.companyName ?? 'website'
+  siteName: process.env.siteName ?? 'website',
+  companyName: process.env.companyName ?? 'company'
 })
 
 export type RootState = ReturnType<typeof state>
