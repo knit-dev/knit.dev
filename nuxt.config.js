@@ -89,9 +89,7 @@ export default {
     customVariables: ['~/assets/css/variables.scss'],
     treeShake: true,
     defaultAssets: {
-      font: {
-        family: 'Poppins'
-      },
+      font: false,
       icons: false
     },
     icons: { iconfont: 'mdiSvg' },

@@ -31,7 +31,8 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.0.3",
     "@vue/composition-api": "^0.5.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "typeface-poppins": "0.0.72"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
