@@ -35,6 +35,7 @@
 
     <v-app-bar-nav-icon
       class="hidden-md-and-up"
+      aria-label="toggle navigation drawer"
       @click.stop="$emit('toggleDrawer')"
     ></v-app-bar-nav-icon>
   </v-app-bar>
