@@ -23,30 +23,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-      {
-        rel: 'preload',
-        as: 'font',
-        type: 'font/woff2',
-        href: '_nuxt/fonts/e535f78.woff2',
-        crossorigin: true
-      },
-      {
-        rel: 'preload',
-        as: 'font',
-        type: 'font/woff2',
-        href: '_nuxt/fonts/1a28052.woff2',
-        crossorigin: true
-      },
-      {
-        rel: 'preload',
-        as: 'font',
-        type: 'font/woff2',
-        href: '_nuxt/fonts/61e2d96.woff2',
-        crossorigin: true
-      }
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
     ...(process.env.VUE_DEVTOOLS_GLOBAL === 'true' && {
       script: [{ src: 'http://localhost:8098' }]
     })
