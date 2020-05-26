@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-center">
     <v-switch v-model="isDark" @click.stop.prevent="toggleDark()">
       <v-icon slot="prepend" :disabled="isDark">{{ lightIcon }}</v-icon>
       <v-icon slot="append" :disabled="!isDark">{{ darkIcon }}</v-icon>

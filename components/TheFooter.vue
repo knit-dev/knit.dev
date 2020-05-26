@@ -3,13 +3,12 @@
     <v-card
       flat
       tile
-      class="text-center"
       width="100%"
       :color="isDark ? '' : '#F8F0EA'"
       :class="{ 'pad-bottom': $vuetify.breakpoint.smAndDown }"
     >
       <v-card-text>
-        <v-row>
+        <v-row justify="center">
           <v-col cols="12" class="d-flex align-self-center justify-center">
             <nuxt-link exact to="/">
               <v-img
@@ -22,12 +21,13 @@
             </nuxt-link>
           </v-col>
         </v-row>
-        <v-row no-gutters>
+        <v-row>
           <v-col
             cols="6"
-            sm="3"
+            sm="4"
+            md="3"
             order="1"
-            class="d-flex align-self-center justify-start justify-md-center flex-shrink-1 flex-grow-0 "
+            class="d-flex align-self-center justify-start justify-sm-center flex-shrink-1 flex-grow-0 "
           >
             <ColorSchemeToggles />
           </v-col>
@@ -36,7 +36,6 @@
             sm=""
             :order="$vuetify.breakpoint.xsOnly ? 'first' : 2"
             class="d-flex align-self-center flex-shrink-0 justify-center"
-            :class="{ 'py-4': $vuetify.breakpoint.xsOnly }"
           >
             <div>
               <v-btn
@@ -53,31 +52,42 @@
           </v-col>
           <v-col
             cols="6"
-            sm="3"
+            sm="4"
+            md="3"
             order="3"
-            class="d-flex align-self-center justify-end flex-shrink-1 flex-grow-0 "
+            class="d-flex align-self-center justify-end flex-shrink-1 flex-grow-0 text-center"
           >
-            <div>
-              <div class="hosting-text">Hosting by</div>
-              <a href="https://www.netlify.com" target="_blank">
-                <img
-                  :src="require('~/assets/netlify-logo-and-text.svg')"
-                  alt="netlify-logo-and-text"
-                  class="hosting-image"
-                />
-              </a>
-            </div>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center" no-gutters>
+          <v-col col="12" md="10" lg="9" xl="8">
+            <v-row>
+              <v-col
+                v-for="item in affiliates"
+                :key="item.name"
+                class="text-center"
+              >
+                <div class="affiliate-text">{{ item.title }}</div>
+                <a :href="item.link" target="_blank">
+                  <img
+                    :src="item.image"
+                    :alt="`${item.name}-logo-and-text`"
+                    class="affiliate-image"
+                  />
+                </a>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-card-text>
       <v-divider></v-divider>
       <v-card-text>
-        Released under the
+        &copy; {{ new Date().getFullYear() }} {{ companyName }}.
+        <br v-if="$vuetify.breakpoint.xsOnly" />Open-source
         <a href="https://opensource.org/licenses/MIT" target="_blank"
-          >MIT License</a
+          >MIT Licensed</a
         >
-        <br />
-        &copy; {{ new Date().getFullYear() }} {{ companyName }}
       </v-card-text>
     </v-card>
   </v-footer>
@@ -116,11 +126,35 @@ export default defineComponent({
       }
     ])
 
+    const affiliates = computed(() => [
+      {
+        name: 'vue',
+        title: 'Built with',
+        image: require('~/assets/vue-logo-and-text.png'),
+        link: 'https://vuejs.org'
+      },
+      {
+        name: 'github',
+        title: 'View source',
+        image: isDark.value
+          ? require('~/assets/github-logo-and-text-white.png')
+          : require('~/assets/github-logo-and-text.png'),
+        link: 'https://github.com/knit-dev/knit.dev'
+      },
+      {
+        name: 'netlify',
+        title: 'Hosting by',
+        image: require('~/assets/netlify-logo-and-text.svg'),
+        link: 'https://www.netlify.com'
+      }
+    ])
+
     return {
       isDark,
       companyName,
       siteLogo,
-      socials
+      socials,
+      affiliates
     }
   }
 })
@@ -137,23 +171,23 @@ export default defineComponent({
   padding-bottom: 56px;
 }
 
-.hosting-text {
+.affiliate-text {
   margin-bottom: 0.5rem;
   color: rgb(153, 153, 153);
 }
 
-.hosting-image {
+.affiliate-image {
   height: 22px;
   width: auto;
   display: inline-block;
-  filter: grayscale(100%);
+  filter: grayscale(100%) contrast(30%);
   transition-duration: 150ms;
   transition-timing-function: ease-out;
   transition-delay: initial;
   transition-property: all;
 }
 
-.hosting-image:hover {
+.affiliate-image:hover {
   filter: grayscale(0%);
 }
 </style>
