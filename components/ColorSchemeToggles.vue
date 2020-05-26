@@ -6,12 +6,7 @@
     </v-switch>
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn
-          icon
-          :outlined="!isUserDefinedColorScheme"
-          v-on="on"
-          @click="toggleDefault()"
-        >
+        <v-btn icon v-on="on" @click="toggleDefault()">
           <v-icon :disabled="isUserDefinedColorScheme">
             {{ defaultIcon }}
           </v-icon>
@@ -25,7 +20,8 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
 import {
-  mdiThemeLightDark,
+  mdiMonitor,
+  mdiMonitorOff,
   mdiWeatherNight,
   mdiWhiteBalanceSunny
 } from '@mdi/js'
@@ -42,12 +38,10 @@ export default defineComponent({
       () => root.$store.getters['theme/isPrefersColorSchemeCapable']
     )
 
-    const defaultIcon = ref(mdiThemeLightDark)
-    const defaultText = computed(() =>
-      isUserDefinedColorScheme.value
-        ? 'Use System Preference'
-        : 'Ignore System Preference'
+    const defaultIcon = computed(() =>
+      isUserDefinedColorScheme.value ? mdiMonitorOff : mdiMonitor
     )
+    const defaultText = 'System'
 
     const lightIcon = ref(mdiWhiteBalanceSunny)
     const darkIcon = ref(mdiWeatherNight)
