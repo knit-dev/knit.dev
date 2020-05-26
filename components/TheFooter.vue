@@ -4,14 +4,19 @@
       <v-card-text>
         <v-row no-gutters>
           <v-col
-            cols="3"
+            cols="6"
+            sm="3"
+            order="1"
             class="d-flex align-self-center justify-start justify-md-center flex-shrink-1 flex-grow-0 "
           >
             <ColorSchemeToggles />
           </v-col>
           <v-col
+            cols="12"
+            sm=""
+            :order="$vuetify.breakpoint.xsOnly ? 'first' : 2"
             class="d-flex align-self-center flex-shrink-0 justify-center"
-            style="flex-wrap: nowrap;"
+            :class="{ 'pb-4': $vuetify.breakpoint.xsOnly }"
           >
             <div>
               <v-btn
@@ -22,12 +27,14 @@
                 class="mx-2"
                 icon
               >
-                <v-icon size="24px">{{ item.icon }}</v-icon>
+                <v-icon>{{ item.icon }}</v-icon>
               </v-btn>
             </div>
           </v-col>
           <v-col
-            cols="3"
+            cols="6"
+            sm="3"
+            order="3"
             class="d-flex align-self-center justify-end flex-shrink-1 flex-grow-0 "
           >
             <div>
