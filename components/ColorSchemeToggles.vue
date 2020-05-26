@@ -1,6 +1,10 @@
 <template>
   <div class="text-center d-flex align-center">
-    <v-switch v-model="isDark" @click.stop.prevent="toggleDark()">
+    <v-switch
+      v-model="isDark"
+      aria-label="toggle dark mode"
+      @click.stop.prevent="toggleDark()"
+    >
       <v-icon slot="prepend" :disabled="isDark">{{ lightIcon }}</v-icon>
       <v-icon slot="append" :disabled="!isDark">{{ darkIcon }}</v-icon>
     </v-switch>

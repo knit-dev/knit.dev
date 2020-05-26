@@ -56,7 +56,12 @@
               >
                 <div>
                   <div class="affiliate-text">{{ item.title }}</div>
-                  <a :href="item.link" target="_blank" rel="”noopener”">
+                  <a
+                    :href="item.link"
+                    target="_blank"
+                    rel="”noopener”"
+                    :aria-label="item.name"
+                  >
                     <v-img
                       :src="
                         item.darkImage && isDark ? item.darkImage : item.image
