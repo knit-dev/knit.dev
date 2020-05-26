@@ -24,9 +24,6 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
-    htmlAttrs: {
-      lang: 'en'
-    },
     ...(process.env.VUE_DEVTOOLS_GLOBAL === 'true' && {
       script: [{ src: 'http://localhost:8098' }]
     })
