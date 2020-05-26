@@ -29,21 +29,21 @@ export default {
         rel: 'preload',
         as: 'font',
         type: 'font/woff2',
-        href: '~/fonts/61e2d96.woff2',
+        href: 'fonts/61e2d96.woff2',
         crossorigin: true
       },
       {
         rel: 'preload',
         as: 'font',
         type: 'font/woff2',
-        href: '~/fonts/e535f78.woff2',
+        href: 'fonts/e535f78.woff2',
         crossorigin: true
       },
       {
         rel: 'preload',
         as: 'font',
         type: 'font/woff2',
-        href: '~/fonts/1a28052.woff2',
+        href: 'fonts/1a28052.woff2',
         crossorigin: true
       }
     ],
