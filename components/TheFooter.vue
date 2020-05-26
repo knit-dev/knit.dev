@@ -78,8 +78,7 @@
         >
         <br />
         Copyright &copy;
-        {{ new Date().getFullYear() }}
-        <span class="text-capitalize">{{ siteName }}, LLC</span>
+        {{ new Date().getFullYear() }} {{ companyName }}
       </v-card-text>
     </v-card>
   </v-footer>
@@ -96,7 +95,7 @@ export default defineComponent({
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
-    const siteName = computed(() => root.$store.getters.getSiteName)
+    const companyName = computed(() => root.$store.getters.getCompanyName)
     const isDark = computed(() => root.$store.getters['theme/isDark'])
     const siteLogo = computed(() =>
       isDark.value
@@ -120,7 +119,7 @@ export default defineComponent({
 
     return {
       isDark,
-      siteName,
+      companyName,
       siteLogo,
       socials
     }

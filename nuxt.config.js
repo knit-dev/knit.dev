@@ -33,7 +33,11 @@ export default {
   },
   env: {
     vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL,
-    siteName: process.env.SITE_NAME || process.env.npm_package_name
+    siteName: process.env.SITE_NAME || process.env.npm_package_name,
+    companyName:
+      process.env.COMPANY_NAME ||
+      process.env.SITE_NAME ||
+      process.env.npm_package_name
   },
   /*
    ** Customize the progress-bar color
