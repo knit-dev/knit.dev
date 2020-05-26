@@ -69,16 +69,16 @@
               >
                 <div>
                   <div class="affiliate-text">{{ item.title }}</div>
-                  <v-img
-                    :src="item.image"
-                    :alt="`${item.name}-logo-and-text`"
-                    :href="item.link"
-                    target="_blank"
-                    aspect-ratio="1"
-                    contain
-                    height="22px"
-                    class="affiliate-image"
-                  />
+                  <a :href="item.link" target="_blank">
+                    <v-img
+                      :src="item.image"
+                      :alt="`${item.name}-logo-and-text`"
+                      aspect-ratio="1"
+                      contain
+                      height="22px"
+                      class="affiliate-image"
+                    />
+                  </a>
                 </div>
               </v-col>
             </v-row>
@@ -98,7 +98,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import { mdiGithub, mdiTwitter, mdiLinkedin } from '@mdi/js'
+import { socials as socialsData } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
 export default defineComponent({
@@ -115,19 +115,7 @@ export default defineComponent({
         : require('~/assets/knit-logo-black.png')
     )
 
-    const socials = ref([
-      {
-        name: 'github',
-        icon: mdiGithub,
-        link: 'https://github.com/knit-dev'
-      },
-      { name: 'twitter', icon: mdiTwitter, link: 'https://twitter.com' },
-      {
-        name: 'linkedin',
-        icon: mdiLinkedin,
-        link: 'https://www.linkedin.com/company/knit-llc'
-      }
-    ])
+    const socials = ref(socialsData)
 
     const affiliates = computed(() => [
       {
