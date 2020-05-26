@@ -47,7 +47,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.scss'],
+  css: ['@/assets/fonts/poppins.js', '@/assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -89,7 +89,7 @@ export default {
     customVariables: ['~/assets/css/variables.scss'],
     treeShake: true,
     defaultAssets: {
-      font: { family: 'Poppins' },
+      font: false,
       icons: false
     },
     icons: { iconfont: 'mdiSvg' },
