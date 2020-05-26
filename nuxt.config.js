@@ -70,7 +70,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: 'blue', height: '5px' },
+  loading: {},
   /*
    ** Global CSS
    */
