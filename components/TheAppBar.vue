@@ -74,14 +74,14 @@ export default defineComponent({
   #the-app-bar {
     background-color: transparent;
   }
-  #the-app-bar > div:first-child {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+  #the-app-bar ::v-deep > div:first-child {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 }
 
 @supports (padding-top: env(safe-area-inset-top)) {
-  #the-app-bar > .v-toolbar__content {
+  #the-app-bar ::v-deep > .v-toolbar__content {
     padding-bottom: max(4px, env(safe-area-inset-bottom));
     height: auto !important;
   }

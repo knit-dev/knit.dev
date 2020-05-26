@@ -31,7 +31,7 @@ import {
 } from '@mdi/js'
 
 export default defineComponent({
-  name: 'ColorSchemeModeToggles',
+  name: 'ColorSchemeToggles',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
     const isUserDefinedColorScheme = computed(
