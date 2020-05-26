@@ -21,13 +21,7 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col
-            cols="6"
-            sm="4"
-            md="3"
-            order="1"
-            class="d-flex align-self-center justify-start justify-sm-center flex-shrink-1 flex-grow-0 "
-          >
+          <v-col order="1" class="d-flex align-self-center justify-center">
             <ColorSchemeToggles />
           </v-col>
           <v-col
@@ -49,14 +43,6 @@
               </v-btn>
             </div>
           </v-col>
-          <v-col
-            cols="6"
-            sm="4"
-            md="3"
-            order="3"
-            class="d-flex align-self-center justify-end flex-shrink-1 flex-grow-0 text-center"
-          >
-          </v-col>
         </v-row>
 
         <v-row justify="center" no-gutters>
@@ -71,7 +57,9 @@
                   <div class="affiliate-text">{{ item.title }}</div>
                   <a :href="item.link" target="_blank">
                     <v-img
-                      :src="item.image"
+                      :src="
+                        item.darkImage && isDark ? item.darkImage : item.image
+                      "
                       :alt="`${item.name}-logo-and-text`"
                       aspect-ratio="1"
                       contain
@@ -98,7 +86,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import { socials as socialsData } from '~/data'
+import { socials as socialsData, affiliates as affiliatesData } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
 export default defineComponent({
@@ -116,29 +104,7 @@ export default defineComponent({
     )
 
     const socials = ref(socialsData)
-
-    const affiliates = computed(() => [
-      {
-        name: 'vue',
-        title: 'Built with',
-        image: require('~/assets/vue-logo-and-text.png'),
-        link: 'https://vuejs.org'
-      },
-      {
-        name: 'github',
-        title: 'View source',
-        image: isDark.value
-          ? require('~/assets/github-logo-and-text-white.png')
-          : require('~/assets/github-logo-and-text.png'),
-        link: 'https://github.com/knit-dev/knit.dev'
-      },
-      {
-        name: 'netlify',
-        title: 'Hosting by',
-        image: require('~/assets/netlify-logo-and-text.svg'),
-        link: 'https://www.netlify.com'
-      }
-    ])
+    const affiliates = ref(affiliatesData)
 
     return {
       isDark,

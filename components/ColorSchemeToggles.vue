@@ -1,12 +1,13 @@
 <template>
-  <div class="text-center">
+  <div class="text-center d-flex align-center">
     <v-switch v-model="isDark" @click.stop.prevent="toggleDark()">
       <v-icon slot="prepend" :disabled="isDark">{{ lightIcon }}</v-icon>
       <v-icon slot="append" :disabled="!isDark">{{ darkIcon }}</v-icon>
     </v-switch>
+    <v-divider vertical inset class="ml-2"></v-divider>
     <v-tooltip top>
       <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on" @click="toggleDefault()">
+        <v-btn icon class="ml-2" v-on="on" @click="toggleDefault()">
           <v-icon :disabled="isUserDefinedColorScheme">
             {{ defaultIcon }}
           </v-icon>
