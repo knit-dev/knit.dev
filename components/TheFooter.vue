@@ -1,7 +1,27 @@
 <template>
   <v-footer id="the-footer" padless>
-    <v-card flat tile class="text-center" width="100%">
+    <v-card
+      flat
+      tile
+      class="text-center"
+      width="100%"
+      :color="isDark ? '' : '#F8F0EA'"
+      :class="{ 'pad-bottom': $vuetify.breakpoint.smAndDown }"
+    >
       <v-card-text>
+        <v-row>
+          <v-col cols="12" class="d-flex align-self-center justify-center">
+            <nuxt-link exact to="/">
+              <v-img
+                :src="siteLogo"
+                height="2.5rem"
+                width="2.5rem"
+                shrink
+                alt="site logo"
+              ></v-img>
+            </nuxt-link>
+          </v-col>
+        </v-row>
         <v-row no-gutters>
           <v-col
             cols="6"
@@ -16,7 +36,7 @@
             sm=""
             :order="$vuetify.breakpoint.xsOnly ? 'first' : 2"
             class="d-flex align-self-center flex-shrink-0 justify-center"
-            :class="{ 'pb-4': $vuetify.breakpoint.xsOnly }"
+            :class="{ 'py-4': $vuetify.breakpoint.xsOnly }"
           >
             <div>
               <v-btn
@@ -50,11 +70,16 @@
           </v-col>
         </v-row>
       </v-card-text>
-
       <v-divider></v-divider>
-
       <v-card-text>
-        {{ new Date().getFullYear() }} — <strong>{{ siteName }}</strong>
+        Released under the
+        <a href="https://opensource.org/licenses/MIT" target="_blank"
+          >MIT License</a
+        >
+        <br />
+        Copyright &copy;
+        {{ new Date().getFullYear() }}
+        <span class="text-capitalize">{{ siteName }}, LLC</span>
       </v-card-text>
     </v-card>
   </v-footer>
@@ -72,6 +97,12 @@ export default defineComponent({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
     const siteName = computed(() => root.$store.getters.getSiteName)
+    const isDark = computed(() => root.$store.getters['theme/isDark'])
+    const siteLogo = computed(() =>
+      isDark.value
+        ? require('~/assets/knit-logo-white.png')
+        : require('~/assets/knit-logo-black.png')
+    )
 
     const socials = ref([
       {
@@ -88,7 +119,9 @@ export default defineComponent({
     ])
 
     return {
+      isDark,
       siteName,
+      siteLogo,
       socials
     }
   }
@@ -100,6 +133,10 @@ export default defineComponent({
   #the-footer {
     padding-bottom: env(safe-area-inset-bottom);
   }
+}
+
+.pad-bottom {
+  padding-bottom: 56px;
 }
 
 .hosting-text {

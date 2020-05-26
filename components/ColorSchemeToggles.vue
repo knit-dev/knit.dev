@@ -1,5 +1,9 @@
 <template>
   <div>
+    <v-switch v-model="isDark" @click.stop.prevent="toggleDark()">
+      <v-icon slot="prepend" :disabled="isDark">{{ lightIcon }}</v-icon>
+      <v-icon slot="append" :disabled="!isDark">{{ darkIcon }}</v-icon>
+    </v-switch>
     <v-tooltip top>
       <template v-slot:activator="{ on }">
         <v-btn
@@ -15,15 +19,6 @@
       </template>
       <span>{{ defaultText }}</span>
     </v-tooltip>
-    <v-switch
-      v-model="isDark"
-      hide-details
-      class="mt-2"
-      @click.stop.prevent="toggleDark()"
-    >
-      <v-icon slot="prepend" :disabled="isDark">{{ lightIcon }}</v-icon>
-      <v-icon slot="append" :disabled="!isDark">{{ darkIcon }}</v-icon>
-    </v-switch>
   </div>
 </template>
 

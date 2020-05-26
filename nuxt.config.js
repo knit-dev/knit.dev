@@ -94,11 +94,13 @@ export default {
       // options: {
       //   customProperties: true
       // },
+      dark: false,
       themes: {
         light: {
           primary: '#FF6699',
           secondary: '#FFDF8E',
           accent: '#C6BDEF',
+
           success: colors.green.base,
           error: colors.red.accent2,
           warning: colors.amber.base,
@@ -108,6 +110,7 @@ export default {
           primary: '#FF6699',
           secondary: '#FFDF8E',
           accent: '#C6BDEF',
+
           success: colors.green.base,
           error: colors.red.accent2,
           warning: colors.amber.base,
