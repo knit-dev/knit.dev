@@ -23,7 +23,24 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      {
+        rel: 'preload',
+        as: 'style',
+        href: '~/fonts/61e2d96.woff2'
+      },
+      {
+        rel: 'preload',
+        as: 'style',
+        href: '~/fonts/e535f78.woff2'
+      },
+      {
+        rel: 'preload',
+        as: 'style',
+        href: '~/fonts/1a28052.woff2'
+      }
+    ],
     htmlAttrs: {
       lang: 'en'
     },
