@@ -44,7 +44,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/fonts/poppins.js', '@/assets/css/main.scss'],
+  css: [{ src: 'typeface-poppins', lang: 'css' }, '@/assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
