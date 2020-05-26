@@ -83,8 +83,7 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-text>
-        &copy; {{ new Date().getFullYear() }} {{ companyName }}.
-        <br v-if="$vuetify.breakpoint.xsOnly" />Open-source
+        &copy; {{ new Date().getFullYear() }} {{ companyName }}. Open-source
         <a href="https://opensource.org/licenses/MIT" target="_blank"
           >MIT Licensed</a
         >
