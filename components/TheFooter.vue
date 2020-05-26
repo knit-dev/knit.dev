@@ -60,7 +60,7 @@
                     :href="item.link"
                     target="_blank"
                     rel="”noopener”"
-                    :aria-label="item.name"
+                    :aria-label="`${item.title} ${item.name}`"
                   >
                     <v-img
                       :src="
