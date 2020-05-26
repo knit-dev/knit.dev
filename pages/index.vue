@@ -6,7 +6,13 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Home',
+  head() {
+    return {
+      titleTemplate: '%s',
+      title: `${process.env.siteName}: ${process.env.tagline}`
+    }
+  }
 })
 </script>
 

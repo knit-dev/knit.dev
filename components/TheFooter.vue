@@ -77,8 +77,7 @@
           >MIT License</a
         >
         <br />
-        Copyright &copy;
-        {{ new Date().getFullYear() }} {{ companyName }}
+        &copy; {{ new Date().getFullYear() }} {{ companyName }}
       </v-card-text>
     </v-card>
   </v-footer>

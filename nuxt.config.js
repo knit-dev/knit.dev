@@ -37,7 +37,8 @@ export default {
     companyName:
       process.env.COMPANY_NAME ||
       process.env.SITE_NAME ||
-      process.env.npm_package_name
+      process.env.npm_package_name,
+    tagline: process.env.TAGLINE
   },
   /*
    ** Customize the progress-bar color
