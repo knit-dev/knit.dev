@@ -36,6 +36,7 @@
                 :key="item.name"
                 :href="item.link"
                 target="_blank"
+                rel="”noopener”"
                 class="mx-2"
                 icon
               >
@@ -55,7 +56,7 @@
               >
                 <div>
                   <div class="affiliate-text">{{ item.title }}</div>
-                  <a :href="item.link" target="_blank">
+                  <a :href="item.link" target="_blank" rel="”noopener”">
                     <v-img
                       :src="
                         item.darkImage && isDark ? item.darkImage : item.image
@@ -76,7 +77,10 @@
       <v-divider></v-divider>
       <v-card-text>
         &copy; {{ new Date().getFullYear() }} {{ companyName }}. Open-source
-        <a href="https://opensource.org/licenses/MIT" target="_blank"
+        <a
+          href="https://opensource.org/licenses/MIT"
+          target="_blank"
+          rel="”noopener”"
           >MIT Licensed</a
         >
       </v-card-text>
