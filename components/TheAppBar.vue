@@ -11,7 +11,6 @@
         :src="siteLogo"
         height="2.5rem"
         width="2.5rem"
-        shrink
         alt="site logo"
       ></v-img>
     </nuxt-link>

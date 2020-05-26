@@ -11,7 +11,6 @@
                 :src="siteLogo"
                 height="2.5rem"
                 width="2.5rem"
-                shrink
                 class="ml-1"
                 alt="knit logo"
               ></v-img>

@@ -15,7 +15,6 @@
                 :src="siteLogo"
                 height="2.5rem"
                 width="2.5rem"
-                shrink
                 alt="site logo"
               ></v-img>
             </nuxt-link>
@@ -68,14 +67,19 @@
                 :key="item.name"
                 class="text-center"
               >
-                <div class="affiliate-text">{{ item.title }}</div>
-                <a :href="item.link" target="_blank">
-                  <img
+                <div>
+                  <div class="affiliate-text">{{ item.title }}</div>
+                  <v-img
                     :src="item.image"
                     :alt="`${item.name}-logo-and-text`"
+                    :href="item.link"
+                    target="_blank"
+                    aspect-ratio="1"
+                    contain
+                    height="22px"
                     class="affiliate-image"
                   />
-                </a>
+                </div>
               </v-col>
             </v-row>
           </v-col>
@@ -176,9 +180,6 @@ export default defineComponent({
 }
 
 .affiliate-image {
-  height: 22px;
-  width: auto;
-  display: inline-block;
   filter: grayscale(100%) contrast(30%);
   transition-duration: 150ms;
   transition-timing-function: ease-out;
