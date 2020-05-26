@@ -28,6 +28,16 @@ export default {
       script: [{ src: 'http://localhost:8098' }]
     })
   },
+  renderer: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        if (type === 'font') {
+          return /.woff2/.test(file)
+        }
+        return ['script', 'style'].includes(type)
+      }
+    }
+  },
   env: {
     vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL,
     siteName: process.env.SITE_NAME || process.env.npm_package_name,
@@ -44,7 +54,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [{ src: 'typeface-poppins', lang: 'css' }, '@/assets/css/main.scss'],
+  css: ['@assets/fonts/poppins.css', '@/assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */

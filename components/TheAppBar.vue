@@ -55,8 +55,8 @@ export default defineComponent({
     const isDark = computed(() => root.$store.getters['theme/isDark'])
     const siteLogo = computed(() =>
       isDark.value
-        ? require('~/assets/knit-logo-white.png')
-        : require('~/assets/knit-logo-black.png')
+        ? require('~/assets/images/knit/knit-logo-white.png')
+        : require('~/assets/images/knit/knit-logo-black.png')
     )
 
     return {
