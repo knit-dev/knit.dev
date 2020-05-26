@@ -123,6 +123,7 @@ export default {
     }
   },
   build: {
+    extractCSS: process.env.NODE_ENV === 'production',
     /*
      ** You can extend webpack config here
      */
