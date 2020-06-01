@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
 
 export default {
@@ -67,7 +66,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@assets/fonts/poppins.css', '@/assets/css/main.scss'],
+  css: [
+    '@assets/fonts/poppins.css',
+    '@assets/fonts/space-mono.css',
+    '@/assets/css/main.scss'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -124,20 +127,20 @@ export default {
           secondary: '#FFDF8E',
           accent: '#C6BDEF',
 
-          success: colors.green.base,
-          error: colors.red.accent2,
-          warning: colors.amber.base,
-          info: colors.blue.base
+          success: '#BCE688',
+          error: '#FE6157',
+          warning: '#FEDE93',
+          info: '#7CB8FF'
         },
         dark: {
           primary: '#FF6699',
           secondary: '#FFDF8E',
           accent: '#C6BDEF',
 
-          success: colors.green.base,
-          error: colors.red.accent2,
-          warning: colors.amber.base,
-          info: colors.blue.base
+          success: '#BCE688',
+          error: '#FE6157',
+          warning: '#FEDE93',
+          info: '#7CB8FF'
         }
       }
     }

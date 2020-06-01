@@ -109,8 +109,8 @@ export default defineComponent({
     const isDark = computed(() => root.$store.getters['theme/isDark'])
     const siteLogo = computed(() =>
       isDark.value
-        ? require('~/assets/images/knit/knit-logo-white.png')
-        : require('~/assets/images/knit/knit-logo-black.png')
+        ? require('~/assets/images/knit/knit-logo-white.svg')
+        : require('~/assets/images/knit/knit-logo-black.svg')
     )
 
     const socials = ref(socialsData)

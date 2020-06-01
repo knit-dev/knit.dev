@@ -35,3 +35,60 @@ export const affiliates = [
     link: 'https://www.netlify.com'
   }
 ]
+
+export const techStackItems = [
+  {
+    category: 'Web frontend framework',
+    name: 'Vue.js',
+    description:
+      "The fastest growing JavaScript frontend framework, and for good reason. It's flexible, scalable, and highly performant. Vue's comprehensive documentation and intuitive design make it easy to learn for most programmers.",
+    logo: require('~/assets/images/tech-stack/vue.svg'),
+    alternatives: ['React', 'Svelte'],
+    usedByCompanies: ['Grammarly', 'Gitlab']
+  },
+  {
+    category: 'Mobile frontend framework',
+    name: 'React Native',
+    description:
+      'Emerged as the primary tool for building cross-platform (iOS & Android) mobile apps. Leveraging JavaScript, React Native allows developers to utilize a single codebase while rendering a native app experience to users.',
+    logo: require('~/assets/images/tech-stack/react.svg'),
+    alternatives: ['Swift', 'Java'],
+    usedByCompanies: ['Facebook', 'Tesla']
+  },
+  {
+    category: 'UI design',
+    name: 'Figma',
+    description:
+      'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
+    logo: require('~/assets/images/tech-stack/figma.svg'),
+    alternatives: ['Sketch', 'InVision'],
+    usedByCompanies: ['Square', 'Slack']
+  },
+  {
+    category: 'Backend framework',
+    name: 'Node.js',
+    description:
+      'Offers excellent performance and scalability. Well maintained packages, comprehensive platform integrations, and an abundance of JavaScript developers make Node a robust choice.',
+    logo: require('~/assets/images/tech-stack/node.svg'),
+    alternatives: ['.NET Core', 'Ruby on Rails'],
+    usedByCompanies: ['Uber', 'Paypal']
+  },
+  {
+    category: 'Database engine',
+    name: 'MySQL',
+    description:
+      'Holds the largest market share for relational database management systems. It is a stable, reliable, and powerful solution offering advanced features.',
+    logo: require('~/assets/images/tech-stack/mysql.svg'),
+    alternatives: ['MongoDb', 'PostgreSQL'],
+    usedByCompanies: ['Wikipedia', 'Youtube']
+  },
+  {
+    category: 'Cloud hosting',
+    name: 'Amazon Web Services',
+    description:
+      'The most mature and widely used hosting platform available today. AWS is well tuned to manage any size application, from a school project to a billion dollar company.',
+    logo: require('~/assets/images/tech-stack/amazon-web-services.svg'),
+    alternatives: ['Microsoft Azure', 'Heroku'],
+    usedByCompanies: ['Twitch', 'LinkedIn']
+  }
+]
