@@ -62,6 +62,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.v-card--hover {
+  cursor: default;
+}
 .subtitle {
   font-family: 'Space Mono';
 }
