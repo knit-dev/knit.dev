@@ -1,23 +1,33 @@
 <template>
-  <v-card min-height="440" shaped hover class="d-flex flex-column">
+  <v-card
+    min-height="440"
+    shaped
+    :hover="$vuetify.breakpoint.mdAndUp"
+    class="d-flex flex-column"
+  >
     <v-card-text>
-      <v-img
-        :src="item.logo"
-        aspect-ratio="1"
-        contain
-        max-height="64px"
-        max-width="64px"
-        :alt="`${item.name} logo`"
-      ></v-img>
+      <a
+        :href="item.link"
+        target="_blank"
+        rel="”noopener”"
+        :aria-label="item.name"
+      >
+        <v-img
+          :src="item.logo"
+          aspect-ratio="1"
+          contain
+          max-height="64px"
+          max-width="64px"
+          :alt="`${item.name} logo`"
+        ></v-img>
+      </a>
     </v-card-text>
     <v-card-title class="pt-0">{{ item.name }}</v-card-title>
     <v-card-subtitle class="text-uppercase subtitle">{{
       item.category
     }}</v-card-subtitle>
     <v-card-text>{{ item.description }}</v-card-text>
-    <v-card-text
-      >Alternatives:&nbsp;&nbsp;{{ item.alternatives.join(', ') }}</v-card-text
-    >
+    <v-card-text>Compares to {{ item.alternatives.join(', ') }}</v-card-text>
     <v-spacer></v-spacer>
     <v-card-text>{{ item.usedByCompanies.join(' ') }}</v-card-text>
   </v-card>
@@ -33,6 +43,7 @@ interface TechStackItem {
   logo: any
   alternatives: Array<String>
   usedByCompanies: Array<String>
+  link: String
 }
 
 export default defineComponent({

@@ -44,7 +44,8 @@ export const techStackItems = [
       "The fastest growing JavaScript frontend framework, and for good reason. It's flexible, scalable, and highly performant. Vue's comprehensive documentation and intuitive design make it easy to learn for most programmers.",
     logo: require('~/assets/images/tech-stack/vue.svg'),
     alternatives: ['React', 'Svelte'],
-    usedByCompanies: ['Grammarly', 'Gitlab']
+    usedByCompanies: ['Grammarly', 'Gitlab'],
+    link: 'https://vuejs.org'
   },
   {
     category: 'Mobile frontend framework',
@@ -53,7 +54,8 @@ export const techStackItems = [
       'Emerged as the primary tool for building cross-platform (iOS & Android) mobile apps. Leveraging JavaScript, React Native allows developers to utilize a single codebase while rendering a native app experience to users.',
     logo: require('~/assets/images/tech-stack/react.svg'),
     alternatives: ['Swift', 'Java'],
-    usedByCompanies: ['Facebook', 'Tesla']
+    usedByCompanies: ['Facebook', 'Tesla'],
+    link: 'https://reactnative.dev'
   },
   {
     category: 'UI design',
@@ -62,7 +64,8 @@ export const techStackItems = [
       'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
     logo: require('~/assets/images/tech-stack/figma.svg'),
     alternatives: ['Sketch', 'InVision'],
-    usedByCompanies: ['Square', 'Slack']
+    usedByCompanies: ['Square', 'Slack'],
+    link: 'https://www.figma.com'
   },
   {
     category: 'Backend framework',
@@ -71,7 +74,8 @@ export const techStackItems = [
       'Offers excellent performance and scalability. Well maintained packages, comprehensive platform integrations, and an abundance of JavaScript developers make Node a robust choice.',
     logo: require('~/assets/images/tech-stack/node.svg'),
     alternatives: ['.NET Core', 'Ruby on Rails'],
-    usedByCompanies: ['Uber', 'Paypal']
+    usedByCompanies: ['Uber', 'Paypal'],
+    link: 'https://nodejs.dev'
   },
   {
     category: 'Database engine',
@@ -80,7 +84,8 @@ export const techStackItems = [
       'Holds the largest market share for relational database management systems. It is a stable, reliable, and powerful solution offering advanced features.',
     logo: require('~/assets/images/tech-stack/mysql.svg'),
     alternatives: ['MongoDb', 'PostgreSQL'],
-    usedByCompanies: ['Wikipedia', 'Youtube']
+    usedByCompanies: ['Wikipedia', 'Youtube'],
+    link: 'https://www.mysql.com'
   },
   {
     category: 'Cloud hosting',
@@ -89,6 +94,7 @@ export const techStackItems = [
       'The most mature and widely used hosting platform available today. AWS is well tuned to manage any size application, from a school project to a billion dollar company.',
     logo: require('~/assets/images/tech-stack/amazon-web-services.svg'),
     alternatives: ['Microsoft Azure', 'Heroku'],
-    usedByCompanies: ['Twitch', 'LinkedIn']
+    usedByCompanies: ['Twitch', 'LinkedIn'],
+    link: 'https://aws.amazon.com'
   }
 ]
