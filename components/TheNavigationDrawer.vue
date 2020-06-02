@@ -1,5 +1,12 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app right bottom disable-resize-watcher>
+  <v-navigation-drawer
+    v-model="drawer"
+    app
+    right
+    bottom
+    disable-resize-watcher
+    touchless
+  >
     <TheNavigationDrawerList />
 
     <template v-slot:append>
