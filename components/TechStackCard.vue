@@ -65,6 +65,9 @@ export default defineComponent({
 .v-card--hover {
   cursor: default;
 }
+.v-card__text {
+  width: auto;
+}
 .subtitle {
   font-family: 'Space Mono';
 }

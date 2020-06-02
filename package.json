@@ -30,10 +30,13 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.0.3",
+    "@types/swiper": "^5.2.1",
     "@vue/composition-api": "^0.5.0",
     "nuxt": "^2.0.0",
+    "swiper": "^5.2.1",
     "typeface-poppins": "0.0.72",
     "typeface-space-mono": "0.0.71",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-carousel": "^0.18.0"
   },
   "devDependencies": {
