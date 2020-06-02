@@ -1,19 +1,21 @@
 <template>
-  <div>
-    <client-only>
-      <swiper ref="swiperComponentRef" :options="swiperComponentOption">
-        <swiper-slide
-          v-for="item in techStackItems"
-          :key="item.category"
-          class="slide d-flex"
-        >
-          <v-container>
-            <TechStackCard :item="item" />
-          </v-container>
-        </swiper-slide>
-        <div slot="scrollbar" class="swiper-scrollbar"></div>
-      </swiper>
-    </client-only>
+  <div id="wrapper-wrapper">
+    <div id="swiper-wrapper">
+      <client-only>
+        <swiper ref="swiperComponentRef" :options="swiperComponentOption">
+          <swiper-slide
+            v-for="item in techStackItems"
+            :key="item.category"
+            class="slide d-flex"
+          >
+            <v-container>
+              <TechStackCard :item="item" />
+            </v-container>
+          </swiper-slide>
+          <div slot="scrollbar" class="swiper-scrollbar"></div>
+        </swiper>
+      </client-only>
+    </div>
   </div>
 </template>
 
@@ -72,6 +74,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+#wrapper-wrapper {
+  background: linear-gradient(124.59deg, #d8bcfd 5.6%, #a4adeb 73.65%);
+}
+#swiper-wrapper {
+  background-image: url(~assets/images/site-design/knit-lines-1.svg);
+  background-size: 80%;
+  height: 500px;
+}
+
 .slide {
   padding-bottom: 2rem;
 }
