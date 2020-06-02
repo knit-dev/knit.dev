@@ -11,7 +11,6 @@
             <TechStackCard :item="item" />
           </v-container>
         </swiper-slide>
-        <div slot="pagination" class="swiper-pagination"></div>
         <div slot="scrollbar" class="swiper-scrollbar"></div>
       </swiper>
     </client-only>
@@ -55,10 +54,6 @@ export default defineComponent({
           spaceBetween: 0
         }
       },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
       scrollbar: {
         el: '.swiper-scrollbar',
         draggable: true
@@ -78,23 +73,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .slide {
-  padding-bottom: 40px;
-}
-
-::v-deep .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  opacity: 1;
-  background: rgb(239, 239, 239);
-}
-::v-deep
-  .swiper-container-horizontal
-  > .swiper-pagination-bullets
-  .swiper-pagination-bullet {
-  margin: 0 5px;
-}
-::v-deep .swiper-pagination-bullet-active {
-  background: #623de4;
+  padding-bottom: 32px;
 }
 
 ::v-deep .swiper-scrollbar {
