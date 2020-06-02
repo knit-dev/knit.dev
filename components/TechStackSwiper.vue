@@ -73,7 +73,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .slide {
-  padding-bottom: 32px;
+  padding-bottom: 2rem;
 }
 
 ::v-deep .swiper-scrollbar {

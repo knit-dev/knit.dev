@@ -70,7 +70,7 @@
                       :alt="`${item.name}-logo-and-text`"
                       aspect-ratio="1"
                       contain
-                      height="22px"
+                      height="1.375rem"
                       class="affiliate-image"
                     />
                   </a>

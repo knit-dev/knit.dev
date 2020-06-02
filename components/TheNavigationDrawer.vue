@@ -26,7 +26,7 @@
               height="48px"
               width="48px"
               class="mr-1"
-              @click="$emit('toggleDrawer')"
+              @click.stop="$emit('toggleDrawer')"
             >
               <v-icon>
                 {{ closeIcon }}

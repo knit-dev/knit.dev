@@ -16,8 +16,8 @@
           :src="item.logo"
           aspect-ratio="1"
           contain
-          max-height="64px"
-          max-width="64px"
+          max-height="4rem"
+          max-width="4rem"
           :alt="`${item.name} logo`"
         ></v-img>
       </a>
