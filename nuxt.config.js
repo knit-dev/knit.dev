@@ -22,6 +22,7 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
+    noscript: [{ innerHTML: 'This website requires JavaScript.' }],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       {
@@ -43,6 +44,13 @@ export default {
         as: 'font',
         type: 'font/woff2',
         href: '/_nuxt/fonts/61e2d96.woff2',
+        crossorigin: true
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: '/_nuxt/fonts/e059682.woff2',
         crossorigin: true
       }
     ],
