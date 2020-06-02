@@ -1,10 +1,9 @@
 <template>
-  <AwesomeSwiper />
+  <div></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import AwesomeSwiper from '~/components/AwesomeSwiper.vue'
 
 export default defineComponent({
   head() {
@@ -12,11 +11,7 @@ export default defineComponent({
       title: 'About Us'
     }
   },
-  name: 'About',
-
-  components: {
-    AwesomeSwiper
-  }
+  name: 'About'
 })
 </script>
 

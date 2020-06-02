@@ -36,8 +36,7 @@
     "swiper": "^5.2.1",
     "typeface-poppins": "0.0.72",
     "typeface-space-mono": "0.0.71",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-carousel": "^0.18.0"
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
