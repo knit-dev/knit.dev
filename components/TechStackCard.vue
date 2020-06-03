@@ -1,6 +1,6 @@
 <template>
   <v-card
-    min-height="440"
+    min-height="444"
     shaped
     :hover="$vuetify.breakpoint.mdAndUp"
     class="d-flex flex-column"

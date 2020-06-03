@@ -1,21 +1,33 @@
 <template>
-  <div id="wrapper-wrapper">
-    <div id="swiper-wrapper">
-      <client-only>
-        <swiper ref="swiperComponentRef" :options="swiperComponentOption">
-          <swiper-slide
-            v-for="item in techStackItems"
-            :key="item.category"
-            class="slide d-flex"
-          >
-            <v-container>
-              <TechStackCard :item="item" />
-            </v-container>
-          </swiper-slide>
-          <div slot="scrollbar" class="swiper-scrollbar"></div>
-        </swiper>
-      </client-only>
+  <div v-swiper="swiperOptions">
+    <div
+      slot="parallax-bg"
+      class="parallax-bg"
+      data-swiper-parallax="-23%"
+    ></div>
+
+    <div class="swiper-heading">
+      <v-container>
+        <div class="text-uppercase heading-subtitle">
+          Toolbox to success
+        </div>
+        <h2>Recommended Tech Stack</h2>
+      </v-container>
     </div>
+
+    <div class="swiper-wrapper">
+      <div
+        v-for="item in techStackItems"
+        :key="item.category"
+        class="swiper-slide slide d-flex"
+      >
+        <v-container>
+          <TechStackCard :item="item" />
+        </v-container>
+      </div>
+    </div>
+
+    <div slot="scrollbar" class="swiper-scrollbar"></div>
   </div>
 </template>
 
@@ -33,9 +45,8 @@ export default defineComponent({
     TechStackCard
   },
   setup() {
-    const swiperComponentRef = ref<any>(null)
-
-    const swiperComponentOption: SwiperOptions = {
+    const swiperOptions: SwiperOptions = {
+      parallax: true,
       slidesPerView: 1,
       spaceBetween: 0,
       breakpoints: {
@@ -61,8 +72,7 @@ export default defineComponent({
     const techStackItems = ref(techStackItemsData)
 
     return {
-      swiperComponentRef,
-      swiperComponentOption,
+      swiperOptions,
       techStackItems
     }
   }
@@ -70,16 +80,24 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-#wrapper-wrapper {
-  background: linear-gradient(124.59deg, #d8bcfd 5.6%, #a4adeb 73.65%);
+.swiper-heading {
+  position: absolute;
+  color: map-get(map-get($material-dark, 'text'), 'primary');
 }
-#swiper-wrapper {
-  background-image: url(~assets/images/site-design/knit-lines-1.svg);
-  background-size: 80%;
-  height: 500px;
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  background-size: cover;
+  background-position: left;
+  background-image: url('~assets/images/knit/knit-lines-1.svg');
 }
 
 .slide {
+  padding-top: 5rem;
   padding-bottom: 2rem;
 }
 
@@ -89,5 +107,8 @@ export default defineComponent({
 }
 ::v-deep .swiper-scrollbar-drag {
   background: #623de4;
+}
+.swiper-container-horizontal > .swiper-scrollbar {
+  bottom: 20px;
 }
 </style>

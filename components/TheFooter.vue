@@ -88,7 +88,7 @@
     </v-card>
     <div class="test-icon">
       <v-img
-        :src="require('~/assets/images/site-design/brush.png')"
+        :src="require('~/assets/images/knit/brush.png')"
         alt="brush"
       ></v-img>
     </div>
