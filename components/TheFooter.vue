@@ -11,7 +11,12 @@
         <v-row justify="center">
           <v-col cols="12" class="d-flex align-self-center justify-center">
             <nuxt-link exact to="/">
-              <v-img :src="siteLogo" alt="site logo"></v-img>
+              <v-img
+                :src="siteLogo"
+                height="2.5rem"
+                width="2.5rem"
+                alt="site logo"
+              ></v-img>
             </nuxt-link>
           </v-col>
         </v-row>
