@@ -128,7 +128,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@supports (padding-top: env(safe-area-inset-bottom)) {
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
   #the-footer-card {
     padding-bottom: env(safe-area-inset-bottom);
   }
