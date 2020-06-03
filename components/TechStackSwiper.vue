@@ -21,8 +21,6 @@
 import { defineComponent, ref } from '@vue/composition-api'
 // eslint-disable-next-line import/named
 import { SwiperOptions } from 'swiper'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
 import TechStackCard from '~/components/TechStackCard.vue'
 import { techStackItems as techStackItemsData } from '~/data'
 
@@ -30,8 +28,6 @@ export default defineComponent({
   name: 'swiper-example-typescript-composition-api',
   ['title' as string]: 'Vue3 & TypeScript',
   components: {
-    Swiper,
-    SwiperSlide,
     TechStackCard
   },
   setup() {

@@ -77,6 +77,7 @@ export default {
    ** Global CSS
    */
   css: [
+    'swiper/css/swiper.css',
     '@assets/fonts/poppins.css',
     '@assets/fonts/space-mono.css',
     '@/assets/css/main.scss'
@@ -84,7 +85,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/vue-devtools-local', '~plugins/composition-api'],
+  plugins: [
+    '~plugins/vue-devtools-local',
+    '~plugins/composition-api',
+    '~plugins/vue-awesome-swiper'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
