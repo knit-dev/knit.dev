@@ -122,6 +122,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@supports (padding-top: env(safe-area-inset-top)) {
+  #the-footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 .affiliate-text {
   margin-bottom: 0.5rem;
   color: rgb(153, 153, 153);

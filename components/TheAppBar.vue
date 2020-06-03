@@ -2,7 +2,6 @@
   <v-app-bar
     id="the-app-bar"
     app
-    style="height: auto;"
     :flat="$vuetify.breakpoint.smAndDown"
     :absolute="$vuetify.breakpoint.smAndDown"
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
