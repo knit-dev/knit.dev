@@ -11,12 +11,7 @@
         <v-row justify="center">
           <v-col cols="12" class="d-flex align-self-center justify-center">
             <nuxt-link exact to="/">
-              <v-img
-                :src="siteLogo"
-                height="2.5rem"
-                width="2.5rem"
-                alt="site logo"
-              ></v-img>
+              <v-img :src="siteLogo" alt="site logo"></v-img>
             </nuxt-link>
           </v-col>
         </v-row>
@@ -91,6 +86,12 @@
         >
       </v-card-text>
     </v-card>
+    <div class="test-icon">
+      <v-img
+        :src="require('~/assets/images/site-design/brush.png')"
+        alt="brush"
+      ></v-img>
+    </div>
   </v-footer>
 </template>
 
@@ -134,11 +135,24 @@ export default defineComponent({
   }
 }
 
+$icon-size: 4rem;
+.test-icon {
+  position: absolute;
+  left: 171px;
+  top: $icon-size * -0.5;
+  width: $icon-size;
+  height: $icon-size;
+
+  box-shadow: 8px 8px 15px rgba(19, 6, 65, 0.1);
+  border-radius: 10px;
+  z-index: 10;
+  background: #ffffff;
+}
+
 .affiliate-text {
   margin-bottom: 0.5rem;
   color: rgb(153, 153, 153);
 }
-
 .affiliate-image {
   filter: grayscale(100%) contrast(30%);
   transition-duration: 150ms;
@@ -146,7 +160,6 @@ export default defineComponent({
   transition-delay: initial;
   transition-property: all;
 }
-
 .affiliate-image:hover {
   filter: grayscale(0%);
 }
