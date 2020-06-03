@@ -2,9 +2,10 @@
   <v-app-bar
     id="the-app-bar"
     app
-    :bottom="$vuetify.breakpoint.smAndDown"
     style="height: auto;"
-    elevate-on-scroll
+    :flat="$vuetify.breakpoint.smAndDown"
+    :absolute="$vuetify.breakpoint.smAndDown"
+    :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
   >
     <nuxt-link exact to="/">
       <v-img
@@ -36,7 +37,7 @@
     <v-app-bar-nav-icon
       class="hidden-md-and-up"
       aria-label="toggle navigation drawer"
-      @click="$emit('toggleDrawer')"
+      @click.stop="$emit('toggleDrawer')"
     ></v-app-bar-nav-icon>
   </v-app-bar>
 </template>
@@ -80,17 +81,9 @@ export default defineComponent({
   }
 }
 
-@supports (padding-top: env(safe-area-inset-top)) {
-  #the-app-bar ::v-deep > .v-toolbar__content {
-    padding-bottom: max(4px, env(safe-area-inset-bottom));
-    height: auto !important;
-  }
-}
-
 .hover-grow {
   transition: all 0.2s ease-in-out;
 }
-
 .hover-grow:hover {
   transform: scale(1.1);
 }

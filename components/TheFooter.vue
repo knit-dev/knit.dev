@@ -1,12 +1,6 @@
 <template>
   <v-footer id="the-footer" padless>
-    <v-card
-      flat
-      tile
-      width="100%"
-      :color="isDark ? '' : '#F8F0EA'"
-      :class="{ 'pad-bottom': $vuetify.breakpoint.smAndDown }"
-    >
+    <v-card flat tile width="100%" :color="isDark ? '' : '#F8F0EA'">
       <v-card-text>
         <v-row justify="center">
           <v-col cols="12" class="d-flex align-self-center justify-center">
@@ -128,16 +122,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@supports (padding-top: env(safe-area-inset-top)) {
-  #the-footer {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
-.pad-bottom {
-  padding-bottom: 56px;
-}
-
 .affiliate-text {
   margin-bottom: 0.5rem;
   color: rgb(153, 153, 153);

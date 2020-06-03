@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
+    v-model="localDrawer"
     app
     right
     bottom
@@ -33,7 +33,7 @@
               height="48px"
               width="48px"
               class="mr-1"
-              @click.stop="$emit('toggleDrawer')"
+              @click.stop="localDrawer = !localDrawer"
             >
               <v-icon>
                 {{ closeIcon }}
@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from '@vue/composition-api'
+import { defineComponent, computed, ref, watch } from '@vue/composition-api'
 import { mdiClose } from '@mdi/js'
 import TheNavigationDrawerList from '~/components/TheNavigationDrawerList.vue'
 
@@ -63,6 +63,14 @@ export default defineComponent({
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
+    const localDrawer = ref(true)
+    watch(
+      () => props.drawer,
+      () => {
+        localDrawer.value = !localDrawer.value
+      }
+    )
+
     const closeIcon = ref(mdiClose)
 
     const siteName = computed(() => root.$store.getters.getSiteName)
@@ -73,6 +81,7 @@ export default defineComponent({
     )
 
     return {
+      localDrawer,
       closeIcon,
       siteName,
       siteLogo

@@ -1,13 +1,11 @@
 <template>
   <v-app>
-    <TheNavigationDrawer :drawer="drawer" @toggleDrawer="toggleDrawer()" />
+    <TheNavigationDrawer :drawer="drawer" />
 
     <TheAppBar @toggleDrawer="toggleDrawer()" />
 
     <v-content>
-      <v-container fluid>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-content>
 
     <TheFooter />
