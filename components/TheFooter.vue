@@ -1,6 +1,12 @@
 <template>
   <v-footer id="the-footer" padless>
-    <v-card flat tile width="100%" :color="isDark ? '' : '#F8F0EA'">
+    <v-card
+      id="the-footer-card"
+      flat
+      tile
+      width="100%"
+      :color="isDark ? '' : '#F8F0EA'"
+    >
       <v-card-text>
         <v-row justify="center">
           <v-col cols="12" class="d-flex align-self-center justify-center">
@@ -122,8 +128,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@supports (padding-top: env(safe-area-inset-top)) {
-  #the-footer {
+@supports (padding-top: env(safe-area-inset-bottom)) {
+  #the-footer-card {
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
