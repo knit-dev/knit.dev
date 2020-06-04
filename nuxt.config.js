@@ -8,8 +8,10 @@ export default {
    */
   head: {
     titleTemplate:
-      '%s - ' + process.env.SITE_NAME || process.env.npm_package_name || '',
-    title: process.env.SITE_NAME || process.env.npm_package_name || '',
+      '%s - ' + process.env.LOCAL_SITE_NAME ||
+      process.env.npm_package_name ||
+      '',
+    title: process.env.LOCAL_SITE_NAME || process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       {
@@ -62,10 +64,10 @@ export default {
   },
   env: {
     vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL,
-    siteName: process.env.SITE_NAME || process.env.npm_package_name,
+    siteName: process.env.LOCAL_SITE_NAME || process.env.npm_package_name,
     companyName:
       process.env.COMPANY_NAME ||
-      process.env.SITE_NAME ||
+      process.env.LOCAL_SITE_NAME ||
       process.env.npm_package_name,
     tagline: process.env.TAGLINE
   },
