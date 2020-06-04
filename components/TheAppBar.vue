@@ -7,7 +7,12 @@
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
   >
     <v-row no-gutters>
-      <v-col align="center" class="d-flex align-center" cols="6" md="2"
+      <v-col
+        align="center"
+        justify="space-between"
+        class="d-flex align-center"
+        md="4"
+        lg="3"
         ><nuxt-link exact to="/">
           <v-img
             :src="siteLogo"
@@ -20,8 +25,12 @@
           siteName
         }}</v-toolbar-title></v-col
       >
-      <v-col class="d-flex justify-space-around"><TheAppBarTabs /></v-col>
-      <v-col cols="6" md="2" class="d-flex justify-end"
+      <v-col
+        v-if="$vuetify.breakpoint.mdAndUp"
+        class="d-flex justify-space-around"
+        ><TheAppBarTabs />
+      </v-col>
+      <v-col md="4" lg="3" class="d-flex justify-end"
         ><v-app-bar-nav-icon
           class="hidden-md-and-up"
           aria-label="toggle navigation drawer"

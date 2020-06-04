@@ -12,7 +12,7 @@
     <template v-slot:append>
       <v-container fluid class="pb-1">
         <v-row align="center">
-          <v-col cols="4" class="pl-3 py-1 d-flex align-center">
+          <v-col class="pl-3 py-1 d-flex align-center">
             <nuxt-link exact to="/">
               <v-img
                 :src="siteLogo"
@@ -27,7 +27,7 @@
             </div>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col cols="4" class="pa-0 d-flex justify-end">
+          <v-col class="pa-0 d-flex justify-end">
             <v-btn
               icon
               height="48px"

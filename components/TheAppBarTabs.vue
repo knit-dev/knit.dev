@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex">
-    <v-tabs class="hidden-sm-and-down" optional background-color="transparent">
+    <v-tabs optional background-color="transparent">
       <v-tab
         v-for="item in items"
         :key="item.title"
