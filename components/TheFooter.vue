@@ -143,7 +143,7 @@ export default defineComponent({
 $icon-size: 4rem;
 .test-icon {
   position: absolute;
-  left: 171px;
+  left: 20vw;
   top: $icon-size * -0.5;
   width: $icon-size;
   height: $icon-size;

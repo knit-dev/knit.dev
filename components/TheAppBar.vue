@@ -5,7 +5,6 @@
     :flat="$vuetify.breakpoint.smAndDown"
     :absolute="$vuetify.breakpoint.smAndDown"
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
-    height="auto"
   >
     <v-row no-gutters>
       <v-col align="center" class="d-flex align-center" cols="6" md="2"
