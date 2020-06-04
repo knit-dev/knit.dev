@@ -18,14 +18,19 @@
                 Using the latest technologies to create the platforms of
                 tomorrow. Design, build, deploy, and scale.
               </h3>
-              <v-btn
-                color="primary"
-                class="text-capitalize btn-hover-grow"
-                large
-                rounded
-              >
-                Get started!</v-btn
-              >
+              <v-hover>
+                <v-btn
+                  slot-scope="{ hover }"
+                  :depressed="!hover"
+                  color="primary"
+                  class="text-capitalize btn-hover-grow"
+                  x-large
+                  rounded
+                  href="mailto:team@knit.dev"
+                >
+                  Get started!</v-btn
+                >
+              </v-hover>
             </div>
           </v-col>
           <v-col cols="12" md="6" class="pa-0 hero-illustration">
