@@ -1,3 +1,14 @@
 .heading-subtitle {
   font-family: 'Space Mono';
+  color: #6245e0;
+}
+.heading-subtitle-dark {
+  color: #c6beed;
+}
+
+.btn-hover-grow {
+  transition: all 0.2s ease-in-out;
+}
+.btn-hover-grow:hover {
+  transform: scale(1.1);
 }

@@ -84,6 +84,9 @@ export default defineComponent({
   position: absolute;
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
+.swiper-heading .heading-subtitle {
+  color: map-get(map-get($material-dark, 'text'), 'primary');
+}
 
 .parallax-bg {
   position: absolute;

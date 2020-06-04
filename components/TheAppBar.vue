@@ -5,39 +5,31 @@
     :flat="$vuetify.breakpoint.smAndDown"
     :absolute="$vuetify.breakpoint.smAndDown"
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
+    height="auto"
   >
-    <nuxt-link exact to="/">
-      <v-img
-        :src="siteLogo"
-        height="2.5rem"
-        width="2.5rem"
-        alt="site logo"
-      ></v-img>
-    </nuxt-link>
-    <v-toolbar-title class="ml-3 font-weight-bold">{{
-      siteName
-    }}</v-toolbar-title>
-    <v-spacer></v-spacer>
-
-    <TheAppBarTabs />
-
-    <v-spacer></v-spacer>
-
-    <v-btn
-      color="primary"
-      class="text-capitalize hover-grow"
-      :class="[$vuetify.breakpoint.smAndDown ? 'mr-3' : 'mr-1']"
-      large
-      rounded
-    >
-      Get started!</v-btn
-    >
-
-    <v-app-bar-nav-icon
-      class="hidden-md-and-up"
-      aria-label="toggle navigation drawer"
-      @click.stop="$emit('toggleDrawer')"
-    ></v-app-bar-nav-icon>
+    <v-row no-gutters>
+      <v-col align="center" class="d-flex align-center" cols="6" md="2"
+        ><nuxt-link exact to="/">
+          <v-img
+            :src="siteLogo"
+            height="2.5rem"
+            width="2.5rem"
+            alt="site logo"
+          ></v-img>
+        </nuxt-link>
+        <v-toolbar-title class="ml-3 font-weight-bold">{{
+          siteName
+        }}</v-toolbar-title></v-col
+      >
+      <v-col class="d-flex justify-space-around"><TheAppBarTabs /></v-col>
+      <v-col cols="6" md="2" class="d-flex justify-end"
+        ><v-app-bar-nav-icon
+          class="hidden-md-and-up"
+          aria-label="toggle navigation drawer"
+          @click.stop="$emit('toggleDrawer')"
+        ></v-app-bar-nav-icon
+      ></v-col>
+    </v-row>
   </v-app-bar>
 </template>
 
@@ -78,12 +70,5 @@ export default defineComponent({
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
-}
-
-.hover-grow {
-  transition: all 0.2s ease-in-out;
-}
-.hover-grow:hover {
-  transform: scale(1.1);
 }
 </style>
