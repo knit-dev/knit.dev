@@ -60,14 +60,14 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @supports (
-  (-webkit-backdrop-filter: blur(16px)) or (backdrop-filter: blur(16px))
+  (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))
 ) {
   #the-app-bar {
     background-color: transparent;
   }
   #the-app-bar ::v-deep > div:first-child {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 }
 </style>
