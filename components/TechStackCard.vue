@@ -1,10 +1,11 @@
 <template>
   <v-card
     min-height="444"
+    max-width="296"
     shaped
     flat
     :hover="$vuetify.breakpoint.mdAndUp"
-    class="d-flex flex-column"
+    class="d-flex flex-column mx-auto"
   >
     <v-card-text>
       <a

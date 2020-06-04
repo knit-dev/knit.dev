@@ -54,7 +54,7 @@ export const techStackItems = [
       'Emerged as the primary tool for building cross-platform (iOS & Android) mobile apps. Leveraging JavaScript, React Native allows developers to utilize a single codebase while rendering a native app experience to users.',
     logo: require('~/assets/images/tech-stack/react.svg'),
     alternatives: ['Swift', 'Java'],
-    usedByCompanies: ['Facebook', 'Tesla'],
+    usedByCompanies: ['Instagram', 'Uber Eats'],
     link: 'https://reactnative.dev'
   },
   {
@@ -74,7 +74,7 @@ export const techStackItems = [
       'Offers excellent performance and scalability. Well maintained packages, comprehensive platform integrations, and an abundance of JavaScript developers make Node a robust choice.',
     logo: require('~/assets/images/tech-stack/node.svg'),
     alternatives: ['.NET Core', 'Ruby on Rails'],
-    usedByCompanies: ['Uber', 'Paypal'],
+    usedByCompanies: ['Netflix', 'Uber'],
     link: 'https://nodejs.dev'
   },
   {
@@ -84,7 +84,7 @@ export const techStackItems = [
       'Holds the largest market share for relational database management systems. It is a stable, reliable, and powerful solution offering advanced features.',
     logo: require('~/assets/images/tech-stack/mysql.svg'),
     alternatives: ['MongoDb', 'PostgreSQL'],
-    usedByCompanies: ['Wikipedia', 'Youtube'],
+    usedByCompanies: ['Wikipedia', 'YouTube'],
     link: 'https://www.mysql.com'
   },
   {

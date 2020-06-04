@@ -21,7 +21,7 @@
         :key="item.category"
         class="swiper-slide slide d-flex"
       >
-        <v-container>
+        <v-container fluid>
           <TechStackCard :item="item" />
         </v-container>
       </div>
