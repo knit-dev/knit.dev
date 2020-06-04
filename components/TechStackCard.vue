@@ -2,6 +2,7 @@
   <v-card
     min-height="444"
     shaped
+    flat
     :hover="$vuetify.breakpoint.mdAndUp"
     class="d-flex flex-column"
   >

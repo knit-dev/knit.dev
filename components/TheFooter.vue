@@ -150,7 +150,7 @@ $icon-size: 4rem;
 
   box-shadow: 8px 8px 15px rgba(19, 6, 65, 0.1);
   border-radius: 10px;
-  z-index: 10;
+  z-index: 4;
   background: #ffffff;
 }
 
