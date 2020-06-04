@@ -39,8 +39,7 @@ import TechStackCard from '~/components/TechStackCard.vue'
 import { techStackItems as techStackItemsData } from '~/data'
 
 export default defineComponent({
-  name: 'swiper-example-typescript-composition-api',
-  ['title' as string]: 'Vue3 & TypeScript',
+  name: 'TechStackSwiper',
   components: {
     TechStackCard
   },

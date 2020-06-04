@@ -37,16 +37,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-
-interface TechStackItem {
-  category: String
-  name: String
-  description: String
-  logo: any
-  alternatives: Array<String>
-  usedByCompanies: Array<String>
-  link: String
-}
+import { TechStackItem } from '~/types'
 
 export default defineComponent({
   name: 'TechStackCard',

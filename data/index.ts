@@ -1,42 +1,17 @@
 import { mdiGithub, mdiTwitter, mdiLinkedin } from '@mdi/js'
+import { TechStackItem, HeroContent, Social, Affiliate } from '~/types'
 
-export const socials = [
-  {
-    name: 'github',
-    icon: mdiGithub,
-    link: 'https://github.com/knit-dev'
-  },
-  { name: 'twitter', icon: mdiTwitter, link: 'https://twitter.com' },
-  {
-    name: 'linkedin',
-    icon: mdiLinkedin,
-    link: 'https://www.linkedin.com/company/knit-llc'
-  }
-]
+export const heroContent: HeroContent = {
+  subtitle: 'Code as craft',
+  title: 'Bespoke web and mobile app dev for your startup',
+  text:
+    'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
+  buttonText: 'Get started!',
+  buttonEmail: 'team@knit.dev',
+  image: require('~/assets/images/knit/hero-illustration.png')
+}
 
-export const affiliates = [
-  {
-    name: 'vue',
-    title: 'Built with',
-    image: require('~/assets/images/affiliates/vue-logo-and-text.png'),
-    link: 'https://vuejs.org'
-  },
-  {
-    name: 'github',
-    title: 'View source',
-    image: require('~/assets/images/affiliates/github-logo-and-text.png'),
-    darkImage: require('~/assets/images/affiliates/github-logo-and-text-white.png'),
-    link: 'https://github.com/knit-dev/knit.dev'
-  },
-  {
-    name: 'netlify',
-    title: 'Hosting by',
-    image: require('~/assets/images/affiliates/netlify-logo-and-text.svg'),
-    link: 'https://www.netlify.com'
-  }
-]
-
-export const techStackItems = [
+export const techStackItems: Array<TechStackItem> = [
   {
     category: 'Web frontend framework',
     name: 'Vue.js',
@@ -96,5 +71,41 @@ export const techStackItems = [
     alternatives: ['Microsoft Azure', 'Heroku'],
     usedByCompanies: ['Twitch', 'LinkedIn'],
     link: 'https://aws.amazon.com'
+  }
+]
+
+export const socials: Array<Social> = [
+  {
+    name: 'github',
+    icon: mdiGithub,
+    link: 'https://github.com/knit-dev'
+  },
+  { name: 'twitter', icon: mdiTwitter, link: 'https://twitter.com' },
+  {
+    name: 'linkedin',
+    icon: mdiLinkedin,
+    link: 'https://www.linkedin.com/company/knit-llc'
+  }
+]
+
+export const affiliates: Array<Affiliate> = [
+  {
+    name: 'vue',
+    title: 'Built with',
+    image: require('~/assets/images/affiliates/vue-logo-and-text.png'),
+    link: 'https://vuejs.org'
+  },
+  {
+    name: 'github',
+    title: 'View source',
+    image: require('~/assets/images/affiliates/github-logo-and-text.png'),
+    darkImage: require('~/assets/images/affiliates/github-logo-and-text-white.png'),
+    link: 'https://github.com/knit-dev/knit.dev'
+  },
+  {
+    name: 'netlify',
+    title: 'Hosting by',
+    image: require('~/assets/images/affiliates/netlify-logo-and-text.svg'),
+    link: 'https://www.netlify.com'
   }
 ]
