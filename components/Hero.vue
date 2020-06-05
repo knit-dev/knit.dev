@@ -48,7 +48,7 @@ import { defineComponent } from '@vue/composition-api'
 import { HeroContent } from '~/types'
 
 export default defineComponent({
-  name: 'HomeHero',
+  name: 'Hero',
   props: {
     content: {
       type: Object as () => HeroContent,
@@ -67,6 +67,6 @@ export default defineComponent({
   height: 100%;
   background-size: cover;
   background-position: left;
-  background-image: url('~assets/images/knit/hero-background.svg');
+  background-image: url('~assets/images/knit/textures/hero-texture.svg');
 }
 </style>

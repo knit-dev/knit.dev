@@ -15,7 +15,7 @@
         </div>
 
         <v-expansion-panels v-model="panel" mandatory accordion>
-          <v-expansion-panel v-for="item in items" :key="item.title">
+          <v-expansion-panel v-for="item in services" :key="item.title">
             <v-expansion-panel-header>
               <h3>{{ item.title }}</h3>
             </v-expansion-panel-header>
@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
 import SectionHeading from '~/components/SectionHeading.vue'
-import { servicesItems as servicesItemsData } from '~/data'
+import { services as servicesData } from '~/data'
 
 export default defineComponent({
   name: 'Services',
@@ -42,12 +42,14 @@ export default defineComponent({
   setup() {
     const panel = ref(0)
 
-    const items = ref(servicesItemsData)
+    const services = ref(servicesData)
 
-    const activeImage = computed(() => items.value[panel.value].image)
-    const activeLazyImage = computed(() => items.value[panel.value].lazyImage)
+    const activeImage = computed(() => services.value[panel.value].image)
+    const activeLazyImage = computed(
+      () => services.value[panel.value].lazyImage
+    )
 
-    return { panel, items, activeImage, activeLazyImage }
+    return { panel, services, activeImage, activeLazyImage }
   }
 })
 </script>

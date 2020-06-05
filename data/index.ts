@@ -4,7 +4,8 @@ import {
   HeroContent,
   Social,
   Affiliate,
-  ServicesItem
+  Service,
+  Testimonial
 } from '~/types'
 
 export const heroContent: HeroContent = {
@@ -14,24 +15,24 @@ export const heroContent: HeroContent = {
     'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
   buttonText: 'Get started!',
   buttonEmail: 'team@knit.dev',
-  image: require('~/assets/images/knit/hero-illustration.png'),
-  lazyImage: require('~/assets/images/knit/hero-illustration-lazy.png')
+  image: require('~/assets/images/knit/illustrations/hero-illustration.png'),
+  lazyImage: require('~/assets/images/knit/illustrations/hero-illustration-lazy.png')
 }
 
-export const servicesItems: Array<ServicesItem> = [
+export const services: Array<Service> = [
   {
     title: 'Web Apps',
     text:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
-    image: require('~/assets/images/knit/services-web.png'),
-    lazyImage: require('~/assets/images/knit/services-web-lazy.png')
+    image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
+    lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png')
   },
   {
     title: 'Mobile Apps',
     text:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
-    image: require('~/assets/images/knit/services-mobile.png'),
-    lazyImage: require('~/assets/images/knit/services-mobile-lazy.png')
+    image: require('~/assets/images/knit/illustrations/services-mobile-illustration.png'),
+    lazyImage: require('~/assets/images/knit/illustrations/services-mobile-illustration-lazy.png')
   }
 ]
 
@@ -95,6 +96,16 @@ export const techStackItems: Array<TechStackItem> = [
     alternatives: ['Microsoft Azure', 'Heroku'],
     usedByCompanies: ['Twitch', 'LinkedIn'],
     link: 'https://aws.amazon.com'
+  }
+]
+
+export const testimonials: Array<Testimonial> = [
+  {
+    organizationName: 'Startup.com',
+    jobTitle: 'CEO',
+    fullName: 'Sarah Im',
+    text:
+      'Knit has made my dream a reality. They are easy to work with and clear communicators. I would welcome the opportunity to work with Knit again.'
   }
 ]
 

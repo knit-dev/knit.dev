@@ -108,7 +108,7 @@ export default defineComponent({
   height: 100%;
   background-size: cover;
   background-position: left;
-  background-image: url('~assets/images/knit/knit-lines-1.svg');
+  background-image: url('~assets/images/knit/textures/tech-stack-texture.svg');
 }
 
 .slide {

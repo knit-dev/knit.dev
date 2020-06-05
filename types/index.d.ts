@@ -8,7 +8,7 @@ export interface HeroContent {
   lazyImage: any
 }
 
-export interface ServicesItem {
+export interface Service {
   title: String
   text: String
   image: any
@@ -23,6 +23,13 @@ export interface TechStackItem {
   alternatives: Array<String>
   usedByCompanies: Array<String>
   link: String
+}
+
+export interface Testimonial {
+  organizationName: String
+  jobTitle: String
+  fullName: String
+  text: String
 }
 
 export interface Social {
