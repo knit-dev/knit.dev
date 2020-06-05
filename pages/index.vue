@@ -13,7 +13,9 @@
     </section>
 
     <section>
-      <TestimonialsSwiper />
+      <div class="testimonials-bg">
+        <TestimonialsSwiper />
+      </div>
     </section>
   </div>
 </template>
@@ -48,4 +50,13 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.testimonials-bg {
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('~assets/images/knit/textures/testimonials-texture.svg');
+}
+</style>

@@ -1,6 +1,5 @@
 <template>
   <div v-swiper:testimonialsSwiper="swiperOptions">
-    <div slot="parallax-bg" class="parallax-bg"></div>
     <v-container class="text-center">
       <h4
         class="text-uppercase heading-subtitle font-weight-regular pt-6"
@@ -59,17 +58,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.parallax-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 130%;
-  height: 100%;
-  background-size: cover;
-  background-position: left bottom;
-  background-image: url('~assets/images/knit/textures/testimonials-texture.svg');
-}
-
 .swiper-slide {
   padding-bottom: 1rem;
 }
