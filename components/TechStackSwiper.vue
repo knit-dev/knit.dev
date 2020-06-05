@@ -5,18 +5,14 @@
       class="parallax-bg"
       data-swiper-parallax="-23%"
     ></div>
-
     <div
       class="swiper-heading"
       :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
     >
       <v-container>
-        <div
-          class="text-uppercase heading-subtitle"
-          :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-        >
+        <h4 class="text-uppercase heading-subtitle font-weight-regular">
           Toolbox to success
-        </div>
+        </h4>
         <h2>Recommended Tech Stack</h2>
       </v-container>
     </div>
@@ -96,7 +92,7 @@ export default defineComponent({
   position: absolute;
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
-.swiper-heading .heading-subtitle-dark {
+.swiper-heading-dark .heading-subtitle {
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
 

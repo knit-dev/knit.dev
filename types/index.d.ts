@@ -7,6 +7,12 @@ export interface HeroContent {
   image: any
 }
 
+export interface ServicesItem {
+  title: String
+  text: String
+  image: any
+}
+
 export interface TechStackItem {
   category: String
   name: String

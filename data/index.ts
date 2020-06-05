@@ -1,5 +1,11 @@
 import { mdiGithub, mdiTwitter, mdiLinkedin } from '@mdi/js'
-import { TechStackItem, HeroContent, Social, Affiliate } from '~/types'
+import {
+  TechStackItem,
+  HeroContent,
+  Social,
+  Affiliate,
+  ServicesItem
+} from '~/types'
 
 export const heroContent: HeroContent = {
   subtitle: 'Code as craft',
@@ -10,6 +16,21 @@ export const heroContent: HeroContent = {
   buttonEmail: 'team@knit.dev',
   image: require('~/assets/images/knit/hero-illustration.png')
 }
+
+export const servicesItems: Array<ServicesItem> = [
+  {
+    title: 'Web Apps',
+    text:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
+    image: require('~/assets/images/knit/services-web.png')
+  },
+  {
+    title: 'Mobile Apps',
+    text:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
+    image: require('~/assets/images/knit/services-mobile.png')
+  }
+]
 
 export const techStackItems: Array<TechStackItem> = [
   {
