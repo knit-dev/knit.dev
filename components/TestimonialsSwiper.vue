@@ -1,27 +1,29 @@
 <template>
-  <div v-swiper:testimonialsSwiper="swiperOptions">
-    <v-container class="text-center">
-      <h4
-        class="text-uppercase heading-subtitle font-weight-regular pt-6"
-        :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-      >
-        From our clients
-      </h4>
-    </v-container>
+  <div class="testimonials-bg">
+    <div v-swiper:testimonialsSwiper="swiperOptions">
+      <v-container class="text-center">
+        <h4
+          class="text-uppercase heading-subtitle font-weight-regular pt-6"
+          :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
+        >
+          From our clients
+        </h4>
+      </v-container>
 
-    <div class="swiper-wrapper">
-      <div
-        v-for="item in testimonials"
-        :key="item.fullName"
-        class="swiper-slide d-flex"
-      >
-        <v-container fluid class="pt-0">
-          <TestimonialCard :item="item" />
-        </v-container>
+      <div class="swiper-wrapper">
+        <div
+          v-for="item in testimonials"
+          :key="item.fullName"
+          class="swiper-slide d-flex"
+        >
+          <v-container fluid class="pt-0">
+            <TestimonialCard :item="item" />
+          </v-container>
+        </div>
       </div>
-    </div>
 
-    <div slot="pagination" class="swiper-pagination"></div>
+      <div slot="pagination" class="swiper-pagination"></div>
+    </div>
   </div>
 </template>
 
@@ -58,6 +60,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.testimonials-bg {
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: bottom left;
+  background-image: url('~assets/images/knit/textures/testimonials-texture.svg');
+}
+
 .swiper-slide {
   padding-bottom: 1rem;
 }
