@@ -74,8 +74,8 @@ export default defineComponent({
 }
 
 ::v-deep .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   opacity: 1;
   background: rgb(239, 239, 239);
 }
@@ -83,7 +83,7 @@ export default defineComponent({
   .swiper-container-horizontal
   > .swiper-pagination-bullets
   .swiper-pagination-bullet {
-  margin: 0 5px;
+  margin: 0 8px;
 }
 ::v-deep .swiper-pagination-bullet-active {
   background: #623de4;
