@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-row>
+    <v-row no-gutters>
       <v-col cols="12" md="6" align-self="center">
         <div class="pa-4">
           <h4
