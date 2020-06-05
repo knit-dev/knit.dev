@@ -14,7 +14,8 @@ export const heroContent: HeroContent = {
     'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
   buttonText: 'Get started!',
   buttonEmail: 'team@knit.dev',
-  image: require('~/assets/images/knit/hero-illustration.png')
+  image: require('~/assets/images/knit/hero-illustration.png'),
+  lazyImage: require('~/assets/images/knit/hero-illustration-lazy.png')
 }
 
 export const servicesItems: Array<ServicesItem> = [
@@ -22,13 +23,15 @@ export const servicesItems: Array<ServicesItem> = [
     title: 'Web Apps',
     text:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
-    image: require('~/assets/images/knit/services-web.png')
+    image: require('~/assets/images/knit/services-web.png'),
+    lazyImage: require('~/assets/images/knit/services-web-lazy.png')
   },
   {
     title: 'Mobile Apps',
     text:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
-    image: require('~/assets/images/knit/services-mobile.png')
+    image: require('~/assets/images/knit/services-mobile.png'),
+    lazyImage: require('~/assets/images/knit/services-mobile-lazy.png')
   }
 ]
 

@@ -5,12 +5,14 @@ export interface HeroContent {
   buttonText: String
   buttonEmail: String
   image: any
+  lazyImage: any
 }
 
 export interface ServicesItem {
   title: String
   text: String
   image: any
+  lazyImage: any
 }
 
 export interface TechStackItem {

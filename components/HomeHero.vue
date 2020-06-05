@@ -31,7 +31,13 @@
         </div>
       </v-col>
       <v-col cols="12" md="6" class="pa-0 hero-illustration">
-        <v-img :src="content.image" alt="hero illustration"></v-img>
+        <v-img
+          :src="content.image"
+          :lazy-src="content.lazyImage"
+          aspect-ratio="1"
+          contain
+          alt="hero illustration"
+        ></v-img>
       </v-col>
     </v-row>
   </v-container>

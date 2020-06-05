@@ -2,7 +2,12 @@
   <v-container fluid>
     <v-row align="center">
       <v-col v-if="$vuetify.breakpoint.mdAndUp" md="6">
-        <v-img :src="activeImage"></v-img>
+        <v-img
+          :src="activeImage"
+          :lazy-src="activeLazyImage"
+          aspect-ratio="1"
+          contain
+        ></v-img>
       </v-col>
       <v-col md="6">
         <div class="pb-4">
@@ -40,8 +45,9 @@ export default defineComponent({
     const items = ref(servicesItemsData)
 
     const activeImage = computed(() => items.value[panel.value].image)
+    const activeLazyImage = computed(() => items.value[panel.value].lazyImage)
 
-    return { panel, items, activeImage }
+    return { panel, items, activeImage, activeLazyImage }
   }
 })
 </script>
