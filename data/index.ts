@@ -23,14 +23,14 @@ export const services: Array<Service> = [
   {
     title: 'Web Apps',
     text:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam!',
     image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png')
   },
   {
     title: 'Mobile Apps',
     text:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam! ',
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam!',
     image: require('~/assets/images/knit/illustrations/services-mobile-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-mobile-illustration-lazy.png')
   }
@@ -106,6 +106,20 @@ export const testimonials: Array<Testimonial> = [
     fullName: 'Sarah Im',
     text:
       'Knit has made my dream a reality. They are easy to work with and clear communicators. I would welcome the opportunity to work with Knit again.'
+  },
+  {
+    organizationName: 'Test Place',
+    jobTitle: 'CTO',
+    fullName: 'Test Person',
+    text:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa.'
+  },
+  {
+    organizationName: 'Company',
+    jobTitle: 'Co-founder',
+    fullName: 'Another Human',
+    text:
+      'Quisque sagittis purus sit amet volutpat consequat mauris. Orci eu lobortis elementum nibh tellus molestie. Nunc non blandit massa enim nec dui.'
   }
 ]
 

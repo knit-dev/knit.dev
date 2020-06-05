@@ -1,27 +1,25 @@
 <template>
-  <div v-swiper="swiperOptions">
+  <div v-swiper:techStackSwiper="swiperOptions">
     <div
       slot="parallax-bg"
       class="parallax-bg"
       data-swiper-parallax="-23%"
     ></div>
-    <div
+    <v-container
       class="swiper-heading"
       :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
     >
-      <v-container>
-        <SectionHeading
-          subtitle="Toolbox to success"
-          title="Recommended Tech Stack"
-        />
-      </v-container>
-    </div>
+      <SectionHeading
+        subtitle="Toolbox to success"
+        title="Recommended Tech Stack"
+      />
+    </v-container>
 
     <div class="swiper-wrapper">
       <div
         v-for="item in techStackItems"
         :key="item.category"
-        class="swiper-slide slide d-flex"
+        class="swiper-slide d-flex"
       >
         <v-container fluid>
           <TechStackCard :item="item" />
@@ -93,7 +91,6 @@ export default defineComponent({
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
 .swiper-heading-dark {
-  position: absolute;
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
 .swiper-heading-dark ::v-deep .heading-subtitle {
@@ -111,7 +108,7 @@ export default defineComponent({
   background-image: url('~assets/images/knit/textures/tech-stack-texture.svg');
 }
 
-.slide {
+.swiper-slide {
   padding-top: 5rem;
   padding-bottom: 2rem;
 }

@@ -1,23 +1,28 @@
 <template>
-  <div v-swiper="swiperOptions">
-    <div slot="parallax-bg" class="parallax-bg" data-swiper-parallax="0%"></div>
-    <v-container>
-      <div>
+  <div v-swiper:testimonialsSwiper="swiperOptions">
+    <div slot="parallax-bg" class="parallax-bg"></div>
+    <v-container class="text-center">
+      <h4
+        class="text-uppercase heading-subtitle font-weight-regular pt-6"
+        :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
+      >
         From our clients
-      </div>
+      </h4>
     </v-container>
 
     <div class="swiper-wrapper">
       <div
         v-for="item in testimonials"
         :key="item.fullName"
-        class="slide d-flex"
+        class="swiper-slide d-flex"
       >
-        <v-container fluid>
+        <v-container fluid class="pt-0">
           <TestimonialCard :item="item" />
         </v-container>
       </div>
     </div>
+
+    <div slot="pagination" class="swiper-pagination"></div>
   </div>
 </template>
 
@@ -33,29 +38,16 @@ export default defineComponent({
   },
   setup() {
     const swiperOptions = {
-      parallax: true,
-      centeredSlides: true,
-      centeredSlidesBounds: true,
-      slideToClickedSlide: true,
       slidesPerView: 1,
-      spaceBetween: 0,
-      breakpoints: {
-        600: {
-          slidesPerView: 2,
-          spaceBetween: 0
-        },
-        960: {
-          slidesPerView: 3,
-          spaceBetween: 0
-        },
-        1264: {
-          slidesPerView: 4,
-          spaceBetween: 0
-        }
+      loop: true,
+      speed: 600,
+      effect: 'flip',
+      autoplay: {
+        delay: 6000
       },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
       }
     }
 
@@ -66,4 +58,35 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  background-size: cover;
+  background-position: left bottom;
+  background-image: url('~assets/images/knit/textures/testimonials-texture.svg');
+}
+
+.swiper-slide {
+  padding-bottom: 1rem;
+}
+
+::v-deep .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: rgb(239, 239, 239);
+}
+::v-deep
+  .swiper-container-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 5px;
+}
+::v-deep .swiper-pagination-bullet-active {
+  background: #623de4;
+}
+</style>

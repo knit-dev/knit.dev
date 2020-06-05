@@ -1,5 +1,22 @@
 <template>
-  <v-card flat class="d-flex flex-column mx-auto"> </v-card>
+  <v-card
+    flat
+    class="mx-auto text-center"
+    max-width="800"
+    min-height="280"
+    color="transparent"
+  >
+    <blockquote class="blockquote pl-1">
+      <p class="display-1 font-weight-bold">
+        {{ item.text }}
+      </p>
+
+      <footer>
+        —<b>{{ item.fullName }}</b
+        >, <cite>{{ item.jobTitle }} at {{ item.organizationName }}</cite>
+      </footer>
+    </blockquote>
+  </v-card>
 </template>
 
 <script lang="ts">
