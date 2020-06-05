@@ -23,11 +23,20 @@
         :key="item.category"
         class="swiper-slide slide d-flex"
       >
-        <v-container fluid>
-          <TechStackCard :item="item" />
-        </v-container>
+        <TechStackCard :item="item" />
       </div>
     </div>
+
+    <div
+      v-if="$vuetify.breakpoint.mdAndUp"
+      slot="button-prev"
+      class="swiper-button-prev"
+    ></div>
+    <div
+      v-if="$vuetify.breakpoint.mdAndUp"
+      slot="button-next"
+      class="swiper-button-next"
+    ></div>
 
     <div slot="scrollbar" class="swiper-scrollbar"></div>
   </div>
@@ -36,7 +45,6 @@
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
 // eslint-disable-next-line import/named
-import { SwiperOptions } from 'swiper'
 import TechStackCard from '~/components/TechStackCard.vue'
 import SectionHeading from '~/components/SectionHeading.vue'
 import { techStackItems as techStackItemsData } from '~/data'
@@ -47,24 +55,35 @@ export default defineComponent({
     SectionHeading,
     TechStackCard
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup() {
-    const swiperOptions: SwiperOptions = {
+    const swiperOptions = {
       parallax: true,
+
+      slideToClickedSlide: true,
+      centeredSlides: true,
+      centeredSlidesBounds: true,
+      slidesOffsetBefore: 10,
+      slidesOffsetAfter: 10,
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 10,
       breakpoints: {
         600: {
           slidesPerView: 2,
-          spaceBetween: 0
+          spaceBetween: 10
         },
         960: {
           slidesPerView: 3,
-          spaceBetween: 0
+          spaceBetween: 20
         },
         1264: {
           slidesPerView: 4,
-          spaceBetween: 0
+          spaceBetween: 30
         }
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       },
       scrollbar: {
         el: '.swiper-scrollbar',
@@ -110,8 +129,8 @@ export default defineComponent({
 }
 
 .slide {
-  padding-top: 5rem;
-  padding-bottom: 2rem;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
 }
 
 ::v-deep .swiper-scrollbar {
@@ -123,5 +142,13 @@ export default defineComponent({
 }
 .swiper-container-horizontal > .swiper-scrollbar {
   bottom: 20px;
+}
+
+.swiper-button-disabled {
+  visibility: hidden;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #623de4;
 }
 </style>
