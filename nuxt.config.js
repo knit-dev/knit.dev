@@ -69,6 +69,11 @@ export default {
           type: 'font/woff2',
           href: '/_nuxt/fonts/263658a.woff2',
           crossorigin: true
+        },
+        {
+          rel: 'preload',
+          as: 'style',
+          href: '/_nuxt/7fcacba98a1da4d4f8e2.css'
         }
       ]
     }),
