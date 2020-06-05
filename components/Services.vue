@@ -6,15 +6,7 @@
       </v-col>
       <v-col md="6">
         <div class="pb-4">
-          <h4
-            class="text-uppercase heading-subtitle font-weight-regular"
-            :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-          >
-            Take a peek
-          </h4>
-          <h2>
-            Our Services
-          </h2>
+          <SectionHeading subtitle="Take a peek" title="Our Services" />
         </div>
 
         <v-expansion-panels v-model="panel" mandatory accordion>
@@ -34,10 +26,14 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
+import SectionHeading from '~/components/SectionHeading.vue'
 import { servicesItems as servicesItemsData } from '~/data'
 
 export default defineComponent({
   name: 'Services',
+  components: {
+    SectionHeading
+  },
   setup() {
     const panel = ref(0)
 

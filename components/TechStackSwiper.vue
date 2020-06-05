@@ -10,10 +10,10 @@
       :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
     >
       <v-container>
-        <h4 class="text-uppercase heading-subtitle font-weight-regular">
-          Toolbox to success
-        </h4>
-        <h2>Recommended Tech Stack</h2>
+        <SectionHeading
+          subtitle="Toolbox to success"
+          title="Recommended Tech Stack"
+        />
       </v-container>
     </div>
 
@@ -38,11 +38,13 @@ import { defineComponent, ref } from '@vue/composition-api'
 // eslint-disable-next-line import/named
 import { SwiperOptions } from 'swiper'
 import TechStackCard from '~/components/TechStackCard.vue'
+import SectionHeading from '~/components/SectionHeading.vue'
 import { techStackItems as techStackItemsData } from '~/data'
 
 export default defineComponent({
   name: 'TechStackSwiper',
   components: {
+    SectionHeading,
     TechStackCard
   },
   setup() {
@@ -85,14 +87,14 @@ export default defineComponent({
   position: absolute;
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
-.swiper-heading .heading-subtitle {
+.swiper-heading ::v-deep .heading-subtitle {
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
 .swiper-heading-dark {
   position: absolute;
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
-.swiper-heading-dark .heading-subtitle {
+.swiper-heading-dark ::v-deep .heading-subtitle {
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
 
