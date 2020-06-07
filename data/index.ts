@@ -26,16 +26,18 @@ export const services: Array<Service> = [
   {
     title: 'Progressive Web Apps',
     text:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam!',
+      'Users on web, desktop, or mobile platforms run your app using a single code base. PWAs are run in-browser or can be installed to the home screen just like traditional mobile or desktop apps. Because they update over-the-air, PWAs allow side-stepping of cumbersome app store release requirements. Like native apps, PWAs work offline and can leverage some lower-level device features like web share and gestures.',
     image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
-    lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png')
+    lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png'),
+    link: 'https://en.wikipedia.org/wiki/Progressive_web_application'
   },
   {
     title: 'Mobile Apps',
     text:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam!',
+      'When your project requires intimate integration with lower-level mobile device architecture, a native mobile app may be the right choice. These features include geofencing, proximity and other sensing/detection, calendars, contacts, camera, and push notifications. Native mobile apps utilize mobile operating system user interface modules for consistent user experience and performance.',
     image: require('~/assets/images/knit/illustrations/services-mobile-illustration.png'),
-    lazyImage: require('~/assets/images/knit/illustrations/services-mobile-illustration-lazy.png')
+    lazyImage: require('~/assets/images/knit/illustrations/services-mobile-illustration-lazy.png'),
+    link: 'https://en.wikipedia.org/wiki/Mobile_app'
   }
 ]
 
@@ -104,23 +106,16 @@ export const techStackItems: Array<TechStackItem> = [
 
 export const testimonials: Array<Testimonial> = [
   {
-    organizationName: 'Startup.com',
+    organizationName: 'Meowtel',
     jobTitle: 'CEO',
-    fullName: 'Sarah Im',
-    text:
-      'Knit has made my dream a reality. They are easy to work with and clear communicators. I would welcome the opportunity to work with Knit again.'
-  },
-  {
-    organizationName: 'Test Place',
-    jobTitle: 'CTO',
-    fullName: 'Test Person',
+    fullName: 'Sonya Petcavich',
     text:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa.'
   },
   {
-    organizationName: 'Company',
-    jobTitle: 'Co-founder',
-    fullName: 'Another Human',
+    organizationName: 'Redhawk Logistics',
+    jobTitle: 'Managing Partner',
+    fullName: 'Mike Tobin',
     text:
       'Quisque sagittis purus sit amet volutpat consequat mauris. Orci eu lobortis elementum nibh tellus molestie. Nunc non blandit massa enim nec dui.'
   }

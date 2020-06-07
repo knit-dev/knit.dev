@@ -12,6 +12,7 @@ export interface Service {
   text: String
   image: any
   lazyImage: any
+  link: String
 }
 
 export interface TechStackItem {

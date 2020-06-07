@@ -4,7 +4,7 @@
       <v-col cols="12" md="6" align-self="center">
         <div class="pa-4">
           <h4
-            class="text-uppercase heading-subtitle font-weight-regular pb-3"
+            class="text-uppercase heading-subtitle font-weight-regular pb-2"
             :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
           >
             {{ content.subtitle }}
