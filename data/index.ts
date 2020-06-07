@@ -44,7 +44,7 @@ export const techStackItems: Array<TechStackItem> = [
       "The fastest growing JavaScript frontend framework, and for good reason. It's flexible, scalable, and highly performant. Vue's comprehensive documentation and intuitive design make it easy to learn for most programmers.",
     logo: require('~/assets/images/tech-stack/vue.svg'),
     alternatives: ['React', 'Svelte'],
-    usedByCompanies: ['Grammarly', 'Gitlab'],
+    usedByCompanies: ['Gitlab', 'Grammarly'],
     link: 'https://vuejs.org'
   },
   {
@@ -54,7 +54,7 @@ export const techStackItems: Array<TechStackItem> = [
       'Emerged as the primary tool for building cross-platform (iOS & Android) mobile apps. Leveraging JavaScript, React Native allows developers to utilize a single codebase while rendering a native app experience to users.',
     logo: require('~/assets/images/tech-stack/react.svg'),
     alternatives: ['Swift', 'Java'],
-    usedByCompanies: ['Instagram', 'Uber Eats'],
+    usedByCompanies: ['Pinterest', 'Uber Eats'],
     link: 'https://reactnative.dev'
   },
   {
@@ -64,7 +64,7 @@ export const techStackItems: Array<TechStackItem> = [
       'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
     logo: require('~/assets/images/tech-stack/figma.svg'),
     alternatives: ['Sketch', 'InVision'],
-    usedByCompanies: ['Square', 'Slack'],
+    usedByCompanies: ['Slack', 'Square'],
     link: 'https://www.figma.com'
   },
   {
@@ -141,20 +141,20 @@ export const affiliates: Array<Affiliate> = [
   {
     name: 'vue',
     title: 'Built with',
-    image: require('~/assets/images/affiliates/vue-logo-and-text.png'),
+    image: require('~/assets/images/affiliates/vue-combination-mark.png'),
     link: 'https://vuejs.org'
   },
   {
     name: 'github',
     title: 'View source',
-    image: require('~/assets/images/affiliates/github-logo-and-text.png'),
-    darkImage: require('~/assets/images/affiliates/github-logo-and-text-white.png'),
+    image: require('~/assets/images/affiliates/github-wordmark-black.png'),
+    darkImage: require('~/assets/images/affiliates/github-wordmark-white.png'),
     link: 'https://github.com/knit-dev/knit.dev'
   },
   {
     name: 'netlify',
     title: 'Hosting by',
-    image: require('~/assets/images/affiliates/netlify-logo-and-text.svg'),
+    image: require('~/assets/images/affiliates/netlify-combination-mark.svg'),
     link: 'https://www.netlify.com'
   }
 ]
