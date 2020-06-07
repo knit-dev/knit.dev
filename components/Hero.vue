@@ -23,9 +23,9 @@
               class="text-capitalize btn-hover-grow"
               x-large
               rounded
-              :href="`mailto:${content.buttonEmail}`"
+              :href="`mailto:${content.callToAction.email}`"
             >
-              {{ content.buttonText }}</v-btn
+              {{ content.callToAction.text }}</v-btn
             >
           </v-hover>
         </div>

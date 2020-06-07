@@ -2,8 +2,7 @@ export interface HeroContent {
   subtitle: String
   title: String
   text: String
-  buttonText: String
-  buttonEmail: String
+  callToAction: CallToAction
   image: any
   lazyImage: any
 }
@@ -30,6 +29,11 @@ export interface Testimonial {
   jobTitle: String
   fullName: String
   text: String
+}
+
+export interface CallToAction {
+  text: String
+  email: String
 }
 
 export interface Social {

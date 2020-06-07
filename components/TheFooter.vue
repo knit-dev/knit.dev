@@ -6,6 +6,7 @@
       tile
       width="100%"
       :color="isDark ? '' : '#F8F0EA'"
+      class="text-center"
     >
       <v-card-text>
         <v-row justify="center">
@@ -18,6 +19,25 @@
                 alt="site logo"
               ></v-img>
             </nuxt-link>
+          </v-col>
+        </v-row>
+        <v-row justify="center">
+          <v-col cols="12">
+            <div>
+              <div class="font-weight-bold headline pb-6">
+                Contact us to discuss your project and how we can collaborate
+              </div>
+              <v-btn
+                depressed
+                color="primary"
+                class="text-capitalize"
+                x-large
+                rounded
+                :href="`mailto:${callToAction.email}`"
+              >
+                {{ callToAction.text }}</v-btn
+              >
+            </div>
           </v-col>
         </v-row>
         <v-row>
@@ -102,7 +122,11 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
-import { socials as socialsData, affiliates as affiliatesData } from '~/data'
+import {
+  socials as socialsData,
+  affiliates as affiliatesData,
+  callToAction as callToActionData
+} from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
 export default defineComponent({
@@ -119,6 +143,7 @@ export default defineComponent({
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
 
+    const callToAction = ref(callToActionData)
     const socials = ref(socialsData)
     const affiliates = ref(affiliatesData)
 
@@ -126,6 +151,7 @@ export default defineComponent({
       isDark,
       companyName,
       siteLogo,
+      callToAction,
       socials,
       affiliates
     }

@@ -5,7 +5,8 @@ import {
   Social,
   Affiliate,
   Service,
-  Testimonial
+  Testimonial,
+  CallToAction
 } from '~/types'
 
 export const heroContent: HeroContent = {
@@ -13,8 +14,10 @@ export const heroContent: HeroContent = {
   title: 'Bespoke web and mobile app dev for your startup',
   text:
     'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
-  buttonText: 'Get started!',
-  buttonEmail: 'team@knit.dev',
+  callToAction: {
+    text: 'Get started!',
+    email: 'team@knit.dev'
+  },
   image: require('~/assets/images/knit/illustrations/hero-illustration.png'),
   lazyImage: require('~/assets/images/knit/illustrations/hero-illustration-lazy.png')
 }
@@ -122,6 +125,11 @@ export const testimonials: Array<Testimonial> = [
       'Quisque sagittis purus sit amet volutpat consequat mauris. Orci eu lobortis elementum nibh tellus molestie. Nunc non blandit massa enim nec dui.'
   }
 ]
+
+export const callToAction: CallToAction = {
+  text: 'Get Started!',
+  email: 'team@knit.dev'
+}
 
 export const socials: Array<Social> = [
   {
