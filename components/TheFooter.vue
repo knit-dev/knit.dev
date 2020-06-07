@@ -30,7 +30,7 @@
               <v-btn
                 depressed
                 color="primary"
-                class="text-capitalize"
+                class="text-capitalize btn-hover-grow"
                 x-large
                 rounded
                 :href="`mailto:${callToAction.email}`"

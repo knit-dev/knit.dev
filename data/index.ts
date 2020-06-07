@@ -24,7 +24,7 @@ export const heroContent: HeroContent = {
 
 export const services: Array<Service> = [
   {
-    title: 'Web Apps',
+    title: 'Progressive Web Apps',
     text:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa. Amet ipsum illum, quae optio dolor aliquam!',
     image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
