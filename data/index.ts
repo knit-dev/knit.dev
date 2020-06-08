@@ -15,7 +15,7 @@ export const heroContent: HeroContent = {
   text:
     'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
   callToAction: {
-    text: 'Get started!',
+    text: 'Get Started!',
     email: 'team@knit.dev'
   },
   image: require('~/assets/images/knit/illustrations/hero-illustration.png'),

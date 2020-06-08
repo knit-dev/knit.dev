@@ -27,16 +27,19 @@
               <div class="font-weight-bold headline pb-6">
                 Contact us to discuss your project and how we can collaborate
               </div>
-              <v-btn
-                depressed
-                color="primary"
-                class="text-capitalize btn-hover-grow"
-                x-large
-                rounded
-                :href="`mailto:${callToAction.email}`"
-              >
-                {{ callToAction.text }}</v-btn
-              >
+              <v-hover>
+                <v-btn
+                  slot-scope="{ hover }"
+                  depressed
+                  color="primary"
+                  class="text-none btn-hover-grow"
+                  x-large
+                  rounded
+                  :href="`mailto:${callToAction.email}`"
+                >
+                  {{ hover ? callToAction.email : callToAction.text }}</v-btn
+                >
+              </v-hover>
             </div>
           </v-col>
         </v-row>

@@ -20,12 +20,14 @@
               slot-scope="{ hover }"
               :depressed="!hover"
               color="primary"
-              class="text-capitalize btn-hover-grow"
+              class="text-none btn-hover-grow"
               x-large
               rounded
               :href="`mailto:${content.callToAction.email}`"
             >
-              {{ content.callToAction.text }}</v-btn
+              {{
+                hover ? content.callToAction.email : content.callToAction.text
+              }}</v-btn
             >
           </v-hover>
         </div>
