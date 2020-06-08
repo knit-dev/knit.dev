@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonials-bg">
+  <div class="testimonials-bg py-10">
     <div v-swiper:testimonialsSwiper="swiperOptions">
       <v-container class="text-center">
         <h4

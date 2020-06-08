@@ -113,11 +113,13 @@
         }}</a>
       </v-card-text>
     </v-card>
-    <div class="test-icon">
-      <v-img
-        :src="require('~/assets/images/knit/icons/brush.png')"
-        alt="brush"
-      ></v-img>
+    <div
+      v-for="item in floatingIcons"
+      :key="item.image"
+      class="test-icon justify-center align-center d-none d-lg-flex"
+      :style="item.style"
+    >
+      <v-img :src="item.image"></v-img>
     </div>
   </v-footer>
 </template>
@@ -151,6 +153,30 @@ export default defineComponent({
     const affiliates = ref(affiliatesData)
     const license = ref(licenseData)
 
+    const floatingIcons = [
+      {
+        style: {
+          left: '171px',
+          top: '-1.5rem'
+        },
+        image: require('~/assets/images/knit/icons/brush.png')
+      },
+      {
+        style: {
+          right: '212px',
+          bottom: '250px'
+        },
+        image: require('~/assets/images/knit/icons/script.png')
+      },
+      {
+        style: {
+          left: '470px',
+          bottom: '80px'
+        },
+        image: require('~/assets/images/knit/icons/page.png')
+      }
+    ]
+
     return {
       isDark,
       companyName,
@@ -158,7 +184,8 @@ export default defineComponent({
       callToAction,
       socials,
       affiliates,
-      license
+      license,
+      floatingIcons
     }
   }
 })
@@ -174,11 +201,9 @@ export default defineComponent({
 $icon-size: 4rem;
 .test-icon {
   position: absolute;
-  left: 20vw;
-  top: $icon-size * -0.5;
+  padding: 3px;
   width: $icon-size;
   height: $icon-size;
-
   box-shadow: 8px 8px 15px rgba(19, 6, 65, 0.1);
   border-radius: 10px;
   z-index: 4;

@@ -83,8 +83,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+$swiper-bottom: 5rem;
+
 .swiper-heading {
   position: absolute;
+  margin-top: $swiper-bottom / 2;
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
 .swiper-heading ::v-deep .heading-subtitle {
@@ -109,8 +112,8 @@ export default defineComponent({
 }
 
 .swiper-slide {
-  padding-top: 5rem;
-  padding-bottom: 2rem;
+  padding-top: $swiper-bottom * 1.5;
+  padding-bottom: $swiper-bottom;
 }
 
 ::v-deep .swiper-scrollbar {
@@ -121,6 +124,6 @@ export default defineComponent({
   background: #623de4;
 }
 .swiper-container-horizontal > .swiper-scrollbar {
-  bottom: 20px;
+  bottom: $swiper-bottom / 2;
 }
 </style>
