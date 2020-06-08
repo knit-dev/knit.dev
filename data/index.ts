@@ -146,12 +146,12 @@ export const techStackItems: Array<TechStackItem> = [
     alternatives: ['Microsoft Azure', 'Heroku'],
     usedByCompanies: [
       {
-        name: 'Twitch',
-        image: require('~/assets/images/tech-stack/twitch-wordmark.svg')
-      },
-      {
         name: 'Linkedin',
         image: require('~/assets/images/tech-stack/linkedin-wordmark.svg')
+      },
+      {
+        name: 'Twitch',
+        image: require('~/assets/images/tech-stack/twitch-wordmark.svg')
       }
     ],
     link: 'https://aws.amazon.com'
