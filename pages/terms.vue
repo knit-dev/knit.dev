@@ -1,17 +1,17 @@
 <template>
   <v-container fluid>
     <div class="mx-auto py-4" style="max-width: 800px;">
-      <h2 class="pb-4">{{ companyName }} Terms of Service</h2>
+      <h2 class="pb-4">{{ companyName }} Terms of Use</h2>
 
       <h3 class="pb-3">1. Terms</h3>
       <p>
         By accessing the website at
         <a :href="siteUrl">{{ siteUrl }}</a
-        >, you are agreeing to be bound by these terms of service, all
-        applicable laws and regulations, and agree that you are responsible for
-        compliance with any applicable local laws. If you do not agree with any
-        of these terms, you are prohibited from using or accessing this site.
-        The materials contained in this website are protected by applicable
+        >, you are agreeing to be bound by these terms of use, all applicable
+        laws and regulations, and agree that you are responsible for compliance
+        with any applicable local laws. If you do not agree with any of these
+        terms, you are prohibited from using or accessing this site. The
+        materials contained in this website are protected by applicable
         copyright and trademark law.
       </p>
 
@@ -68,9 +68,9 @@
 
       <h3 class="pb-3">6. Modifications</h3>
       <p>
-        {{ companyName }} may revise these terms of service for its website at
-        any time without notice. By using this website you are agreeing to be
-        bound by the then current version of these terms of service.
+        {{ companyName }} may revise these terms of use for its website at any
+        time without notice. By using this website you are agreeing to be bound
+        by the then current version of these terms of use.
       </p>
 
       <h3 class="pb-3">7. Governing Law</h3>
@@ -82,7 +82,7 @@
 
       <h3 class="pb-3">8. Contact Information</h3>
       <p>
-        Questions about the Terms of Service should be sent to us at
+        Questions about the Terms of Use should be sent to us at
         <a :href="`mailto:${contact.email}`">{{ contact.email }}</a
         >.
       </p>
