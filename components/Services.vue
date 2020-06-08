@@ -19,9 +19,9 @@
             <v-expansion-panel-header>
               <h3>{{ item.title }}</h3>
             </v-expansion-panel-header>
-            <v-expansion-panel-content>{{
-              item.text
-            }}</v-expansion-panel-content>
+            <v-expansion-panel-content
+              >{{ item.text }}
+            </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
       </v-col>

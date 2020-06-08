@@ -9,7 +9,7 @@
           >
             {{ content.subtitle }}
           </h4>
-          <h1 class="pb-6 display-2 font-weight-medium">
+          <h1 class="pb-5 display-2 font-weight-medium">
             {{ content.title }}
           </h1>
           <h3 class="pb-6 text--secondary title font-weight-regular">

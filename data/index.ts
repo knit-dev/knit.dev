@@ -26,7 +26,7 @@ export const services: Array<Service> = [
   {
     title: 'Progressive Web Apps',
     text:
-      'Users on web, desktop, or mobile platforms run your app using a single code base. PWAs are run in-browser or can be installed to the home screen just like traditional mobile or desktop apps. Because they update over-the-air, PWAs allow side-stepping of cumbersome app store release requirements. Like native apps, PWAs work offline and can leverage some lower-level device features like web share and gestures.',
+      'Users on web, desktop, or mobile platforms run your app using a single code base. PWAs run in browser or can be installed to the home screen just like traditional mobile or desktop apps. Because they update over the air, PWAs allow side stepping of cumbersome app store release requirements. Like native apps, PWAs work offline and can leverage some lower level device features like web share and gestures.',
     image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png'),
     link: 'https://en.wikipedia.org/wiki/Progressive_web_application'
@@ -34,7 +34,7 @@ export const services: Array<Service> = [
   {
     title: 'Mobile Apps',
     text:
-      'When your project requires intimate integration with lower-level mobile device architecture, a native mobile app may be the right choice. These features include geofencing, proximity and other sensing/detection, calendars, contacts, camera, and push notifications. Native mobile apps utilize mobile operating system user interface modules for consistent user experience and performance.',
+      'When your project requires intimate integration with lower level mobile device architecture, a native mobile app may be the right choice. Such features include geofencing, proximity and other sensing and detection, calendars, contacts, camera, and push notifications. Native mobile apps utilize mobile operating system user interface modules for consistent user experience and performance.',
     image: require('~/assets/images/knit/illustrations/services-mobile-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-mobile-illustration-lazy.png'),
     link: 'https://en.wikipedia.org/wiki/Mobile_app'
