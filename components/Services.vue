@@ -26,7 +26,7 @@
                 :href="item.link"
                 rel="noopener"
                 target="_blank"
-                aria-label="item.title"
+                :aria-label="item.title"
                 >Learn more<v-icon right>{{ externalLinkIcon }}</v-icon></v-btn
               >
             </v-expansion-panel-content>
