@@ -19,8 +19,16 @@
             <v-expansion-panel-header>
               <h3>{{ item.title }}</h3>
             </v-expansion-panel-header>
-            <v-expansion-panel-content
-              >{{ item.text }}
+            <v-expansion-panel-content>
+              <p>{{ item.text }}</p>
+              <v-btn
+                text
+                :href="item.link"
+                rel="noopener"
+                target="_blank"
+                aria-label="item.title"
+                >Learn more<v-icon right>{{ externalLinkIcon }}</v-icon></v-btn
+              >
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -31,6 +39,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from '@vue/composition-api'
+import { mdiOpenInNew } from '@mdi/js'
 import SectionHeading from '~/components/SectionHeading.vue'
 import { services as servicesData } from '~/data'
 
@@ -42,6 +51,8 @@ export default defineComponent({
   setup() {
     const panel = ref(0)
 
+    const externalLinkIcon = ref(mdiOpenInNew)
+
     const services = ref(servicesData)
 
     const activeImage = computed(() => services.value[panel.value].image)
@@ -49,7 +60,7 @@ export default defineComponent({
       () => services.value[panel.value].lazyImage
     )
 
-    return { panel, services, activeImage, activeLazyImage }
+    return { panel, services, activeImage, activeLazyImage, externalLinkIcon }
   }
 })
 </script>
