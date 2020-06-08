@@ -106,13 +106,11 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-text>
-        &copy; {{ new Date().getFullYear() }} {{ companyName }}. Open-source
-        <a
-          href="https://opensource.org/licenses/MIT"
-          target="_blank"
-          rel="”noopener”"
-          >MIT Licensed</a
-        >
+        &copy; {{ new Date().getFullYear() }} {{ companyName }}.
+        {{ license.description }}
+        <a :href="license.link" target="_blank" rel="”noopener”">{{
+          license.linkText
+        }}</a>
       </v-card-text>
     </v-card>
     <div class="test-icon">
@@ -129,7 +127,8 @@ import { defineComponent, ref, computed } from '@vue/composition-api'
 import {
   socials as socialsData,
   affiliates as affiliatesData,
-  callToAction as callToActionData
+  callToAction as callToActionData,
+  license as licenseData
 } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
@@ -150,6 +149,7 @@ export default defineComponent({
     const callToAction = ref(callToActionData)
     const socials = ref(socialsData)
     const affiliates = ref(affiliatesData)
+    const license = ref(licenseData)
 
     return {
       isDark,
@@ -157,7 +157,8 @@ export default defineComponent({
       siteLogo,
       callToAction,
       socials,
-      affiliates
+      affiliates,
+      license
     }
   }
 })

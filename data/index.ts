@@ -215,3 +215,9 @@ export const affiliates: Array<Affiliate> = [
     link: 'https://www.netlify.com'
   }
 ]
+
+export const license = {
+  description: 'Open-source ',
+  linkText: 'MIT Licensed',
+  link: 'https://github.com/knit-dev/knit.dev/blob/master/LICENSE'
+}
