@@ -92,6 +92,7 @@
                       contain
                       height="1.375rem"
                       class="affiliate-image"
+                      :class="{ 'affiliate-image-dark': isDark }"
                     />
                   </a>
                 </div>
@@ -185,7 +186,7 @@ $icon-size: 4rem;
   color: rgb(153, 153, 153);
 }
 .affiliate-image {
-  filter: grayscale(100%) contrast(30%);
+  filter: grayscale(100%) contrast(40%);
   transition-duration: 150ms;
   transition-timing-function: ease-out;
   transition-delay: initial;
@@ -193,5 +194,8 @@ $icon-size: 4rem;
 }
 .affiliate-image:hover {
   filter: grayscale(0%);
+}
+.affiliate-image-dark {
+  filter: grayscale(100%) contrast(10%);
 }
 </style>

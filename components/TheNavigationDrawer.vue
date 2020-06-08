@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    id="the-navigation-drawer"
     v-model="localDrawer"
     app
     right
@@ -90,4 +91,10 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  #the-navigation-drawer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+</style>
