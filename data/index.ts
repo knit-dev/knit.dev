@@ -26,7 +26,7 @@ export const services: Array<Service> = [
   {
     title: 'Progressive Web Apps',
     text:
-      'Users on web, desktop, or mobile platforms run your app using a single code base. PWAs run in-browser or can be installed to the home screen just like traditional mobile or desktop apps. Like native apps, PWAs work offline and can leverage some lower level device features like web share and gestures. Take you app from concept to scale on the shortest timeline and with the broadest reach.',
+      'Users on web, desktop, or mobile platforms run your app using a single code base. PWAs run in-browser or can be installed to the home screen just like traditional mobile or desktop apps. Like native apps, PWAs work offline and can leverage some lower level device features like web share and gestures. Take your app from concept to scale on the shortest timeline and with the broadest reach.',
     image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png'),
     link: 'https://en.wikipedia.org/wiki/Progressive_web_application'

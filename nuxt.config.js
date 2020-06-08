@@ -88,7 +88,8 @@ export default {
       process.env.COMPANY_NAME ||
       process.env.LOCAL_SITE_NAME ||
       process.env.npm_package_name,
-    tagline: process.env.TAGLINE
+    tagline: process.env.TAGLINE,
+    siteUrl: process.env.LOCAL_SITE_URL || process.env.npm_package_homepage
   },
   /*
    ** Customize the progress-bar color
