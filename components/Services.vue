@@ -21,14 +21,6 @@
             </v-expansion-panel-header>
             <v-expansion-panel-content>
               <p>{{ item.text }}</p>
-              <v-btn
-                text
-                :href="item.link"
-                rel="noopener"
-                target="_blank"
-                :aria-label="item.title"
-                >Learn more<v-icon right>{{ externalLinkIcon }}</v-icon></v-btn
-              >
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
