@@ -118,6 +118,7 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+    '@aceforth/nuxt-optimized-images',
     '@nuxtjs/vuetify'
   ],
   /*
@@ -137,6 +138,9 @@ export default {
    */
   axios: {},
   sentry: {},
+  optimizedImages: {
+    optimizeImages: true
+  },
   /*
    ** Build configuration
    */

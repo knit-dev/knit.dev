@@ -25,6 +25,7 @@
     }
   },
   "dependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.0.1",
     "@mdi/js": "^5.3.45",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
@@ -32,6 +33,9 @@
     "@nuxtjs/sentry": "^4.0.3",
     "@types/swiper": "^5.3.1",
     "@vue/composition-api": "^0.5.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "imagemin-svgo": "^8.0.0",
     "nuxt": "^2.0.0",
     "swiper": "^5.4.2",
     "typeface-poppins": "0.0.72",
