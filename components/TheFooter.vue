@@ -119,7 +119,7 @@
           >
           <div class="mx-2">•</div>
           <v-col class="d-flex justify-start"
-            ><nuxt-link exact to="/terms">Terms of Service</nuxt-link></v-col
+            ><nuxt-link exact to="/terms">Terms of Use</nuxt-link></v-col
           >
         </v-row>
       </v-card-text>
