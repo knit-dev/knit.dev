@@ -31,7 +31,26 @@
     <v-card-text>{{ item.description }}</v-card-text>
     <v-card-text>Compares to {{ item.alternatives.join(', ') }}</v-card-text>
     <v-spacer></v-spacer>
-    <v-card-text>{{ item.usedByCompanies.join(' ') }}</v-card-text>
+    <v-card-text>
+      <v-row no-gutters>
+        <v-col
+          v-for="company in item.usedByCompanies"
+          :key="company.name"
+          cols="6"
+          class="d-flex"
+        >
+          <v-img
+            class="used-by-company"
+            :class="{ 'used-by-company-dark': $vuetify.theme.dark }"
+            :src="company.image"
+            :alt="company.name"
+            contain
+            max-width="6rem"
+            max-height="1.5rem"
+          ></v-img>
+        </v-col>
+      </v-row>
+    </v-card-text>
   </v-card>
 </template>
 
@@ -63,5 +82,14 @@ export default defineComponent({
 }
 .subtitle {
   font-family: 'Space Mono';
+}
+
+.used-by-company {
+  -webkit-filter: grayscale(100%) contrast(70%);
+  filter: grayscale(100%) contrast(70%);
+}
+.used-by-company-dark {
+  -webkit-filter: grayscale(100%) contrast(30%);
+  filter: grayscale(100%) contrast(30%);
 }
 </style>

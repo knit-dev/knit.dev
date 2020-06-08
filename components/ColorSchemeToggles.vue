@@ -16,7 +16,7 @@
           class="ml-2"
           aria-label="toggle use system color mode preference"
           v-on="on"
-          @click="toggleDefault()"
+          @click.stop.prevent="toggleDefault()"
         >
           <v-icon :disabled="isUserDefinedColorScheme">
             {{ defaultIcon }}

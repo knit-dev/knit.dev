@@ -1,10 +1,15 @@
 export interface HeroContent {
-  subtitle: String
   title: String
+  subtitle: String
   text: String
   callToAction: CallToAction
   image: any
   lazyImage: any
+}
+
+export interface CallToAction {
+  text: String
+  email: String
 }
 
 export interface Service {
@@ -21,8 +26,13 @@ export interface TechStackItem {
   description: String
   logo: any
   alternatives: Array<String>
-  usedByCompanies: Array<String>
+  usedByCompanies: Array<Company>
   link: String
+}
+
+interface Company {
+  name: String
+  image: any
 }
 
 export interface Testimonial {
@@ -30,11 +40,6 @@ export interface Testimonial {
   jobTitle: String
   fullName: String
   text: String
-}
-
-export interface CallToAction {
-  text: String
-  email: String
 }
 
 export interface Social {

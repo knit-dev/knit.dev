@@ -47,9 +47,18 @@ export const techStackItems: Array<TechStackItem> = [
     name: 'Vue.js',
     description:
       "The fastest growing JavaScript frontend framework, and for good reason. It's flexible, scalable, and highly performant. Vue's comprehensive documentation and intuitive design make it easy to learn for most programmers.",
-    logo: require('~/assets/images/tech-stack/vue.svg'),
+    logo: require('~/assets/images/tech-stack/vue-logo.svg'),
     alternatives: ['React', 'Svelte'],
-    usedByCompanies: ['Gitlab', 'Grammarly'],
+    usedByCompanies: [
+      {
+        name: 'Gitlab',
+        image: require('~/assets/images/tech-stack/gitlab-combination-mark.svg')
+      },
+      {
+        name: 'Grammarly',
+        image: require('~/assets/images/tech-stack/grammarly-combination-mark.svg')
+      }
+    ],
     link: 'https://vuejs.org'
   },
   {
@@ -57,9 +66,18 @@ export const techStackItems: Array<TechStackItem> = [
     name: 'React Native',
     description:
       'Emerged as the primary tool for building cross-platform (iOS & Android) mobile apps. Leveraging JavaScript, React Native allows developers to utilize a single codebase while rendering a native app experience to users.',
-    logo: require('~/assets/images/tech-stack/react.svg'),
+    logo: require('~/assets/images/tech-stack/react-logo.svg'),
     alternatives: ['Swift', 'Java'],
-    usedByCompanies: ['Pinterest', 'Uber Eats'],
+    usedByCompanies: [
+      {
+        name: 'Pinterest',
+        image: require('~/assets/images/tech-stack/pinterest-combination-mark.svg')
+      },
+      {
+        name: 'Uber Eats',
+        image: require('~/assets/images/tech-stack/uber-eats-wordmark.svg')
+      }
+    ],
     link: 'https://reactnative.dev'
   },
   {
@@ -67,9 +85,18 @@ export const techStackItems: Array<TechStackItem> = [
     name: 'Figma',
     description:
       'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
-    logo: require('~/assets/images/tech-stack/figma.svg'),
+    logo: require('~/assets/images/tech-stack/figma-logo.svg'),
     alternatives: ['Sketch', 'InVision'],
-    usedByCompanies: ['Slack', 'Square'],
+    usedByCompanies: [
+      {
+        name: 'Slack',
+        image: require('~/assets/images/tech-stack/slack-combination-mark.svg')
+      },
+      {
+        name: 'Square',
+        image: require('~/assets/images/tech-stack/square-combination-mark.svg')
+      }
+    ],
     link: 'https://www.figma.com'
   },
   {
@@ -77,9 +104,18 @@ export const techStackItems: Array<TechStackItem> = [
     name: 'Node.js',
     description:
       'Offers excellent performance and scalability. Well maintained packages, comprehensive platform integrations, and an abundance of JavaScript developers make Node a robust choice.',
-    logo: require('~/assets/images/tech-stack/node.svg'),
-    alternatives: ['.NET Core', 'Ruby on Rails'],
-    usedByCompanies: ['Netflix', 'Uber'],
+    logo: require('~/assets/images/tech-stack/node-logo.svg'),
+    alternatives: ['.NET Core', 'Java'],
+    usedByCompanies: [
+      {
+        name: 'Netflix',
+        image: require('~/assets/images/tech-stack/netflix-wordmark.svg')
+      },
+      {
+        name: 'Trello',
+        image: require('~/assets/images/tech-stack/trello-combination-mark.svg')
+      }
+    ],
     link: 'https://nodejs.dev'
   },
   {
@@ -87,9 +123,18 @@ export const techStackItems: Array<TechStackItem> = [
     name: 'MySQL',
     description:
       'Holds the largest market share for relational database management systems. It is a stable, reliable, and powerful solution offering advanced features.',
-    logo: require('~/assets/images/tech-stack/mysql.svg'),
+    logo: require('~/assets/images/tech-stack/mysql-logo.svg'),
     alternatives: ['MongoDb', 'PostgreSQL'],
-    usedByCompanies: ['Wikipedia', 'YouTube'],
+    usedByCompanies: [
+      {
+        name: 'Wikipedia',
+        image: require('~/assets/images/tech-stack/wikipedia-wordmark.svg')
+      },
+      {
+        name: 'YouTube',
+        image: require('~/assets/images/tech-stack/youtube-combination-mark.svg')
+      }
+    ],
     link: 'https://www.mysql.com'
   },
   {
@@ -97,9 +142,18 @@ export const techStackItems: Array<TechStackItem> = [
     name: 'Amazon Web Services',
     description:
       'The most mature and widely used hosting platform available today. AWS is well tuned to manage any size application, from a school project to a billion dollar company.',
-    logo: require('~/assets/images/tech-stack/amazon-web-services.svg'),
+    logo: require('~/assets/images/tech-stack/amazon-web-services-logo.svg'),
     alternatives: ['Microsoft Azure', 'Heroku'],
-    usedByCompanies: ['Twitch', 'LinkedIn'],
+    usedByCompanies: [
+      {
+        name: 'Twitch',
+        image: require('~/assets/images/tech-stack/twitch-wordmark.svg')
+      },
+      {
+        name: 'Linkedin',
+        image: require('~/assets/images/tech-stack/linkedin-wordmark.svg')
+      }
+    ],
     link: 'https://aws.amazon.com'
   }
 ]
