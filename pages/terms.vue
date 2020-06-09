@@ -47,7 +47,7 @@
         you.
       </p>
 
-      <h3 class="pb-3">4. Accuracy of materials</h3>
+      <h3 class="pb-3">4. Accuracy of Materials</h3>
       <p>
         The materials appearing on {{ companyName }}'s website could include
         technical, typographical, or photographic errors. {{ companyName }} does
