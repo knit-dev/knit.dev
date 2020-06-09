@@ -23,8 +23,7 @@ export default defineComponent({
   setup() {
     const items = ref([
       { title: 'home', route: '/' },
-      { title: 'about us', route: '/about' },
-      { title: 'contact', route: '#' }
+      { title: 'contact', route: '/contact' }
     ])
 
     return { items }

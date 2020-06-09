@@ -13,20 +13,6 @@
     <template v-slot:append>
       <v-container fluid class="pb-1">
         <v-row align="center">
-          <v-col class="pl-3 py-1 d-flex align-center">
-            <nuxt-link exact to="/">
-              <v-img
-                :src="siteLogo"
-                height="2.5rem"
-                width="2.5rem"
-                class="ml-1"
-                alt="knit logo"
-              ></v-img>
-            </nuxt-link>
-            <div class="ml-3 title font-weight-bold">
-              {{ siteName }}
-            </div>
-          </v-col>
           <v-spacer></v-spacer>
           <v-col class="pa-0 d-flex justify-end">
             <v-btn
