@@ -86,4 +86,16 @@ export default defineComponent({
   background-position: left;
   background-image: url('~assets/images/knit/textures/hero-texture.svg');
 }
+
+path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 2s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 </style>

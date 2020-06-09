@@ -54,7 +54,7 @@
               :href="item.link"
               target="_blank"
               rel="”noopener”"
-              class="mx-2"
+              class="mr-2"
               icon
               large
               :aria-label="item.name"

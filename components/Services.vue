@@ -15,9 +15,19 @@
             <SectionHeading subtitle="Take a peek" title="Our Services" />
           </div>
 
-          <v-expansion-panels v-model="panel" mandatory accordion>
-            <v-expansion-panel v-for="item in services" :key="item.title">
-              <v-expansion-panel-header>
+          <v-expansion-panels
+            v-model="panel"
+            mandatory
+            accordion
+            :flat="true"
+            class="expansion-panels"
+          >
+            <v-expansion-panel
+              v-for="item in services"
+              :key="item.title"
+              class="expansion-panel"
+            >
+              <v-expansion-panel-header class="px-0">
                 <h3>{{ item.title }}</h3>
               </v-expansion-panel-header>
               <v-expansion-panel-content>
@@ -59,4 +69,15 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.expansion-panels {
+  border-top: 1px solid rgba(28, 8, 100, 0.15);
+  .expansion-panel {
+    border-bottom: 1px solid rgba(28, 8, 100, 0.15);
+  }
+}
+
+::v-deep .v-expansion-panel-content__wrap {
+  padding-left: 0;
+}
+</style>
