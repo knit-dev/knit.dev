@@ -34,8 +34,10 @@
       </v-col>
       <v-col cols="12" md="6" class="pa-0">
         <div class="hero-illustration my-5 ml-10 pr-10">
-          <div class="hero-wrapper px-0 py-4">
+          <div class="hero-image-wrapper">
             <v-img
+              contain
+              aspect-ratio="1"
               class="hero-image"
               :src="content.image"
               :lazy-src="content.lazyImage"
@@ -71,7 +73,7 @@ export default defineComponent({
   -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.22));
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.22));
 }
-.hero-wrapper {
+.hero-image-wrapper {
   background: linear-gradient(
     118.61deg,
     rgba(58, 28, 163, 0.04) 27.11%,
