@@ -216,6 +216,30 @@ export const affiliates: Array<Affiliate> = [
   }
 ]
 
+export const footerFloatingIcons = [
+  {
+    style: {
+      left: '20vw',
+      top: '-1.5rem'
+    },
+    image: require('~/assets/images/knit/icons/brush.png')
+  },
+  {
+    style: {
+      right: '25vw',
+      bottom: '250px'
+    },
+    image: require('~/assets/images/knit/icons/script.png')
+  },
+  {
+    style: {
+      left: '35vw',
+      bottom: '80px'
+    },
+    image: require('~/assets/images/knit/icons/page.png')
+  }
+]
+
 export const license = {
   description: 'Open-source ',
   linkText: 'MIT Licensed',

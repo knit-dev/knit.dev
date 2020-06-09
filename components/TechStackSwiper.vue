@@ -87,7 +87,7 @@ $swiper-bottom: 5rem;
 
 .swiper-heading {
   position: absolute;
-  margin-top: $swiper-bottom / 2;
+  margin-top: $swiper-bottom / 3;
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
 .swiper-heading ::v-deep .heading-subtitle {
@@ -112,7 +112,7 @@ $swiper-bottom: 5rem;
 }
 
 .swiper-slide {
-  padding-top: $swiper-bottom * 1.5;
+  padding-top: $swiper-bottom * 1.25;
   padding-bottom: $swiper-bottom;
 }
 

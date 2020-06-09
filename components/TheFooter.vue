@@ -114,7 +114,7 @@
       </v-card-text>
     </v-card>
     <div
-      v-for="item in floatingIcons"
+      v-for="item in footerFloatingIcons"
       :key="item.image"
       class="test-icon justify-center align-center d-none d-lg-flex"
       :style="item.style"
@@ -130,7 +130,8 @@ import {
   socials as socialsData,
   affiliates as affiliatesData,
   callToAction as callToActionData,
-  license as licenseData
+  license as licenseData,
+  footerFloatingIcons as footerFloatingIconsData
 } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
@@ -151,31 +152,8 @@ export default defineComponent({
     const callToAction = ref(callToActionData)
     const socials = ref(socialsData)
     const affiliates = ref(affiliatesData)
+    const footerFloatingIcons = ref(footerFloatingIconsData)
     const license = ref(licenseData)
-
-    const floatingIcons = [
-      {
-        style: {
-          left: '171px',
-          top: '-1.5rem'
-        },
-        image: require('~/assets/images/knit/icons/brush.png')
-      },
-      {
-        style: {
-          right: '212px',
-          bottom: '250px'
-        },
-        image: require('~/assets/images/knit/icons/script.png')
-      },
-      {
-        style: {
-          left: '470px',
-          bottom: '80px'
-        },
-        image: require('~/assets/images/knit/icons/page.png')
-      }
-    ]
 
     return {
       isDark,
@@ -185,7 +163,7 @@ export default defineComponent({
       socials,
       affiliates,
       license,
-      floatingIcons
+      footerFloatingIcons
     }
   }
 })
