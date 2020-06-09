@@ -10,20 +10,22 @@
         ></v-img>
       </v-col>
       <v-col md="6">
-        <div class="pb-4">
-          <SectionHeading subtitle="Take a peek" title="Our Services" />
-        </div>
+        <div class="mx-auto" style="max-width: 600px;">
+          <div class="pb-4">
+            <SectionHeading subtitle="Take a peek" title="Our Services" />
+          </div>
 
-        <v-expansion-panels v-model="panel" mandatory accordion>
-          <v-expansion-panel v-for="item in services" :key="item.title">
-            <v-expansion-panel-header>
-              <h3>{{ item.title }}</h3>
-            </v-expansion-panel-header>
-            <v-expansion-panel-content>
-              <p>{{ item.text }}</p>
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
+          <v-expansion-panels v-model="panel" mandatory accordion>
+            <v-expansion-panel v-for="item in services" :key="item.title">
+              <v-expansion-panel-header>
+                <h3>{{ item.title }}</h3>
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <p>{{ item.text }}</p>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </div>
       </v-col>
     </v-row>
   </v-container>

@@ -73,7 +73,7 @@ export default {
         {
           rel: 'preload',
           as: 'style',
-          href: '/_nuxt/4f8b11cc71aefe45edf0.css'
+          href: '/_nuxt/cd8cd4b322b80cb825d3.css'
         }
       ]
     }),
@@ -88,7 +88,8 @@ export default {
       process.env.COMPANY_NAME ||
       process.env.LOCAL_SITE_NAME ||
       process.env.npm_package_name,
-    tagline: process.env.TAGLINE
+    tagline: process.env.TAGLINE,
+    siteUrl: process.env.LOCAL_SITE_URL || process.env.npm_package_homepage
   },
   /*
    ** Customize the progress-bar color
@@ -98,10 +99,10 @@ export default {
    ** Global CSS
    */
   css: [
-    'swiper/css/swiper.css',
-    '@assets/fonts/poppins.css',
-    '@assets/fonts/space-mono.css',
-    '@/assets/css/main.scss'
+    '@/assets/fonts/poppins.css',
+    '@/assets/fonts/space-mono.css',
+    '@/assets/css/main.scss',
+    'swiper/css/swiper.css'
   ],
   /*
    ** Plugins to load before mounting the App

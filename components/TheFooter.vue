@@ -106,11 +106,22 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-text>
-        &copy; {{ new Date().getFullYear() }} {{ companyName }}.
-        {{ license.description }}
-        <a :href="license.link" target="_blank" rel="”noopener”">{{
-          license.linkText
-        }}</a>
+        <div>
+          &copy; {{ new Date().getFullYear() }} {{ companyName }}.
+          {{ license.description }}
+          <a :href="license.link" target="_blank" rel="”noopener”">{{
+            license.linkText
+          }}</a>
+        </div>
+        <v-row no-gutters justify="center" class="text-center">
+          <v-col class="d-flex justify-end"
+            ><nuxt-link exact to="/privacy">Privacy</nuxt-link></v-col
+          >
+          <div class="mx-2">•</div>
+          <v-col class="d-flex justify-start"
+            ><nuxt-link exact to="/terms">Terms of Use</nuxt-link></v-col
+          >
+        </v-row>
       </v-card-text>
     </v-card>
     <div
