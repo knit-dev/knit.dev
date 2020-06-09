@@ -1,9 +1,9 @@
 <template>
-  <div class="testimonials-bg">
+  <div class="testimonials-bg py-8">
     <div v-swiper:testimonialsSwiper="swiperOptions">
       <v-container class="text-center">
         <h4
-          class="text-uppercase heading-subtitle font-weight-regular pt-6"
+          class="text-uppercase heading-subtitle font-weight-regular pt-4"
           :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
         >
           From our clients

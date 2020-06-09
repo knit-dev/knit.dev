@@ -124,11 +124,13 @@
         </v-row>
       </v-card-text>
     </v-card>
-    <div class="test-icon">
-      <v-img
-        :src="require('~/assets/images/knit/icons/brush.png')"
-        alt="brush"
-      ></v-img>
+    <div
+      v-for="item in footerFloatingIcons"
+      :key="item.image"
+      class="test-icon justify-center align-center d-none d-lg-flex"
+      :style="item.style"
+    >
+      <v-img :src="item.image"></v-img>
     </div>
   </v-footer>
 </template>
@@ -139,7 +141,8 @@ import {
   socials as socialsData,
   affiliates as affiliatesData,
   callToAction as callToActionData,
-  license as licenseData
+  license as licenseData,
+  footerFloatingIcons as footerFloatingIconsData
 } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
@@ -160,6 +163,7 @@ export default defineComponent({
     const callToAction = ref(callToActionData)
     const socials = ref(socialsData)
     const affiliates = ref(affiliatesData)
+    const footerFloatingIcons = ref(footerFloatingIconsData)
     const license = ref(licenseData)
 
     return {
@@ -169,7 +173,8 @@ export default defineComponent({
       callToAction,
       socials,
       affiliates,
-      license
+      license,
+      footerFloatingIcons
     }
   }
 })
@@ -185,11 +190,9 @@ export default defineComponent({
 $icon-size: 4rem;
 .test-icon {
   position: absolute;
-  left: 20vw;
-  top: $icon-size * -0.5;
+  padding: 3px;
   width: $icon-size;
   height: $icon-size;
-
   box-shadow: 8px 8px 15px rgba(19, 6, 65, 0.1);
   border-radius: 10px;
   z-index: 4;

@@ -32,14 +32,19 @@
           </v-hover>
         </div>
       </v-col>
-      <v-col cols="12" md="6" class="pa-0 hero-illustration">
-        <v-img
-          :src="content.image"
-          :lazy-src="content.lazyImage"
-          aspect-ratio="1"
-          contain
-          alt="hero illustration"
-        ></v-img>
+      <v-col cols="12" md="6" class="pa-0">
+        <div class="hero-illustration my-5 ml-10 pr-10">
+          <div class="hero-image-wrapper">
+            <v-img
+              contain
+              aspect-ratio="1"
+              class="hero-image"
+              :src="content.image"
+              :lazy-src="content.lazyImage"
+              alt="hero illustration"
+            ></v-img>
+          </div>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -64,9 +69,19 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.hero-image {
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.22));
+}
+.hero-image-wrapper {
+  background: linear-gradient(
+    118.61deg,
+    rgba(58, 28, 163, 0.04) 27.11%,
+    rgba(33, 17, 88, 0.09) 120.45%
+  );
+  border-radius: 35px;
+}
 .hero-illustration {
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: left;
   background-image: url('~assets/images/knit/textures/hero-texture.svg');
