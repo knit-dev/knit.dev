@@ -164,7 +164,7 @@ export const testimonials: Array<Testimonial> = [
     jobTitle: 'CEO',
     fullName: 'Sonya Petcavich',
     text:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi corrupti quia ea deleniti, reiciendis porro molestias vitae, veniam nemo delectus harum culpa.'
+      "We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. The quality of Knit's work is top-notch, and they were a pleasure to work with over the past 4 months!"
   },
   {
     organizationName: 'Redhawk Logistics',

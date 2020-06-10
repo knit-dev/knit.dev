@@ -44,7 +44,7 @@ export default defineComponent({
       speed: 600,
       effect: 'flip',
       autoplay: {
-        delay: 6000
+        delay: 20000
       },
       pagination: {
         el: '.swiper-pagination',
