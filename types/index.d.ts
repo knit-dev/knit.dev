@@ -39,6 +39,7 @@ export interface Testimonial {
   organizationName: String
   jobTitle: String
   fullName: String
+  highlightedText?: String
   text: String
 }
 
