@@ -220,7 +220,7 @@ _:future,
   animation-delay: 1s;
 }
 
-@-moz-document url-prefix() {
+@supports (-moz-appearance: none) {
   path {
     animation-delay: 1s;
   }
