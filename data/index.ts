@@ -186,7 +186,7 @@ export const socials: Array<Social> = [
     icon: mdiGithub,
     link: 'https://github.com/knit-dev'
   },
-  { name: 'twitter', icon: mdiTwitter, link: 'https://twitter.com' },
+  { name: 'twitter', icon: mdiTwitter, link: 'https://twitter.com/knitllc' },
   {
     name: 'linkedin',
     icon: mdiLinkedin,
