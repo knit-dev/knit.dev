@@ -14,6 +14,13 @@
           'display-1': $vuetify.breakpoint.mdAndUp
         }"
       >
+        <span
+          :class="{
+            'dark-description': $vuetify.theme.dark,
+            'light-description': !$vuetify.theme.dark
+          }"
+          >{{ item.highlightedText }}</span
+        >
         {{ item.text }}
       </p>
 
@@ -43,4 +50,11 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dark-description {
+  color: #623de4;
+}
+.light-description {
+  color: #420eff;
+}
+</style>
