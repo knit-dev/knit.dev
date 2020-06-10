@@ -1,6 +1,10 @@
 <template>
   <v-content fluid>
-    <v-row no-gutters class="pb-4">
+    <v-row
+      no-gutters
+      class="pb-4"
+      :class="{ 'global-x-padding': $vuetify.breakpoint.mdAndUp }"
+    >
       <v-col cols="12" md="6" align-self="center">
         <div class="mx-auto pa-4" style="max-width: 700px;">
           <h1 class="pb-5 display-2 font-weight-medium">Let's chat</h1>
