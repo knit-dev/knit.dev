@@ -214,6 +214,18 @@ path {
   animation: dash 3s linear forwards;
 }
 
+_::-webkit-full-page-media,
+_:future,
+:root path {
+  animation-delay: 1s;
+}
+
+@-moz-document url-prefix() {
+  path {
+    animation-delay: 1s;
+  }
+}
+
 @keyframes dash {
   to {
     stroke-dashoffset: 0;
