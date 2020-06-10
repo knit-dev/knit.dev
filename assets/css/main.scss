@@ -1,14 +1,16 @@
-$global-padding: 2.5vw;
+:root {
+  --global-padding: 2vw;
+}
 
 .global-x-padding {
-  padding-left: $global-padding;
-  padding-right: $global-padding;
+  padding-left: var(--global-padding);
+  padding-right: var(--global-padding);
 }
 .global-left-padding {
-  padding-left: $global-padding;
+  padding-left: var(--global-padding);
 }
 .global-right-padding {
-  padding-right: $global-padding;
+  padding-right: var(--global-padding);
 }
 
 .btn-hover-grow {

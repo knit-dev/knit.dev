@@ -5,7 +5,7 @@
     :flat="$vuetify.breakpoint.smAndDown"
     :absolute="$vuetify.breakpoint.smAndDown"
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
-    :class="{ 'global-x-padding': $vuetify.breakpoint.mdAndUp }"
+    :class="{ 'global-padded': $vuetify.breakpoint.mdAndUp }"
   >
     <v-row no-gutters>
       <v-col
@@ -81,7 +81,8 @@ export default defineComponent({
   }
 }
 
-// #the-app-bar.global-x-padding ::v-deep > div:first-child {
-//   padding: 0px;
-// }
+#the-app-bar.global-padded ::v-deep > div:first-child {
+  padding-left: calc(var(--global-padding) + 1rem);
+  padding-right: calc(var(--global-padding) + 1rem);
+}
 </style>
