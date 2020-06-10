@@ -1,6 +1,9 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-row no-gutters>
+    <v-row
+      no-gutters
+      :class="{ 'global-left-padding': $vuetify.breakpoint.mdAndUp }"
+    >
       <v-col cols="12" md="6" align-self="center">
         <div class="mx-auto pa-4" style="max-width: 700px;">
           <h4
@@ -32,7 +35,7 @@
           </v-hover>
         </div>
       </v-col>
-      <v-col cols="12" md="6" class="pa-0">
+      <v-col cols="12" md="6">
         <div class="svg-wrapper ml-10">
           <svg
             width="730"
@@ -145,16 +148,18 @@
               />
             </g>
           </svg>
-          <div class="hero-illustration mt-5 pr-12">
-            <div class="hero-image-wrapper">
-              <v-img
-                contain
-                aspect-ratio="1"
-                class="hero-image"
-                :src="content.image"
-                :lazy-src="content.lazyImage"
-                alt="hero illustration"
-              ></v-img>
+          <div :class="{ 'global-right-padding': $vuetify.breakpoint.mdAndUp }">
+            <div class="hero-image-container">
+              <div class="hero-image-wrapper">
+                <v-img
+                  contain
+                  aspect-ratio="1"
+                  class="hero-image"
+                  :src="content.image"
+                  :lazy-src="content.lazyImage"
+                  alt="hero illustration"
+                ></v-img>
+              </div>
             </div>
           </div>
         </div>
@@ -194,6 +199,10 @@ export default defineComponent({
     rgba(33, 17, 88, 0.09) 120.45%
   );
   border-radius: 35px;
+}
+.hero-image-container {
+  margin-top: 1.25rem;
+  padding-right: 3rem;
 }
 
 .svg-wrapper {

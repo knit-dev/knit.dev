@@ -10,6 +10,7 @@
       :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
     >
       <SectionHeading
+        :class="{ 'global-left-padding': $vuetify.breakpoint.mdAndUp }"
         subtitle="Toolbox to success"
         title="Recommended Tech Stack"
       />

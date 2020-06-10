@@ -5,6 +5,7 @@
     :flat="$vuetify.breakpoint.smAndDown"
     :absolute="$vuetify.breakpoint.smAndDown"
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
+    :class="{ 'global-x-padding': $vuetify.breakpoint.mdAndUp }"
   >
     <v-row no-gutters>
       <v-col
@@ -79,4 +80,8 @@ export default defineComponent({
     -webkit-backdrop-filter: blur(20px);
   }
 }
+
+// #the-app-bar.global-x-padding ::v-deep > div:first-child {
+//   padding: 0px;
+// }
 </style>

@@ -1,10 +1,14 @@
-.heading-subtitle {
-  font-family: 'Space Mono';
-  font-size: 0.875rem;
-  color: #6245e0;
+$global-padding: 2.5vw;
+
+.global-x-padding {
+  padding-left: $global-padding;
+  padding-right: $global-padding;
 }
-.heading-subtitle-dark {
-  color: #c6beed;
+.global-left-padding {
+  padding-left: $global-padding;
+}
+.global-right-padding {
+  padding-right: $global-padding;
 }
 
 .btn-hover-grow {
@@ -12,4 +16,13 @@
 }
 .btn-hover-grow:hover {
   transform: scale(1.1);
+}
+
+.heading-subtitle {
+  font-family: 'Space Mono';
+  font-size: 0.875rem;
+  color: #6245e0;
+}
+.heading-subtitle-dark {
+  color: #c6beed;
 }

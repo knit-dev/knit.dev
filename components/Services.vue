@@ -1,6 +1,9 @@
 <template>
   <v-container fluid>
-    <v-row align="center">
+    <v-row
+      align="center"
+      :class="{ 'global-x-padding': $vuetify.breakpoint.mdAndUp }"
+    >
       <v-col v-if="$vuetify.breakpoint.mdAndUp" md="6">
         <v-img
           :src="activeImage"
