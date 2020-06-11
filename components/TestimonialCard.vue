@@ -15,9 +15,9 @@
         }"
       >
         <span
+          class="text-highlighted"
           :class="{
-            'dark-description': $vuetify.theme.dark,
-            'light-description': !$vuetify.theme.dark
+            'text-highlighted-dark': $vuetify.theme.dark
           }"
           >{{ item.highlightedText }}</span
         >
@@ -51,10 +51,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.dark-description {
-  color: #623de4;
-}
-.light-description {
+.text-highlighted {
   color: #420eff;
+}
+.text-highlighted-dark {
+  color: #623de4;
 }
 </style>
