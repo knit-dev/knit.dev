@@ -40,7 +40,7 @@ export default defineComponent({
   setup() {
     const swiperOptions = {
       slidesPerView: 1,
-      loop: true,
+      // loop: true,
       speed: 600,
       effect: 'flip',
       autoplay: {
