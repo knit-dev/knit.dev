@@ -118,8 +118,12 @@
             ><nuxt-link exact to="/privacy">Privacy</nuxt-link></v-col
           >
           <div class="mx-2">•</div>
+          <nuxt-link exact to="/terms">Terms of Use</nuxt-link>
+          <div class="mx-2">•</div>
           <v-col class="d-flex justify-start"
-            ><nuxt-link exact to="/terms">Terms of Use</nuxt-link></v-col
+            ><a href="https://angry-goldberg-c2fd92.netlify.app/"
+              >Old Site</a
+            ></v-col
           >
         </v-row>
       </v-card-text>
