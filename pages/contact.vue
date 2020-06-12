@@ -1,45 +1,30 @@
 <template>
-  <v-content fluid>
-    <v-row
-      no-gutters
-      class="pb-4"
-      :class="{ 'global-x-padding': $vuetify.breakpoint.mdAndUp }"
-    >
+  <v-container fluid class="pa-0">
+    <v-row no-gutters class="global-x-padding pb-4">
       <v-col cols="12" md="6" align-self="center">
         <div class="mx-auto pa-4" style="max-width: 700px;">
-          <h1 class="pb-5 display-2 font-weight-medium">Let's chat</h1>
-          <h3 class="pb-6 text--secondary title font-weight-regular">
+          <PageHeading :text="heading" />
+          <p class="pb-6 text--secondary text-h6 font-weight-regular">
             Tell us about your project, find out if we're a good fit and receive
             an estimate. We're excited to discover new startup partners!
-          </h3>
+          </p>
 
           <v-row class="pb-6">
             <v-col cols="12" sm="6">
-              <h4
-                class="text-uppercase heading-subtitle font-weight-regular pb-2"
-                :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-              >
-                Email
-              </h4>
+              <HeadingSubtitle text="Email" class="pb-2" />
               <div>
                 <v-icon large class="mr-2">{{ emailIcon }}</v-icon>
                 <a
-                  class="body-1 font-weight-medium"
+                  class="text-body-1 font-weight-medium text-decoration-none"
                   :href="`mailto:${callToAction.email}`"
-                  style="text-decoration: none;"
                   >{{ callToAction.email }}</a
                 >
               </div>
             </v-col>
             <v-col cols="12" sm="6">
-              <h4
-                class="text-uppercase heading-subtitle font-weight-regular pb-2"
-                :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-              >
-                Headquarters
-              </h4>
+              <HeadingSubtitle text="Headquarters" class="pb-2" />
               <address
-                class="body-1 font-weight-medium"
+                class="text-body-1 font-weight-medium"
                 style="font-style: normal;"
               >
                 Knit LLC<br />
@@ -75,7 +60,7 @@
       </v-col>
     </v-row>
     <div></div>
-  </v-content>
+  </v-container>
 </template>
 
 <script>
@@ -83,22 +68,35 @@ import { defineComponent, ref } from '@vue/composition-api'
 import { mdiEmailOutline } from '@mdi/js'
 import {
   callToAction as callToActionData,
-  socials as socialsData
+  socials as socialsData,
 } from '~/data'
+import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
+import PageHeading from '~/components/PageHeading.vue'
 
 export default defineComponent({
   name: 'Contact',
+  head() {
+    return {
+      title: "Let's chat",
+    }
+  },
+  components: {
+    HeadingSubtitle,
+    PageHeading,
+  },
   setup() {
+    const heading = ref("Let's chat")
     const emailIcon = ref(mdiEmailOutline)
     const callToAction = ref(callToActionData)
     const socials = ref(socialsData)
 
     return {
+      heading,
       emailIcon,
       callToAction,
-      socials
+      socials,
     }
-  }
+  },
 })
 </script>
 

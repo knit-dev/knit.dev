@@ -103,7 +103,7 @@ export default defineComponent({
     const contact = ref(callToActionData)
 
     return { siteUrl, companyName, contact }
-  }
+  },
 })
 </script>
 

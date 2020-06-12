@@ -10,14 +10,14 @@
       <p
         class="font-weight-bold"
         :class="{
-          headline: $vuetify.breakpoint.smAndDown,
-          'display-1': $vuetify.breakpoint.mdAndUp
+          'text-h5': $vuetify.breakpoint.smAndDown,
+          'text-h4': $vuetify.breakpoint.mdAndUp,
         }"
       >
         <span
           class="text-highlighted"
           :class="{
-            'text-highlighted-dark': $vuetify.theme.dark
+            'text-highlighted-dark': $vuetify.theme.dark,
           }"
           >{{ item.highlightedText }}</span
         >
@@ -41,12 +41,12 @@ export default defineComponent({
   props: {
     item: {
       type: Object as () => Testimonial,
-      required: true
-    }
+      required: true,
+    },
   },
   setup() {
     return {}
-  }
+  },
 })
 </script>
 

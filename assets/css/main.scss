@@ -2,6 +2,12 @@
   --global-padding: 2vw;
 }
 
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  .heading-subtitle {
+    font-size: 0.75rem;
+  }
+}
+
 .global-x-padding {
   padding-left: var(--global-padding);
   padding-right: var(--global-padding);
@@ -24,6 +30,11 @@
   font-family: 'Space Mono';
   font-size: 0.875rem;
   color: #6245e0;
+}
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  .heading-subtitle {
+    font-size: 0.75rem;
+  }
 }
 .heading-subtitle-dark {
   color: #c6beed;

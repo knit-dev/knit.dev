@@ -2,12 +2,7 @@
   <div class="testimonials-bg py-8">
     <div v-swiper:testimonialsSwiper="swiperOptions">
       <v-container class="text-center">
-        <h4
-          class="text-uppercase heading-subtitle font-weight-regular pt-4"
-          :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-        >
-          From our clients
-        </h4>
+        <HeadingSubtitle text="From our clients" />
       </v-container>
 
       <div class="swiper-wrapper">
@@ -30,12 +25,14 @@
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api'
 import TestimonialCard from '~/components/TestimonialCard.vue'
+import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
 import { testimonials as testimonialsData } from '~/data'
 
 export default defineComponent({
   name: 'TestimonialsSwiper',
   components: {
-    TestimonialCard
+    TestimonialCard,
+    HeadingSubtitle,
   },
   setup() {
     const swiperOptions = {
@@ -44,18 +41,18 @@ export default defineComponent({
       speed: 600,
       effect: 'flip',
       autoplay: {
-        delay: 20000
+        delay: 20000,
       },
       pagination: {
         el: '.swiper-pagination',
-        clickable: true
-      }
+        clickable: true,
+      },
     }
 
     const testimonials = ref(testimonialsData)
 
     return { swiperOptions, testimonials }
-  }
+  },
 })
 </script>
 

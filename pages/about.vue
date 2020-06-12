@@ -8,10 +8,10 @@ import { defineComponent } from '@vue/composition-api'
 export default defineComponent({
   head() {
     return {
-      title: 'About Us'
+      title: 'About Us',
     }
   },
-  name: 'About'
+  name: 'About',
 })
 </script>
 

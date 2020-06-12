@@ -16,13 +16,13 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0, viewport-fit=cover'
+        content: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
       },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
     noscript: [{ innerHTML: 'This website requires JavaScript.' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
@@ -33,53 +33,53 @@ export default {
           as: 'font',
           type: 'font/woff2',
           href: '/_nuxt/fonts/e535f78.woff2',
-          crossorigin: true
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
           href: '/_nuxt/fonts/1a28052.woff2',
-          crossorigin: true
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
           href: '/_nuxt/fonts/61e2d96.woff2',
-          crossorigin: true
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
           href: '/_nuxt/fonts/e059682.woff2',
-          crossorigin: true
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
           href: '/_nuxt/fonts/e879481.woff2',
-          crossorigin: true
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
           href: '/_nuxt/fonts/263658a.woff2',
-          crossorigin: true
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'style',
-          href: '/_nuxt/a2679d8547696c4398a9.css'
-        }
-      ]
+          href: '/_nuxt/a2679d8547696c4398a9.css',
+        },
+      ],
     }),
     ...(process.env.VUE_DEVTOOLS_GLOBAL === 'true' && {
-      script: [{ src: 'http://localhost:8098' }]
-    })
+      script: [{ src: 'http://localhost:8098' }],
+    }),
   },
   env: {
     vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL,
@@ -89,7 +89,7 @@ export default {
       process.env.LOCAL_SITE_NAME ||
       process.env.npm_package_name,
     tagline: process.env.TAGLINE,
-    siteUrl: process.env.LOCAL_SITE_URL || process.env.npm_package_homepage
+    siteUrl: process.env.LOCAL_SITE_URL || process.env.npm_package_homepage,
   },
   /*
    ** Customize the progress-bar color
@@ -102,7 +102,7 @@ export default {
     '@/assets/fonts/poppins.css',
     '@/assets/fonts/space-mono.css',
     '@/assets/css/main.scss',
-    'swiper/css/swiper.css'
+    'swiper/css/swiper.css',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -110,7 +110,7 @@ export default {
   plugins: [
     '~plugins/vue-devtools-local',
     '~plugins/composition-api',
-    '~plugins/vue-awesome-swiper'
+    '~plugins/vue-awesome-swiper',
   ],
   /*
    ** Nuxt.js dev-modules
@@ -120,7 +120,7 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@aceforth/nuxt-optimized-images',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
   /*
    ** Nuxt.js modules
@@ -131,7 +131,7 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/sentry'
+    '@nuxtjs/sentry',
   ],
   /*
    ** Axios module configuration
@@ -140,7 +140,7 @@ export default {
   axios: {},
   sentry: {},
   optimizedImages: {
-    optimizeImages: true
+    optimizeImages: true,
   },
   /*
    ** Build configuration
@@ -154,7 +154,7 @@ export default {
     treeShake: true,
     defaultAssets: {
       font: false,
-      icons: false
+      icons: false,
     },
     icons: { iconfont: 'mdiSvg' },
     theme: {
@@ -171,7 +171,7 @@ export default {
           success: '#BCE688',
           error: '#FE6157',
           warning: '#FEDE93',
-          info: '#7CB8FF'
+          info: '#7CB8FF',
         },
         dark: {
           primary: '#FF6699',
@@ -181,10 +181,10 @@ export default {
           success: '#BCE688',
           error: '#FE6157',
           warning: '#FEDE93',
-          info: '#7CB8FF'
-        }
-      }
-    }
+          info: '#7CB8FF',
+        },
+      },
+    },
   },
   build: {
     extractCSS: process.env.NODE_ENV === 'production',
@@ -198,12 +198,12 @@ export default {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
-    }
+    },
   },
   generate: {
-    fallback: true
-  }
+    fallback: true,
+  },
 }

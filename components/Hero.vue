@@ -1,23 +1,13 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-row
-      no-gutters
-      :class="{ 'global-left-padding': $vuetify.breakpoint.mdAndUp }"
-    >
+    <v-row no-gutters class="global-left-padding">
       <v-col cols="12" md="6" align-self="center">
         <div class="mx-auto pa-4" style="max-width: 700px;">
-          <h4
-            class="text-uppercase heading-subtitle font-weight-regular pb-2"
-            :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-          >
-            {{ content.subtitle }}
-          </h4>
-          <h1 class="pb-5 display-2 font-weight-medium">
-            {{ content.title }}
-          </h1>
-          <h3 class="pb-6 text--secondary title font-weight-regular">
+          <HeadingSubtitle :text="content.subtitle" />
+          <PageHeading :text="content.title" />
+          <p class="pb-6 text--secondary text-h6 font-weight-regular">
             {{ content.text }}
-          </h3>
+          </p>
           <v-hover>
             <v-btn
               slot-scope="{ hover }"
@@ -148,7 +138,7 @@
               />
             </g>
           </svg>
-          <div :class="{ 'global-right-padding': $vuetify.breakpoint.mdAndUp }">
+          <div class="global-right-padding">
             <div class="hero-image-container">
               <div class="hero-image-wrapper">
                 <v-img
@@ -171,18 +161,21 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
 import { HeroContent } from '~/types'
+import PageHeading from '~/components/PageHeading.vue'
+import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
 
 export default defineComponent({
   name: 'Hero',
+  components: {
+    PageHeading,
+    HeadingSubtitle,
+  },
   props: {
     content: {
       type: Object as () => HeroContent,
-      required: true
-    }
+      required: true,
+    },
   },
-  setup() {
-    return {}
-  }
 })
 </script>
 

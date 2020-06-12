@@ -63,13 +63,13 @@ export default defineComponent({
   props: {
     item: {
       type: Object as () => TechStackItem,
-      required: true
-    }
+      required: true,
+    },
   },
 
   setup() {
     return {}
-  }
+  },
 })
 </script>
 

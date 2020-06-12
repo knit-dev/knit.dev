@@ -30,7 +30,7 @@ export default defineComponent({
   head() {
     return {
       titleTemplate: '%s',
-      title: `${process.env.siteName}: ${process.env.tagline}`
+      title: `${process.env.siteName}: ${process.env.tagline}`,
     }
   },
   name: 'Home',
@@ -38,13 +38,13 @@ export default defineComponent({
     Hero,
     Services,
     TechStackSwiper,
-    TestimonialsSwiper
+    TestimonialsSwiper,
   },
   setup() {
     const heroContent = ref(heroContentData)
 
     return { heroContent }
-  }
+  },
 })
 </script>
 
