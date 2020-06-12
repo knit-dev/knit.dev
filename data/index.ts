@@ -166,13 +166,6 @@ export const testimonials: Array<Testimonial> = [
     highlightedText: "The quality of Knit's work is top-notch.",
     text:
       ' We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!'
-  },
-  {
-    organizationName: 'Redhawk Logistics',
-    jobTitle: 'Managing Partner',
-    fullName: 'Mike Tobin',
-    text:
-      'Quisque sagittis purus sit amet volutpat consequat mauris. Orci eu lobortis elementum nibh tellus molestie. Nunc non blandit massa enim nec dui.'
   }
 ]
 
