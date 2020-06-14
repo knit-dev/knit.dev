@@ -73,7 +73,7 @@ export default {
         {
           rel: 'preload',
           as: 'style',
-          href: '/_nuxt/a2679d8547696c4398a9.css',
+          href: '/_nuxt/85ffead564ba7b9ddd87.css',
         },
       ],
     }),
