@@ -1,9 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row
-      align="center"
-      :class="{ 'global-x-padding': $vuetify.breakpoint.mdAndUp }"
-    >
+    <v-row align="center" class="global-x-padding">
       <v-col v-if="$vuetify.breakpoint.mdAndUp" md="6">
         <v-img
           :src="activeImage"
@@ -18,19 +15,9 @@
             <SectionHeading subtitle="Take a peek" title="Our Services" />
           </div>
 
-          <v-expansion-panels
-            v-model="panel"
-            mandatory
-            accordion
-            :flat="true"
-            class="expansion-panels"
-          >
-            <v-expansion-panel
-              v-for="item in services"
-              :key="item.title"
-              class="expansion-panel"
-            >
-              <v-expansion-panel-header class="px-0">
+          <v-expansion-panels v-model="panel" mandatory accordion>
+            <v-expansion-panel v-for="item in services" :key="item.title">
+              <v-expansion-panel-header>
                 <h3>{{ item.title }}</h3>
               </v-expansion-panel-header>
               <v-expansion-panel-content>
@@ -53,7 +40,7 @@ import { services as servicesData } from '~/data'
 export default defineComponent({
   name: 'Services',
   components: {
-    SectionHeading
+    SectionHeading,
   },
   setup() {
     const panel = ref(0)
@@ -68,19 +55,8 @@ export default defineComponent({
     )
 
     return { panel, services, activeImage, activeLazyImage, externalLinkIcon }
-  }
+  },
 })
 </script>
 
-<style lang="scss" scoped>
-.expansion-panels {
-  border-top: 1px solid rgba(28, 8, 100, 0.15);
-  .expansion-panel {
-    border-bottom: 1px solid rgba(28, 8, 100, 0.15);
-  }
-}
-
-::v-deep .v-expansion-panel-content__wrap {
-  padding-left: 0;
-}
-</style>
+<style lang="scss" scoped></style>

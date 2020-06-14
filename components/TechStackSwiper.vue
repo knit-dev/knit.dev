@@ -10,7 +10,7 @@
       :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
     >
       <SectionHeading
-        :class="{ 'global-left-padding': $vuetify.breakpoint.mdAndUp }"
+        class="global-left-padding"
         subtitle="Toolbox to success"
         title="Recommended Tech Stack"
       />
@@ -43,7 +43,7 @@ export default defineComponent({
   name: 'TechStackSwiper',
   components: {
     SectionHeading,
-    TechStackCard
+    TechStackCard,
   },
   setup() {
     const swiperOptions = {
@@ -56,34 +56,34 @@ export default defineComponent({
       breakpoints: {
         600: {
           slidesPerView: 2,
-          spaceBetween: 0
+          spaceBetween: 0,
         },
         960: {
           slidesPerView: 3,
-          spaceBetween: 0
+          spaceBetween: 0,
         },
         1264: {
           slidesPerView: 4,
-          spaceBetween: 0
+          spaceBetween: 0,
         },
         1904: {
           slidesPerView: 5,
-          spaceBetween: 0
-        }
+          spaceBetween: 0,
+        },
       },
       scrollbar: {
         el: '.swiper-scrollbar',
-        draggable: true
-      }
+        draggable: true,
+      },
     }
 
     const techStackItems = ref(techStackItemsData)
 
     return {
       swiperOptions,
-      techStackItems
+      techStackItems,
     }
-  }
+  },
 })
 </script>
 

@@ -23,11 +23,11 @@ export default defineComponent({
   setup() {
     const items = ref([
       { title: 'home', route: '/' },
-      { title: 'contact', route: '/contact' }
+      { title: 'contact', route: '/contact' },
     ])
 
     return { items }
-  }
+  },
 })
 </script>
 

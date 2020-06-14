@@ -6,20 +6,20 @@ import {
   Affiliate,
   Service,
   Testimonial,
-  CallToAction
+  CallToAction,
 } from '~/types'
 
 export const heroContent: HeroContent = {
   subtitle: 'Code as craft',
-  title: 'Bespoke web and mobile app dev for your startup',
+  title: 'Bespoke apps for your startup',
   text:
     'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
   callToAction: {
     text: 'Get Started!',
-    email: 'team@knit.dev'
+    email: 'team@knit.dev',
   },
   image: require('~/assets/images/knit/illustrations/hero-illustration.png'),
-  lazyImage: require('~/assets/images/knit/illustrations/hero-illustration-lazy.png')
+  lazyImage: require('~/assets/images/knit/illustrations/hero-illustration-lazy.png'),
 }
 
 export const services: Array<Service> = [
@@ -29,7 +29,7 @@ export const services: Array<Service> = [
       'Users on web, desktop, or mobile platforms run your app using a single code base. PWAs run in-browser or can be installed to the home screen just like traditional mobile or desktop apps. Like native apps, PWAs work offline and can leverage some lower level device features like web share and gestures. Take your app from concept to scale on the shortest timeline and with the broadest reach.',
     image: require('~/assets/images/knit/illustrations/services-web-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-web-illustration-lazy.png'),
-    link: 'https://en.wikipedia.org/wiki/Progressive_web_application'
+    link: 'https://en.wikipedia.org/wiki/Progressive_web_application',
   },
   {
     title: 'Mobile Apps',
@@ -37,8 +37,8 @@ export const services: Array<Service> = [
       'When your project requires intimate integration with lower level mobile device architecture, a native mobile app may be the right choice. Such features include geofencing, proximity and other sensing and detection, calendars, contacts, camera, and push notifications. Native mobile apps utilize mobile operating system user interface modules for consistent user experience and performance.',
     image: require('~/assets/images/knit/illustrations/services-mobile-illustration.png'),
     lazyImage: require('~/assets/images/knit/illustrations/services-mobile-illustration-lazy.png'),
-    link: 'https://en.wikipedia.org/wiki/Mobile_app'
-  }
+    link: 'https://en.wikipedia.org/wiki/Mobile_app',
+  },
 ]
 
 export const techStackItems: Array<TechStackItem> = [
@@ -52,14 +52,14 @@ export const techStackItems: Array<TechStackItem> = [
     usedByCompanies: [
       {
         name: 'Gitlab',
-        image: require('~/assets/images/tech-stack/gitlab-combination-mark.svg')
+        image: require('~/assets/images/tech-stack/gitlab-combination-mark.svg'),
       },
       {
         name: 'Grammarly',
-        image: require('~/assets/images/tech-stack/grammarly-combination-mark.svg')
-      }
+        image: require('~/assets/images/tech-stack/grammarly-combination-mark.svg'),
+      },
     ],
-    link: 'https://vuejs.org'
+    link: 'https://vuejs.org',
   },
   {
     category: 'Mobile frontend framework',
@@ -71,14 +71,14 @@ export const techStackItems: Array<TechStackItem> = [
     usedByCompanies: [
       {
         name: 'Pinterest',
-        image: require('~/assets/images/tech-stack/pinterest-combination-mark.svg')
+        image: require('~/assets/images/tech-stack/pinterest-combination-mark.svg'),
       },
       {
         name: 'Uber Eats',
-        image: require('~/assets/images/tech-stack/uber-eats-wordmark.svg')
-      }
+        image: require('~/assets/images/tech-stack/uber-eats-wordmark.svg'),
+      },
     ],
-    link: 'https://reactnative.dev'
+    link: 'https://reactnative.dev',
   },
   {
     category: 'UI design',
@@ -90,14 +90,14 @@ export const techStackItems: Array<TechStackItem> = [
     usedByCompanies: [
       {
         name: 'Slack',
-        image: require('~/assets/images/tech-stack/slack-combination-mark.svg')
+        image: require('~/assets/images/tech-stack/slack-combination-mark.svg'),
       },
       {
         name: 'Square',
-        image: require('~/assets/images/tech-stack/square-combination-mark.svg')
-      }
+        image: require('~/assets/images/tech-stack/square-combination-mark.svg'),
+      },
     ],
-    link: 'https://www.figma.com'
+    link: 'https://www.figma.com',
   },
   {
     category: 'Backend framework',
@@ -109,14 +109,14 @@ export const techStackItems: Array<TechStackItem> = [
     usedByCompanies: [
       {
         name: 'Netflix',
-        image: require('~/assets/images/tech-stack/netflix-wordmark.svg')
+        image: require('~/assets/images/tech-stack/netflix-wordmark.svg'),
       },
       {
         name: 'Trello',
-        image: require('~/assets/images/tech-stack/trello-combination-mark.svg')
-      }
+        image: require('~/assets/images/tech-stack/trello-combination-mark.svg'),
+      },
     ],
-    link: 'https://nodejs.dev'
+    link: 'https://nodejs.dev',
   },
   {
     category: 'Database engine',
@@ -128,14 +128,14 @@ export const techStackItems: Array<TechStackItem> = [
     usedByCompanies: [
       {
         name: 'Wikipedia',
-        image: require('~/assets/images/tech-stack/wikipedia-wordmark.svg')
+        image: require('~/assets/images/tech-stack/wikipedia-wordmark.svg'),
       },
       {
         name: 'YouTube',
-        image: require('~/assets/images/tech-stack/youtube-combination-mark.svg')
-      }
+        image: require('~/assets/images/tech-stack/youtube-combination-mark.svg'),
+      },
     ],
-    link: 'https://www.mysql.com'
+    link: 'https://www.mysql.com',
   },
   {
     category: 'Cloud hosting',
@@ -147,15 +147,15 @@ export const techStackItems: Array<TechStackItem> = [
     usedByCompanies: [
       {
         name: 'Linkedin',
-        image: require('~/assets/images/tech-stack/linkedin-wordmark.svg')
+        image: require('~/assets/images/tech-stack/linkedin-wordmark.svg'),
       },
       {
         name: 'Twitch',
-        image: require('~/assets/images/tech-stack/twitch-wordmark.svg')
-      }
+        image: require('~/assets/images/tech-stack/twitch-wordmark.svg'),
+      },
     ],
-    link: 'https://aws.amazon.com'
-  }
+    link: 'https://aws.amazon.com',
+  },
 ]
 
 export const testimonials: Array<Testimonial> = [
@@ -165,27 +165,27 @@ export const testimonials: Array<Testimonial> = [
     fullName: 'Sonya Petcavich',
     highlightedText: "The quality of Knit's work is top-notch.",
     text:
-      ' We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!'
-  }
+      ' We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!',
+  },
 ]
 
 export const callToAction: CallToAction = {
   text: 'Get Started!',
-  email: 'team@knit.dev'
+  email: 'team@knit.dev',
 }
 
 export const socials: Array<Social> = [
   {
     name: 'github',
     icon: mdiGithub,
-    link: 'https://github.com/knit-dev'
+    link: 'https://github.com/knit-dev',
   },
   { name: 'twitter', icon: mdiTwitter, link: 'https://twitter.com/knitllc' },
   {
     name: 'linkedin',
     icon: mdiLinkedin,
-    link: 'https://www.linkedin.com/company/knit-llc'
-  }
+    link: 'https://www.linkedin.com/company/knit-llc',
+  },
 ]
 
 export const affiliates: Array<Affiliate> = [
@@ -193,49 +193,49 @@ export const affiliates: Array<Affiliate> = [
     name: 'vue',
     title: 'Built with',
     image: require('~/assets/images/affiliates/vue-combination-mark.png'),
-    link: 'https://vuejs.org'
+    link: 'https://vuejs.org',
   },
   {
     name: 'github',
     title: 'View source',
     image: require('~/assets/images/affiliates/github-wordmark-black.png'),
     darkImage: require('~/assets/images/affiliates/github-wordmark-white.png'),
-    link: 'https://github.com/knit-dev/knit.dev'
+    link: 'https://github.com/knit-dev/knit.dev',
   },
   {
     name: 'netlify',
     title: 'Hosting by',
     image: require('~/assets/images/affiliates/netlify-combination-mark.svg'),
-    link: 'https://www.netlify.com'
-  }
+    link: 'https://www.netlify.com',
+  },
 ]
 
 export const footerFloatingIcons = [
   {
     style: {
       left: '17vw',
-      top: '-1.5rem'
+      top: '-1.5rem',
     },
-    image: require('~/assets/images/knit/icons/brush.png')
+    image: require('~/assets/images/knit/icons/brush.png'),
   },
   {
     style: {
       right: '12vw',
-      bottom: '16.5rem'
+      bottom: '16.5rem',
     },
-    image: require('~/assets/images/knit/icons/script.png')
+    image: require('~/assets/images/knit/icons/script.png'),
   },
   {
     style: {
       left: '35vw',
-      bottom: '6rem'
+      bottom: '6rem',
     },
-    image: require('~/assets/images/knit/icons/page.png')
-  }
+    image: require('~/assets/images/knit/icons/page.png'),
+  },
 ]
 
 export const license = {
   description: 'Open-source ',
   linkText: 'MIT Licensed',
-  link: 'https://github.com/knit-dev/knit.dev/blob/master/LICENSE'
+  link: 'https://github.com/knit-dev/knit.dev/blob/master/LICENSE',
 }

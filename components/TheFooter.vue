@@ -24,7 +24,7 @@
         <v-row justify="center">
           <v-col cols="12">
             <div>
-              <div class="font-weight-bold headline pb-6">
+              <div class="font-weight-bold text-h5 pb-6">
                 Contact us to discuss your project and how we can collaborate
               </div>
               <v-hover>
@@ -146,13 +146,13 @@ import {
   affiliates as affiliatesData,
   callToAction as callToActionData,
   license as licenseData,
-  footerFloatingIcons as footerFloatingIconsData
+  footerFloatingIcons as footerFloatingIconsData,
 } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 
 export default defineComponent({
   components: {
-    ColorSchemeToggles
+    ColorSchemeToggles,
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -178,9 +178,9 @@ export default defineComponent({
       socials,
       affiliates,
       license,
-      footerFloatingIcons
+      footerFloatingIcons,
     }
-  }
+  },
 })
 </script>
 

@@ -4,11 +4,9 @@
 
     <TheAppBar @toggleDrawer="toggleDrawer()" />
 
-    <v-content>
-      <v-container fluid class="pa-0">
-        <nuxt />
-      </v-container>
-    </v-content>
+    <v-main>
+      <nuxt />
+    </v-main>
 
     <TheFooter />
   </v-app>
@@ -19,7 +17,7 @@ import {
   defineComponent,
   ref,
   computed,
-  onBeforeUnmount
+  onBeforeUnmount,
 } from '@vue/composition-api'
 
 import TheNavigationDrawer from '~/components/TheNavigationDrawer.vue'
@@ -52,7 +50,7 @@ export default defineComponent({
         root.$store.dispatch('theme/setDark', {
           vm: root,
           value: mediaQueryList.matches,
-          userDefinedColorScheme: false
+          userDefinedColorScheme: false,
         })
       }
     }
@@ -75,9 +73,9 @@ export default defineComponent({
 
     return {
       drawer,
-      toggleDrawer
+      toggleDrawer,
     }
-  }
+  },
 })
 </script>
 

@@ -1,11 +1,6 @@
 <template>
   <div>
-    <h4
-      class="text-uppercase heading-subtitle font-weight-regular"
-      :class="{ 'heading-subtitle-dark': $vuetify.theme.dark }"
-    >
-      {{ subtitle }}
-    </h4>
+    <HeadingSubtitle :text="subtitle" />
     <h2>
       {{ title }}
     </h2>
@@ -14,23 +9,23 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
 
 export default defineComponent({
   name: 'SectionHeading',
+  components: {
+    HeadingSubtitle,
+  },
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     subtitle: {
       type: String,
-      required: true
+      required: true,
     },
-    dark: {
-      type: Boolean,
-      required: false
-    }
-  }
+  },
 })
 </script>
 

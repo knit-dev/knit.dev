@@ -5,7 +5,7 @@
     :flat="$vuetify.breakpoint.smAndDown"
     :absolute="$vuetify.breakpoint.smAndDown"
     :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
-    :class="{ 'global-padded': $vuetify.breakpoint.mdAndUp }"
+    class="global-padded"
   >
     <v-row no-gutters>
       <v-col
@@ -48,7 +48,7 @@ import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
 
 export default defineComponent({
   components: {
-    TheAppBarTabs
+    TheAppBarTabs,
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -62,9 +62,9 @@ export default defineComponent({
 
     return {
       siteName,
-      siteLogo
+      siteLogo,
     }
-  }
+  },
 })
 </script>
 
