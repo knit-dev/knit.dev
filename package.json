@@ -43,7 +43,7 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.0",
     "imagemin-svgo": "^8.0.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.12.2",
     "swiper": "^5.4.2",
     "typeface-poppins": "0.0.72",
     "typeface-space-mono": "0.0.71",
