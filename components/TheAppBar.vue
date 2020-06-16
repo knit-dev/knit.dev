@@ -32,8 +32,9 @@
 
       <v-col
         v-if="$vuetify.breakpoint.mdAndUp"
-        class="d-flex justify-space-around"
-        ><TheAppBarTabs />
+        class="d-flex align-center justify-space-around"
+      >
+        <TheAppBarTabs />
       </v-col>
 
       <v-col md="4" lg="3" class="d-flex justify-end">
