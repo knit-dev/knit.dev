@@ -50,9 +50,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, onMounted } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
 import CallToActionButton from '~/components/CallToActionButton.vue'
+import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
   components: {
@@ -69,23 +70,22 @@ export default defineComponent({
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
 
-    const showCallToActionButton = ref(false)
-    onMounted(() => {
-      showCallToActionButton.value = !document.getElementById(
-        'page-call-to-action'
-      )
-    })
+    const showCallToActionButton = computed(
+      () => root.$store.getters.getShowCallToActionButton
+    )
+    const { setShowCallToActionButton } = useCallToActionButton(root)
     const onScroll = (e: any) => {
       if (typeof window === 'undefined') return
       const top = window.pageYOffset || e.target.scrollTop || 0
 
       const pageCallToAction = document.getElementById('page-call-to-action')
       if (pageCallToAction) {
-        showCallToActionButton.value =
+        setShowCallToActionButton(
           top >
-          pageCallToAction.getBoundingClientRect().top + window.pageYOffset
+            pageCallToAction.getBoundingClientRect().top + window.pageYOffset
+        )
       } else if (!showCallToActionButton.value) {
-        showCallToActionButton.value = true
+        setShowCallToActionButton(true)
       }
     }
 

@@ -74,6 +74,7 @@ import {
 } from '~/data'
 import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
 import PageHeading from '~/components/PageHeading.vue'
+import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
   name: 'Contact',
@@ -86,7 +87,10 @@ export default defineComponent({
     HeadingSubtitle,
     PageHeading,
   },
-  setup() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
+    useCallToActionButton(root)
+
     const heading = ref("Let's chat")
     const emailIcon = ref(mdiEmailOutline)
     const callToAction = ref(callToActionData)

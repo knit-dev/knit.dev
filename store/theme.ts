@@ -2,7 +2,7 @@ import { GetterTree, MutationTree, ActionTree } from 'vuex'
 
 export const state = () => ({
   dark: false,
-  userDefinedColorScheme: false
+  userDefinedColorScheme: false,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -11,13 +11,13 @@ export const getters: GetterTree<RootState, RootState> = {
   isDark: (state) => state.dark,
   isUserDefinedColorScheme: (state) => state.userDefinedColorScheme,
   isPrefersColorSchemeCapable: () =>
-    window.matchMedia('(prefers-color-scheme)').media !== 'not all'
+    window.matchMedia('(prefers-color-scheme)').media !== 'not all',
 }
 
 export const mutations: MutationTree<RootState> = {
   SET_DARK: (state, value) => (state.dark = value),
   SET_USER_DEFINED_COLOR_SCHEME: (state, value) =>
-    (state.userDefinedColorScheme = value)
+    (state.userDefinedColorScheme = value),
 }
 
 export const actions: ActionTree<RootState, RootState> = {
@@ -45,11 +45,11 @@ export const actions: ActionTree<RootState, RootState> = {
         dispatch('setDark', {
           vm,
           value: dark as boolean,
-          userDefinedColorScheme: true
+          userDefinedColorScheme: true,
         })
       } else {
         localStorage.removeItem('dark')
       }
     }
-  }
+  },
 }

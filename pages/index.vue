@@ -25,6 +25,7 @@ import Services from '~/components/Services.vue'
 import TechStackSwiper from '~/components/TechStackSwiper.vue'
 import TestimonialsSwiper from '~/components/TestimonialsSwiper.vue'
 import { heroContent as heroContentData } from '~/data'
+import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
   head() {
@@ -40,7 +41,9 @@ export default defineComponent({
     TechStackSwiper,
     TestimonialsSwiper,
   },
-  setup() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
+    useCallToActionButton(root)
     const heroContent = ref(heroContentData)
 
     return { heroContent }
