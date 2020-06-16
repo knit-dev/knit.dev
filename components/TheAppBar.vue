@@ -1,9 +1,9 @@
 <template>
   <v-app-bar
     id="the-app-bar"
+    v-scroll="onScroll"
     app
     elevate-on-scroll
-    :hide-on-scroll="$vuetify.breakpoint.smAndDown"
     class="global-padded"
   >
     <v-row no-gutters>
@@ -31,19 +31,8 @@
         ><TheAppBarTabs />
       </v-col>
       <v-col md="4" lg="3" class="d-flex justify-end">
-        <!-- <v-hover>
-          <v-btn
-            slot-scope="{ hover }"
-            :depressed="!hover"
-            color="primary"
-            class="text-none btn-hover-grow"
-            x-large
-            rounded
-            :href="`mailto:${callToAction.email}`"
-          >
-            {{ hover ? callToAction.email : callToAction.text }}</v-btn
-          >
-        </v-hover> -->
+        <CallToActionButton v-show="showCallToActionButton" />
+
         <v-app-bar-nav-icon
           class="hidden-md-and-up"
           aria-label="toggle navigation drawer"
@@ -55,13 +44,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from '@vue/composition-api'
+import { defineComponent, computed, ref, onMounted } from '@vue/composition-api'
 import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
-import { callToAction as callToActionData } from '~/data'
+import CallToActionButton from '~/components/CallToActionButton.vue'
 
 export default defineComponent({
   components: {
     TheAppBarTabs,
+    CallToActionButton,
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -72,10 +62,30 @@ export default defineComponent({
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
-    const callToAction = ref(callToActionData)
+
+    const showCallToActionButton = ref(false)
+    onMounted(() => {
+      showCallToActionButton.value = !document.getElementById(
+        'page-call-to-action'
+      )
+    })
+    const onScroll = (e: any) => {
+      if (typeof window === 'undefined') return
+      const top = window.pageYOffset || e.target.scrollTop || 0
+
+      const pageCallToAction = document.getElementById('page-call-to-action')
+      if (pageCallToAction) {
+        showCallToActionButton.value =
+          top >
+          pageCallToAction.getBoundingClientRect().top + window.pageYOffset
+      } else if (!showCallToActionButton.value) {
+        showCallToActionButton.value = true
+      }
+    }
 
     return {
-      callToAction,
+      showCallToActionButton,
+      onScroll,
       siteName,
       siteLogo,
     }

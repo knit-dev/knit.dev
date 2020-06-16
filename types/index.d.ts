@@ -2,7 +2,6 @@ export interface HeroContent {
   title: String
   subtitle: String
   text: String
-  callToAction: CallToAction
   image: any
   lazyImage: any
 }

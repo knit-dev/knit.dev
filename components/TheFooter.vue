@@ -27,19 +27,7 @@
               <div class="font-weight-bold text-h5 pb-6">
                 Contact us to discuss your project and how we can collaborate
               </div>
-              <v-hover>
-                <v-btn
-                  slot-scope="{ hover }"
-                  depressed
-                  color="primary"
-                  class="text-none btn-hover-grow"
-                  x-large
-                  rounded
-                  :href="`mailto:${callToAction.email}`"
-                >
-                  {{ hover ? callToAction.email : callToAction.text }}</v-btn
-                >
-              </v-hover>
+              <CallToActionButton />
             </div>
           </v-col>
         </v-row>
@@ -144,15 +132,16 @@ import { defineComponent, ref, computed } from '@vue/composition-api'
 import {
   socials as socialsData,
   affiliates as affiliatesData,
-  callToAction as callToActionData,
   license as licenseData,
   footerFloatingIcons as footerFloatingIconsData,
 } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
+import CallToActionButton from '~/components/CallToActionButton.vue'
 
 export default defineComponent({
   components: {
     ColorSchemeToggles,
+    CallToActionButton,
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -163,8 +152,6 @@ export default defineComponent({
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
-
-    const callToAction = ref(callToActionData)
     const socials = ref(socialsData)
     const affiliates = ref(affiliatesData)
     const footerFloatingIcons = ref(footerFloatingIconsData)
@@ -174,7 +161,6 @@ export default defineComponent({
       isDark,
       companyName,
       siteLogo,
-      callToAction,
       socials,
       affiliates,
       license,

@@ -14,10 +14,6 @@ export const heroContent: HeroContent = {
   title: 'Bespoke apps for your startup',
   text:
     'Using the latest technologies to create the platforms of tomorrow. Design, build, deploy, and scale.',
-  callToAction: {
-    text: 'Get Started!',
-    email: 'team@knit.dev',
-  },
   image: require('~/assets/images/knit/illustrations/hero-illustration.png'),
   lazyImage: require('~/assets/images/knit/illustrations/hero-illustration-lazy.png'),
 }
@@ -163,9 +159,9 @@ export const testimonials: Array<Testimonial> = [
     organizationName: 'Meowtel',
     jobTitle: 'CEO',
     fullName: 'Sonya Petcavich',
-    highlightedText: "The quality of Knit's work is top-notch.",
+    highlightedText: "The quality of Knit's work is top-notch. ",
     text:
-      ' We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!',
+      'We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!',
   },
 ]
 
