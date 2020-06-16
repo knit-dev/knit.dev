@@ -3,8 +3,9 @@
     id="the-app-bar"
     v-scroll="onScroll"
     app
-    elevate-on-scroll
-    :hide-on-scroll="$vuetify.breakpoint.smAndDown"
+    :flat="$vuetify.breakpoint.smAndDown"
+    :absolute="$vuetify.breakpoint.smAndDown"
+    :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
     class="global-padded"
   >
     <v-row no-gutters>
