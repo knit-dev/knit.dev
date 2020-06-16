@@ -2,12 +2,6 @@
   --global-padding: 2vw;
 }
 
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-  .heading-subtitle {
-    font-size: 0.75rem;
-  }
-}
-
 .global-x-padding {
   padding-left: var(--global-padding);
   padding-right: var(--global-padding);
@@ -19,12 +13,12 @@
   padding-right: var(--global-padding);
 }
 
-.btn-hover-grow {
-  transition: all 0.2s ease-in-out;
-}
-.btn-hover-grow:hover {
-  transform: scale(1.1);
-}
+// .btn-hover-grow {
+//   transition: all 0.2s ease-in-out;
+// }
+// .btn-hover-grow:hover {
+//   transform: scale(1.1);
+// }
 
 .heading-subtitle {
   font-family: 'Space Mono';
