@@ -7,7 +7,7 @@
     ></div>
     <v-container
       class="swiper-heading"
-      :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
+      :class="{ 'swiper-heading-dark': isDark }"
     >
       <SectionHeading
         class="global-left-padding"
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, ref, computed } from '@vue/composition-api'
 // eslint-disable-next-line import/named
 import TechStackCard from '~/components/TechStackCard.vue'
 import SectionHeading from '~/components/SectionHeading.vue'
@@ -45,7 +45,8 @@ export default defineComponent({
     SectionHeading,
     TechStackCard,
   },
-  setup() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
     const swiperOptions = {
       parallax: true,
       centeredSlides: true,
@@ -77,10 +78,12 @@ export default defineComponent({
       },
     }
 
+    const isDark = computed(() => root.$store.getters['theme/isDark'])
     const techStackItems = ref(techStackItemsData)
 
     return {
       swiperOptions,
+      isDark,
       techStackItems,
     }
   },

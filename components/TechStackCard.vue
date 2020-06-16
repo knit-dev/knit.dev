@@ -41,7 +41,7 @@
         >
           <v-img
             class="used-by-company"
-            :class="{ 'used-by-company-dark': $vuetify.theme.dark }"
+            :class="{ 'used-by-company-dark': isDark }"
             :src="company.image"
             :alt="company.name"
             contain
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 import { TechStackItem } from '~/types'
 
 export default defineComponent({
@@ -67,8 +67,10 @@ export default defineComponent({
     },
   },
 
-  setup() {
-    return {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
+    const isDark = computed(() => root.$store.getters['theme/isDark'])
+    return { isDark }
   },
 })
 </script>

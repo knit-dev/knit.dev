@@ -17,7 +17,7 @@
         <span
           class="text-highlighted"
           :class="{
-            'text-highlighted-dark': $vuetify.theme.dark,
+            'text-highlighted-dark': isDark,
           }"
           >{{ item.highlightedText }}</span
         >
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, computed } from '@vue/composition-api'
 import { Testimonial } from '~/types'
 
 export default defineComponent({
@@ -44,8 +44,11 @@ export default defineComponent({
       required: true,
     },
   },
-  setup() {
-    return {}
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setup(props, { root }) {
+    const isDark = computed(() => root.$store.getters['theme/isDark'])
+    return { isDark }
   },
 })
 </script>
