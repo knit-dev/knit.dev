@@ -13,7 +13,8 @@
         class="d-flex align-center"
         md="4"
         lg="3"
-        ><nuxt-link exact to="/">
+      >
+        <nuxt-link exact to="/">
           <v-img
             :src="siteLogo"
             height="2.5rem"
@@ -21,17 +22,22 @@
             alt="site logo"
           ></v-img>
         </nuxt-link>
+
         <v-toolbar-title class="ml-3 font-weight-bold">{{
           siteName
-        }}</v-toolbar-title></v-col
-      >
+        }}</v-toolbar-title>
+      </v-col>
+
       <v-col
         v-if="$vuetify.breakpoint.mdAndUp"
         class="d-flex justify-space-around"
         ><TheAppBarTabs />
       </v-col>
+
       <v-col md="4" lg="3" class="d-flex justify-end">
-        <CallToActionButton v-show="showCallToActionButton" />
+        <template v-if="$vuetify.breakpoint.mdAndUp">
+          <CallToActionButton v-show="showCallToActionButton" />
+        </template>
 
         <v-app-bar-nav-icon
           class="hidden-md-and-up"
