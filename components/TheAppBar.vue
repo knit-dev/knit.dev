@@ -2,9 +2,8 @@
   <v-app-bar
     id="the-app-bar"
     app
-    :flat="$vuetify.breakpoint.smAndDown"
-    :absolute="$vuetify.breakpoint.smAndDown"
-    :elevate-on-scroll="$vuetify.breakpoint.mdAndUp"
+    elevate-on-scroll
+    :hide-on-scroll="$vuetify.breakpoint.smAndDown"
     class="global-padded"
   >
     <v-row no-gutters>
@@ -31,8 +30,21 @@
         class="d-flex justify-space-around"
         ><TheAppBarTabs />
       </v-col>
-      <v-col md="4" lg="3" class="d-flex justify-end"
-        ><v-app-bar-nav-icon
+      <v-col md="4" lg="3" class="d-flex justify-end">
+        <!-- <v-hover>
+          <v-btn
+            slot-scope="{ hover }"
+            :depressed="!hover"
+            color="primary"
+            class="text-none btn-hover-grow"
+            x-large
+            rounded
+            :href="`mailto:${callToAction.email}`"
+          >
+            {{ hover ? callToAction.email : callToAction.text }}</v-btn
+          >
+        </v-hover> -->
+        <v-app-bar-nav-icon
           class="hidden-md-and-up"
           aria-label="toggle navigation drawer"
           @click.stop="$emit('toggleDrawer')"
@@ -43,8 +55,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed, ref } from '@vue/composition-api'
 import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
+import { callToAction as callToActionData } from '~/data'
 
 export default defineComponent({
   components: {
@@ -59,8 +72,10 @@ export default defineComponent({
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
+    const callToAction = ref(callToActionData)
 
     return {
+      callToAction,
       siteName,
       siteLogo,
     }
