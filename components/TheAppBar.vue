@@ -4,6 +4,7 @@
     v-scroll="onScroll"
     app
     elevate-on-scroll
+    :hide-on-scroll="$vuetify.breakpoint.smAndDown"
     class="global-padded"
   >
     <v-row no-gutters>
