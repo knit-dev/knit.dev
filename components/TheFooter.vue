@@ -103,13 +103,19 @@
         </div>
         <v-row no-gutters justify="center" class="text-center">
           <v-col class="d-flex justify-end"
-            ><nuxt-link exact to="/privacy">Privacy</nuxt-link></v-col
+            ><nuxt-link exact to="/privacy" class="text-decoration-none"
+              >Privacy</nuxt-link
+            ></v-col
           >
           <div class="mx-2">•</div>
-          <nuxt-link exact to="/terms">Terms of Use</nuxt-link>
+          <nuxt-link exact to="/terms" class="text-decoration-none"
+            >Terms of Use</nuxt-link
+          >
           <div class="mx-2">•</div>
           <v-col class="d-flex justify-start"
-            ><a href="https://angry-goldberg-c2fd92.netlify.app/"
+            ><a
+              href="https://angry-goldberg-c2fd92.netlify.app/"
+              class="text-decoration-none"
               >Old Site</a
             ></v-col
           >
