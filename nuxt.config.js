@@ -22,6 +22,11 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'software, development, startups, knit.dev, knit'
       }
     ],
     noscript: [{ innerHTML: 'This website requires JavaScript.' }],

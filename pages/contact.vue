@@ -79,8 +79,22 @@ import useCallToActionButton from '~/composables/useCallToActionButton'
 export default defineComponent({
   name: 'Contact',
   head() {
+    const description =
+      'Contact Knit to see if we can help fulfill your software development needs'
     return {
-      title: "Let's chat"
+      title: "Let's chat",
+      meta: [
+        {
+          name: 'og:description',
+          hid: 'og:description',
+          content: description
+        },
+        {
+          name: 'description',
+          hid: 'description',
+          content: description
+        }
+      ]
     }
   },
   components: {
