@@ -14,18 +14,18 @@ import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
 export default defineComponent({
   name: 'SectionHeading',
   components: {
-    HeadingSubtitle,
+    HeadingSubtitle
   },
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     subtitle: {
       type: String,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 })
 </script>
 

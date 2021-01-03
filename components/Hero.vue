@@ -156,14 +156,14 @@ export default defineComponent({
   components: {
     PageHeading,
     HeadingSubtitle,
-    CallToActionButton,
+    CallToActionButton
   },
   props: {
     content: {
       type: Object as () => HeroContent,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 })
 </script>
 

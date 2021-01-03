@@ -23,7 +23,7 @@ export default defineComponent({
   setup() {
     const { text, email } = toRefs(reactive(callToActionData))
     return { text, email }
-  },
+  }
 })
 </script>
 

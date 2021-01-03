@@ -61,7 +61,7 @@ import useCallToActionButton from '~/composables/useCallToActionButton'
 export default defineComponent({
   components: {
     TheAppBarTabs,
-    CallToActionButton,
+    CallToActionButton
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -96,9 +96,9 @@ export default defineComponent({
       showCallToActionButton,
       onScroll,
       siteName,
-      siteLogo,
+      siteLogo
     }
-  },
+  }
 })
 </script>
 

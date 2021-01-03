@@ -12,12 +12,12 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   setup() {
     return {}
-  },
+  }
 })
 </script>
 letter-spacing

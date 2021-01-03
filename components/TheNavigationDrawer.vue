@@ -41,13 +41,13 @@ import TheNavigationDrawerList from '~/components/TheNavigationDrawerList.vue'
 
 export default defineComponent({
   components: {
-    TheNavigationDrawerList,
+    TheNavigationDrawerList
   },
   props: {
     drawer: {
       type: Boolean,
-      required: true,
-    },
+      required: true
+    }
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -72,9 +72,9 @@ export default defineComponent({
       localDrawer,
       closeIcon,
       siteName,
-      siteLogo,
+      siteLogo
     }
-  },
+  }
 })
 </script>
 

@@ -32,7 +32,7 @@ export default defineComponent({
   name: 'TestimonialsSwiper',
   components: {
     TestimonialCard,
-    HeadingSubtitle,
+    HeadingSubtitle
   },
   setup() {
     const swiperOptions = {
@@ -41,18 +41,18 @@ export default defineComponent({
       speed: 600,
       effect: 'flip',
       autoplay: {
-        delay: 20000,
+        delay: 20000
       },
       pagination: {
         el: '.swiper-pagination',
-        clickable: true,
-      },
+        clickable: true
+      }
     }
 
     const testimonials = ref(testimonialsData)
 
     return { swiperOptions, testimonials }
-  },
+  }
 })
 </script>
 

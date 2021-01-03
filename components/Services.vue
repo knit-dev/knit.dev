@@ -40,7 +40,7 @@ import { services as servicesData } from '~/data'
 export default defineComponent({
   name: 'Services',
   components: {
-    SectionHeading,
+    SectionHeading
   },
   setup() {
     const panel = ref(0)
@@ -55,7 +55,7 @@ export default defineComponent({
     )
 
     return { panel, services, activeImage, activeLazyImage, externalLinkIcon }
-  },
+  }
 })
 </script>
 
