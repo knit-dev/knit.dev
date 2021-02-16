@@ -142,6 +142,11 @@ export default {
   optimizedImages: {
     optimizeImages: true,
   },
+  pwa: {
+    meta: {
+      name: process.env.LOCAL_SITE_NAME || process.env.npm_package_name,
+    },
+  },
   /*
    ** Build configuration
    */
