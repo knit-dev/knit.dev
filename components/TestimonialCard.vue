@@ -11,13 +11,13 @@
         class="font-weight-bold"
         :class="{
           'text-h5': $vuetify.breakpoint.smAndDown,
-          'text-h4': $vuetify.breakpoint.mdAndUp,
+          'text-h4': $vuetify.breakpoint.mdAndUp
         }"
       >
         <span
           class="text-highlighted"
           :class="{
-            'text-highlighted-dark': isDark,
+            'text-highlighted-dark': isDark
           }"
           >{{ item.highlightedText }}</span
         >
@@ -41,15 +41,15 @@ export default defineComponent({
   props: {
     item: {
       type: Object as () => Testimonial,
-      required: true,
-    },
+      required: true
+    }
   },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
     const isDark = computed(() => root.$store.getters['theme/isDark'])
     return { isDark }
-  },
+  }
 })
 </script>
 

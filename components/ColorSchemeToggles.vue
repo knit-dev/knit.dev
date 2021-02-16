@@ -34,7 +34,7 @@ import {
   mdiMonitor,
   mdiMonitorOff,
   mdiWeatherNight,
-  mdiWhiteBalanceSunny,
+  mdiWhiteBalanceSunny
 } from '@mdi/js'
 
 export default defineComponent({
@@ -61,7 +61,7 @@ export default defineComponent({
       root.$store.dispatch('theme/setDark', {
         vm: root,
         value: !isDark.value,
-        userDefinedColorScheme: true,
+        userDefinedColorScheme: true
       })
 
     const toggleDefault = () => {
@@ -71,7 +71,7 @@ export default defineComponent({
           ? isPrefersColorSchemeCapable.value &&
             window.matchMedia('(prefers-color-scheme: dark)').matches
           : isDark.value,
-        userDefinedColorScheme: !isUserDefinedColorScheme.value,
+        userDefinedColorScheme: !isUserDefinedColorScheme.value
       })
     }
 
@@ -83,9 +83,9 @@ export default defineComponent({
       lightIcon,
       darkIcon,
       toggleDark,
-      toggleDefault,
+      toggleDefault
     }
-  },
+  }
 })
 </script>
 

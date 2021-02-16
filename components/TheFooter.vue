@@ -139,7 +139,7 @@ import {
   socials as socialsData,
   affiliates as affiliatesData,
   license as licenseData,
-  footerFloatingIcons as footerFloatingIconsData,
+  footerFloatingIcons as footerFloatingIconsData
 } from '~/data'
 import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
 import CallToActionButton from '~/components/CallToActionButton.vue'
@@ -147,7 +147,7 @@ import CallToActionButton from '~/components/CallToActionButton.vue'
 export default defineComponent({
   components: {
     ColorSchemeToggles,
-    CallToActionButton,
+    CallToActionButton
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -170,9 +170,9 @@ export default defineComponent({
       socials,
       affiliates,
       license,
-      footerFloatingIcons,
+      footerFloatingIcons
     }
-  },
+  }
 })
 </script>
 

@@ -43,7 +43,7 @@ export default defineComponent({
   name: 'TechStackSwiper',
   components: {
     SectionHeading,
-    TechStackCard,
+    TechStackCard
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -57,25 +57,25 @@ export default defineComponent({
       breakpoints: {
         600: {
           slidesPerView: 2,
-          spaceBetween: 0,
+          spaceBetween: 0
         },
         960: {
           slidesPerView: 3,
-          spaceBetween: 0,
+          spaceBetween: 0
         },
         1264: {
           slidesPerView: 4,
-          spaceBetween: 0,
+          spaceBetween: 0
         },
         1904: {
           slidesPerView: 5,
-          spaceBetween: 0,
-        },
+          spaceBetween: 0
+        }
       },
       scrollbar: {
         el: '.swiper-scrollbar',
-        draggable: true,
-      },
+        draggable: true
+      }
     }
 
     const isDark = computed(() => root.$store.getters['theme/isDark'])
@@ -84,9 +84,9 @@ export default defineComponent({
     return {
       swiperOptions,
       isDark,
-      techStackItems,
+      techStackItems
     }
-  },
+  }
 })
 </script>
 

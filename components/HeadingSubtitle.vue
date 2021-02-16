@@ -15,14 +15,14 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
     const isDark = computed(() => root.$store.getters['theme/isDark'])
     return { isDark }
-  },
+  }
 })
 </script>
 

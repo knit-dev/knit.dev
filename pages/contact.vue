@@ -70,7 +70,7 @@ import { defineComponent, ref } from '@vue/composition-api'
 import { mdiEmailOutline } from '@mdi/js'
 import {
   callToAction as callToActionData,
-  socials as socialsData,
+  socials as socialsData
 } from '~/data'
 import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
 import PageHeading from '~/components/PageHeading.vue'
@@ -79,13 +79,27 @@ import useCallToActionButton from '~/composables/useCallToActionButton'
 export default defineComponent({
   name: 'Contact',
   head() {
+    const description =
+      'Contact Knit to see if we can help fulfill your software development needs'
     return {
       title: "Let's chat",
+      meta: [
+        {
+          name: 'og:description',
+          hid: 'og:description',
+          content: description
+        },
+        {
+          name: 'description',
+          hid: 'description',
+          content: description
+        }
+      ]
     }
   },
   components: {
     HeadingSubtitle,
-    PageHeading,
+    PageHeading
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setup(props, { root }) {
@@ -100,9 +114,9 @@ export default defineComponent({
       heading,
       emailIcon,
       callToAction,
-      socials,
+      socials
     }
-  },
+  }
 })
 </script>
 
