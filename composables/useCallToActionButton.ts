@@ -1,8 +1,9 @@
-import { onMounted } from '@vue/composition-api'
+import { onMounted } from '@nuxtjs/composition-api'
+import { Store } from 'vuex'
 
-const useCallToActionButton = (root: any) => {
+const useCallToActionButton = (store: Store<any>) => {
   const setShowCallToActionButton = (value: boolean) => {
-    root.$store.dispatch('setShowCallToActionButton', value)
+    store.dispatch('setShowCallToActionButton', value)
   }
 
   onMounted(() => {

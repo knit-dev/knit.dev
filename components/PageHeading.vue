@@ -5,19 +5,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'PageHeading',
   props: {
     text: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup() {
     return {}
-  }
+  },
 })
 </script>
 letter-spacing

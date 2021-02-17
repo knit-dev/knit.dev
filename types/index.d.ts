@@ -19,6 +19,11 @@ export interface Service {
   link: String
 }
 
+interface Company {
+  name: String
+  image: any
+}
+
 export interface TechStackItem {
   category: String
   name: String
@@ -27,11 +32,6 @@ export interface TechStackItem {
   alternatives: Array<String>
   usedByCompanies: Array<Company>
   link: String
-}
-
-interface Company {
-  name: String
-  image: any
 }
 
 export interface Testimonial {

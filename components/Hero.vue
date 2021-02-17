@@ -2,15 +2,19 @@
   <v-container fluid class="pa-0">
     <v-row no-gutters class="global-left-padding">
       <v-col cols="12" md="6" align-self="center">
-        <div class="mx-auto pa-4" style="max-width: 700px;">
+        <div class="mx-auto pa-4" style="max-width: 700px">
           <HeadingSubtitle :text="content.subtitle" />
+
           <PageHeading :text="content.title" />
+
           <p class="pb-6 text--secondary text-h6 font-weight-regular">
             {{ content.text }}
           </p>
+
           <CallToActionButton id="page-call-to-action" />
         </div>
       </v-col>
+
       <v-col cols="12" md="6">
         <div class="svg-wrapper ml-10">
           <svg
@@ -145,25 +149,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 import { HeroContent } from '~/types'
-import PageHeading from '~/components/PageHeading.vue'
-import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
-import CallToActionButton from '~/components/CallToActionButton.vue'
 
 export default defineComponent({
   name: 'Hero',
-  components: {
-    PageHeading,
-    HeadingSubtitle,
-    CallToActionButton
-  },
   props: {
     content: {
       type: Object as () => HeroContent,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 
@@ -204,6 +200,7 @@ path {
   animation: dash 3s linear forwards;
 }
 
+/* stylelint-disable selector-type-no-unknown */
 _::-webkit-full-page-media,
 _:future,
 :root path {

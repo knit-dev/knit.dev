@@ -23,17 +23,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
-import TestimonialCard from '~/components/TestimonialCard.vue'
-import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import { testimonials as testimonialsData } from '~/data'
 
 export default defineComponent({
   name: 'TestimonialsSwiper',
-  components: {
-    TestimonialCard,
-    HeadingSubtitle
-  },
   setup() {
     const swiperOptions = {
       slidesPerView: 1,
@@ -41,18 +35,18 @@ export default defineComponent({
       speed: 600,
       effect: 'flip',
       autoplay: {
-        delay: 20000
+        delay: 20000,
       },
       pagination: {
         el: '.swiper-pagination',
-        clickable: true
-      }
+        clickable: true,
+      },
     }
 
     const testimonials = ref(testimonialsData)
 
     return { swiperOptions, testimonials }
-  }
+  },
 })
 </script>
 
@@ -70,18 +64,21 @@ export default defineComponent({
   padding-bottom: 1rem;
 }
 
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::v-deep .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   opacity: 1;
   background: rgb(239, 239, 239);
 }
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::v-deep
   .swiper-container-horizontal
   > .swiper-pagination-bullets
   .swiper-pagination-bullet {
   margin: 0 8px;
 }
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::v-deep .swiper-pagination-bullet-active {
   background: #623de4;
 }

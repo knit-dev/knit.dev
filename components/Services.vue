@@ -9,8 +9,9 @@
           contain
         ></v-img>
       </v-col>
+
       <v-col md="6">
-        <div class="mx-auto" style="max-width: 600px;">
+        <div class="mx-auto" style="max-width: 600px">
           <div class="pb-4">
             <SectionHeading subtitle="Take a peek" title="Our Services" />
           </div>
@@ -20,6 +21,7 @@
               <v-expansion-panel-header>
                 <h3>{{ item.title }}</h3>
               </v-expansion-panel-header>
+
               <v-expansion-panel-content>
                 <p>{{ item.text }}</p>
               </v-expansion-panel-content>
@@ -32,21 +34,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from '@vue/composition-api'
-import { mdiOpenInNew } from '@mdi/js'
-import SectionHeading from '~/components/SectionHeading.vue'
+import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
+import useIcons from '~/composables/useIcons'
 import { services as servicesData } from '~/data'
 
 export default defineComponent({
   name: 'Services',
-  components: {
-    SectionHeading
-  },
   setup() {
+    const { externalLinkIcon } = useIcons()
+
     const panel = ref(0)
-
-    const externalLinkIcon = ref(mdiOpenInNew)
-
     const services = ref(servicesData)
 
     const activeImage = computed(() => services.value[panel.value].image)
@@ -55,8 +52,6 @@ export default defineComponent({
     )
 
     return { panel, services, activeImage, activeLazyImage, externalLinkIcon }
-  }
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

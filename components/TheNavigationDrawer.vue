@@ -11,10 +11,11 @@
   >
     <TheNavigationDrawerList />
 
-    <template v-slot:append>
+    <template #append>
       <v-container fluid class="pb-1">
         <v-row align="center">
           <v-spacer></v-spacer>
+
           <v-col class="pa-0 d-flex justify-end">
             <v-btn
               icon
@@ -24,7 +25,7 @@
               @click.stop="localDrawer = !localDrawer"
             >
               <v-icon>
-                {{ closeIcon }}
+                {{ $vuetify.icons.values.close }}
               </v-icon>
             </v-btn>
           </v-col>
@@ -35,23 +36,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, watch } from '@vue/composition-api'
-import { mdiClose } from '@mdi/js'
-import TheNavigationDrawerList from '~/components/TheNavigationDrawerList.vue'
+import {
+  defineComponent,
+  computed,
+  ref,
+  watch,
+  useContext,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  components: {
-    TheNavigationDrawerList
-  },
   props: {
     drawer: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
+  setup(props) {
+    const { store } = useContext()
+
     const localDrawer = ref(props.drawer)
+
+    const siteName = computed(() => store.getters.getSiteName)
+    const siteLogo = computed(() =>
+      store.getters['theme/isDark']
+        ? require('~/assets/images/knit/knit-logo-white.svg')
+        : require('~/assets/images/knit/knit-logo-black.svg')
+    )
+
     watch(
       () => props.drawer,
       () => {
@@ -59,22 +70,12 @@ export default defineComponent({
       }
     )
 
-    const closeIcon = ref(mdiClose)
-
-    const siteName = computed(() => root.$store.getters.getSiteName)
-    const siteLogo = computed(() =>
-      root.$store.getters['theme/isDark']
-        ? require('~/assets/images/knit/knit-logo-white.svg')
-        : require('~/assets/images/knit/knit-logo-black.svg')
-    )
-
     return {
       localDrawer,
-      closeIcon,
       siteName,
-      siteLogo
+      siteLogo,
     }
-  }
+  },
 })
 </script>
 

@@ -53,30 +53,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
-import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
-import CallToActionButton from '~/components/CallToActionButton.vue'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
-  components: {
-    TheAppBarTabs,
-    CallToActionButton
-  },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const siteName = computed(() => root.$store.getters.getSiteName)
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+  setup() {
+    const { store } = useContext()
+
+    const { setShowCallToActionButton } = useCallToActionButton(store)
+
+    const siteName = computed(() => store.getters.getSiteName)
+    const isDark = computed(() => store.getters['theme/isDark'])
     const siteLogo = computed(() =>
       isDark.value
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
-
     const showCallToActionButton = computed(
-      () => root.$store.getters.getShowCallToActionButton
+      () => store.getters.getShowCallToActionButton
     )
-    const { setShowCallToActionButton } = useCallToActionButton(root)
+
     const onScroll = (e: any) => {
       if (typeof window === 'undefined') return
       const top = window.pageYOffset || e.target.scrollTop || 0
@@ -96,9 +92,9 @@ export default defineComponent({
       showCallToActionButton,
       onScroll,
       siteName,
-      siteLogo
+      siteLogo,
     }
-  }
+  },
 })
 </script>
 
@@ -109,12 +105,14 @@ export default defineComponent({
   #the-app-bar {
     background-color: transparent;
   }
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   #the-app-bar ::v-deep > div:first-child {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
 }
 
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 #the-app-bar.global-padded ::v-deep > div:first-child {
   padding-left: calc(var(--global-padding) + 1rem);
   padding-right: calc(var(--global-padding) + 1rem);
