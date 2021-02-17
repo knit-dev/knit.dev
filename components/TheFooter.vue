@@ -116,16 +116,10 @@
           >
 
           <div class="mx-2">•</div>
-          <nuxt-link exact to="/terms" class="text-decoration-none"
-            >Terms of Use</nuxt-link
-          >
 
-          <div class="mx-2">•</div>
           <v-col class="d-flex justify-start"
-            ><a
-              href="https://angry-goldberg-c2fd92.netlify.app/"
-              class="text-decoration-none"
-              >Old Site</a
+            ><nuxt-link exact to="/terms" class="text-decoration-none"
+              >Terms of Use</nuxt-link
             ></v-col
           >
         </v-row>
@@ -144,27 +138,12 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  computed,
-  useContext,
-} from '@nuxtjs/composition-api'
-import {
-  socials as socialsData,
-  affiliates as affiliatesData,
-  license as licenseData,
-  footerFloatingIcons as footerFloatingIconsData,
-} from '~/data'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { socials, affiliates, license, footerFloatingIcons } from '~/data'
 
 export default defineComponent({
   setup() {
     const { store } = useContext()
-
-    const socials = ref(socialsData)
-    const affiliates = ref(affiliatesData)
-    const footerFloatingIcons = ref(footerFloatingIconsData)
-    const license = ref(licenseData)
 
     const companyName = computed(() => store.getters.getCompanyName)
     const isDark = computed(() => store.getters['theme/isDark'])

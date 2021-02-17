@@ -74,10 +74,7 @@
 <script>
 import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
 import useIcons from '~/composables/useIcons'
-import {
-  callToAction as callToActionData,
-  socials as socialsData,
-} from '~/data'
+import { callToAction, socials } from '~/data'
 import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
@@ -90,8 +87,6 @@ export default defineComponent({
     useCallToActionButton(store)
 
     const heading = ref("Let's chat")
-    const callToAction = ref(callToActionData)
-    const socials = ref(socialsData)
 
     return {
       heading,

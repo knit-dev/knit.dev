@@ -34,13 +34,8 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  ref,
-  computed,
-  useContext,
-} from '@nuxtjs/composition-api'
-import { techStackItems as techStackItemsData } from '~/data'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { techStackItems } from '~/data'
 
 const swiperOptions = {
   parallax: true,
@@ -77,8 +72,6 @@ export default defineComponent({
   name: 'TechStackSwiper',
   setup() {
     const { store } = useContext()
-
-    const techStackItems = ref(techStackItemsData)
 
     const isDark = computed(() => store.getters['theme/isDark'])
 

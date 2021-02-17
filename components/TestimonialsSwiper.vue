@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
-import { testimonials as testimonialsData } from '~/data'
+import { defineComponent } from '@nuxtjs/composition-api'
+import { testimonials } from '~/data'
 
 export default defineComponent({
   name: 'TestimonialsSwiper',
@@ -42,8 +42,6 @@ export default defineComponent({
         clickable: true,
       },
     }
-
-    const testimonials = ref(testimonialsData)
 
     return { swiperOptions, testimonials }
   },

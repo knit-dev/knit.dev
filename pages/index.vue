@@ -19,8 +19,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
-import { heroContent as heroContentData } from '~/data'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
+import { heroContent } from '~/data'
 import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
@@ -29,8 +29,6 @@ export default defineComponent({
     const { store } = useContext()
 
     useCallToActionButton(store)
-
-    const heroContent = ref(heroContentData)
 
     return { heroContent }
   },

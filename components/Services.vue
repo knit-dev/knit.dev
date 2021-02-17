@@ -36,7 +36,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
 import useIcons from '~/composables/useIcons'
-import { services as servicesData } from '~/data'
+import { services } from '~/data'
 
 export default defineComponent({
   name: 'Services',
@@ -44,12 +44,9 @@ export default defineComponent({
     const { externalLinkIcon } = useIcons()
 
     const panel = ref(0)
-    const services = ref(servicesData)
 
-    const activeImage = computed(() => services.value[panel.value].image)
-    const activeLazyImage = computed(
-      () => services.value[panel.value].lazyImage
-    )
+    const activeImage = computed(() => services[panel.value].image)
+    const activeLazyImage = computed(() => services[panel.value].lazyImage)
 
     return { panel, services, activeImage, activeLazyImage, externalLinkIcon }
   },

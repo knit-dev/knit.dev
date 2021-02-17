@@ -16,12 +16,12 @@
 
 <script>
 import { defineComponent, toRefs, reactive } from '@nuxtjs/composition-api'
-import { callToAction as callToActionData } from '~/data'
+import { callToAction } from '~/data'
 
 export default defineComponent({
   name: 'CallToActionButton',
   setup() {
-    const { text, email } = toRefs(reactive(callToActionData))
+    const { text, email } = toRefs(reactive(callToAction))
 
     return { text, email }
   },

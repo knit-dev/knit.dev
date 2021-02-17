@@ -91,20 +91,13 @@
 </template>
 
 <script>
-import {
-  defineComponent,
-  ref,
-  computed,
-  useContext,
-} from '@nuxtjs/composition-api'
-import { callToAction as callToActionData } from '~/data'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { callToAction as contact } from '~/data'
 
 export default defineComponent({
   name: 'Privacy',
   setup() {
     const { store } = useContext()
-
-    const contact = ref(callToActionData)
 
     const siteUrl = computed(() => store.getters.getSiteUrl)
     const companyName = computed(() => store.getters.getCompanyName)
