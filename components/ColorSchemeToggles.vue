@@ -1,16 +1,10 @@
 <template>
   <div class="text-center d-flex align-center">
-    <v-switch
-      v-model="isDark"
-      aria-label="toggle dark mode"
-      @click.stop.prevent="toggleDark()"
-    >
+    <v-switch v-model="isDark" aria-label="toggle dark mode">
       <v-icon slot="prepend" :disabled="isDark">{{ lightModeIcon }}</v-icon>
       <v-icon slot="append" :disabled="!isDark">{{ darkModeIcon }}</v-icon>
     </v-switch>
-
     <v-divider vertical inset class="ml-2"></v-divider>
-
     <v-tooltip top>
       <template #activator="{ on }">
         <v-btn
@@ -49,22 +43,27 @@ export default defineComponent({
     const isUserDefinedColorScheme = computed(
       () => store.getters['theme/isUserDefinedColorScheme']
     )
-    const isDark = computed(() => store.getters['theme/isDark'])
+    const isDark = computed({
+      get: () => store.getters['theme/isDark'],
+      set: () => {
+        toggleDark()
+      },
+    })
     const isPrefersColorSchemeCapable = computed(
       () => store.getters['theme/isPrefersColorSchemeCapable']
     )
-    const defaultText = 'System'
+
     const defaultIcon = computed(() =>
       isUserDefinedColorScheme.value ? systemOffIcon : systemOnIcon
     )
+    const defaultText = 'System'
 
-    const toggleDark = () => {
+    const toggleDark = () =>
       store.dispatch('theme/setDark', {
         $vuetify,
         value: !isDark.value,
         userDefinedColorScheme: true,
       })
-    }
     const toggleDefault = () => {
       store.dispatch('theme/setDark', {
         $vuetify,

@@ -42,6 +42,7 @@ export default defineComponent({
     const prefersColorSchemeCallback = () => {
       if (!isUserDefinedColorScheme.value) {
         const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+
         store.dispatch('theme/setDark', {
           $vuetify,
           value: mediaQueryList.matches,
@@ -55,15 +56,17 @@ export default defineComponent({
 
       window
         .matchMedia('(prefers-color-scheme: dark)')
-        .addListener(prefersColorSchemeCallback)
+        .addEventListener('change', prefersColorSchemeCallback)
     }
 
-    onMounted(() => store.dispatch('theme/setLocalStorageDark'))
+    onMounted(() => {
+      store.dispatch('theme/setLocalStorageDark', { $vuetify })
+    })
     onBeforeUnmount(() => {
       if (isPrefersColorSchemeCapable.value) {
         window
           .matchMedia('(prefers-color-scheme: dark)')
-          .removeListener(prefersColorSchemeCallback)
+          .removeEventListener('change', prefersColorSchemeCallback)
       }
     })
 

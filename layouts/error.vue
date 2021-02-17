@@ -33,7 +33,6 @@
 import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  auth: false,
   props: {
     error: {
       type: Object,

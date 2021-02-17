@@ -20,7 +20,6 @@ export default defineComponent({
   },
 })
 </script>
-letter-spacing
 
 <style lang="scss" scoped>
 @media #{map-get($display-breakpoints, 'sm-and-down')} {

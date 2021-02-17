@@ -76,6 +76,7 @@ export default defineComponent({
     const { store } = useContext()
 
     const isDark = computed(() => store.getters['theme/isDark'])
+
     return { isDark }
   },
 })

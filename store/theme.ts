@@ -42,7 +42,7 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('SET_DARK', value)
     commit('SET_USER_DEFINED_COLOR_SCHEME', userDefinedColorScheme)
   },
-  setLocalStorageDark({ dispatch }) {
+  setLocalStorageDark({ dispatch }, { $vuetify }) {
     const darkString = localStorage.getItem('dark')
 
     if (darkString) {
@@ -50,6 +50,7 @@ export const actions: ActionTree<RootState, RootState> = {
 
       if (typeof dark === 'boolean') {
         dispatch('setDark', {
+          $vuetify,
           value: dark as boolean,
           userDefinedColorScheme: true,
         })

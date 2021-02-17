@@ -1,4 +1,7 @@
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -28,57 +31,6 @@ export default {
     ],
     noscript: [{ innerHTML: 'This website requires JavaScript.' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
-    ...(process.env.NODE_ENV === 'production' && {
-      link: [
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/e535f78.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/1a28052.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/61e2d96.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/e059682.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/e879481.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/263658a.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'style',
-          href: '/_nuxt/d3215687e610a0329f7c.css',
-        },
-      ],
-    }),
   },
 
   env: {
