@@ -19,7 +19,6 @@ import {
   computed,
   onBeforeUnmount,
   useContext,
-  onMounted,
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
@@ -28,6 +27,8 @@ export default defineComponent({
     const { store, $vuetify } = useContext()
 
     const drawer = ref<boolean | null>(false)
+
+    store.dispatch('theme/setLocalStorageDark', { $vuetify })
 
     const isUserDefinedColorScheme = computed(
       () => store.getters['theme/isUserDefinedColorScheme']
@@ -59,9 +60,6 @@ export default defineComponent({
         .addEventListener('change', prefersColorSchemeCallback)
     }
 
-    onMounted(() => {
-      store.dispatch('theme/setLocalStorageDark', { $vuetify })
-    })
     onBeforeUnmount(() => {
       if (isPrefersColorSchemeCapable.value) {
         window
