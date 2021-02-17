@@ -153,7 +153,7 @@ export default {
   },
 
   sentry: {
-    dsn: process.env.SENTRY_DSN ?? '',
+    dsn: process.env.SENTRY_DSN || '',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
