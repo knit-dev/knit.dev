@@ -1,10 +1,10 @@
 <template>
-  <h3
+  <span
     class="heading-subtitle font-weight-regular text-uppercase"
     :class="{ 'heading-subtitle-dark': isDark }"
   >
     {{ text }}
-  </h3>
+  </span>
 </template>
 
 <script lang="ts">
