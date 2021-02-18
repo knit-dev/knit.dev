@@ -15,15 +15,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
+
+const items = [
+  { title: 'home', route: '/' },
+  { title: 'contact', route: '/contact' },
+]
 
 export default defineComponent({
   setup() {
-    const items = ref([
-      { title: 'home', route: '/' },
-      { title: 'contact', route: '/contact' },
-    ])
-
     return { items }
   },
 })

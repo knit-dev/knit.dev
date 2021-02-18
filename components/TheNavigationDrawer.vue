@@ -12,16 +12,15 @@
     <TheNavigationDrawerList />
 
     <template #append>
-      <v-container fluid class="pb-1">
+      <v-container>
         <v-row align="center">
           <v-spacer></v-spacer>
 
-          <v-col class="pa-0 d-flex justify-end">
+          <v-col class="d-flex justify-end">
             <v-btn
               icon
               height="48px"
               width="48px"
-              class="mr-1"
               @click.stop="localDrawer = !localDrawer"
             >
               <v-icon>

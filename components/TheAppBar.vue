@@ -16,18 +16,29 @@
         md="4"
         lg="3"
       >
-        <nuxt-link exact to="/">
+        <nuxt-link
+          exact
+          to="/"
+          :class="{ 'pr-2': true, 'pl-2': $vuetify.breakpoint.mobile }"
+        >
           <v-img
             :src="siteLogo"
+            contain
             height="2.5rem"
             width="2.5rem"
             alt="site logo"
           ></v-img>
         </nuxt-link>
 
-        <v-toolbar-title class="ml-3 font-weight-bold">{{
-          siteName
-        }}</v-toolbar-title>
+        <v-toolbar-title class="font-weight-bold">
+          <nuxt-link
+            class="text-decoration-none text--primary pl-1"
+            to="/"
+            exact
+          >
+            {{ siteName }}
+          </nuxt-link>
+        </v-toolbar-title>
       </v-col>
 
       <v-col
@@ -38,9 +49,11 @@
       </v-col>
 
       <v-col md="4" lg="3" class="d-flex justify-end">
-        <template v-if="$vuetify.breakpoint.mdAndUp">
-          <CallToActionButton v-show="showCallToActionButton" />
-        </template>
+        <v-scale-transition mode="out-in" origin="center center">
+          <div :key="`call-to-action-${showCallToActionButton}`">
+            <CallToActionButton v-show="showCallToActionButton" />
+          </div>
+        </v-scale-transition>
 
         <v-app-bar-nav-icon
           class="hidden-md-and-up"
@@ -54,13 +67,10 @@
 
 <script lang="ts">
 import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
-import useCallToActionButton from '~/composables/useCallToActionButton'
 
 export default defineComponent({
   setup() {
     const { store } = useContext()
-
-    const { setShowCallToActionButton } = useCallToActionButton(store)
 
     const siteName = computed(() => store.getters.getSiteName)
     const isDark = computed(() => store.getters['theme/isDark'])
@@ -73,17 +83,26 @@ export default defineComponent({
       () => store.getters.getShowCallToActionButton
     )
 
+    const setShowCallToActionButton = (value: boolean) => {
+      store.dispatch('setShowCallToActionButton', value)
+    }
     const onScroll = (e: any) => {
       if (typeof window === 'undefined') return
       const top = window.pageYOffset || e.target.scrollTop || 0
 
       const pageCallToAction = document.getElementById('page-call-to-action')
       if (pageCallToAction) {
+        console.log(
+          'page-call-to-action exists',
+          top,
+          pageCallToAction.getBoundingClientRect().top + window.pageYOffset
+        )
         setShowCallToActionButton(
           top >
             pageCallToAction.getBoundingClientRect().top + window.pageYOffset
         )
       } else if (!showCallToActionButton.value) {
+        console.log('showCallToAction false')
         setShowCallToActionButton(true)
       }
     }

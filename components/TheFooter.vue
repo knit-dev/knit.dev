@@ -62,13 +62,14 @@
           </v-col>
         </v-row>
 
-        <v-row justify="center" no-gutters>
+        <v-row justify="center">
           <v-col col="12" md="10" lg="9" xl="8">
-            <v-row>
+            <v-row justify="center">
               <v-col
                 v-for="item in affiliates"
                 :key="item.name"
                 class="text-center"
+                cols="4"
               >
                 <div>
                   <div class="affiliate-text">{{ item.title }}</div>

@@ -2,6 +2,15 @@
   --global-padding: 2vw;
 }
 
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
 .global-x-padding {
   padding-left: var(--global-padding);
   padding-right: var(--global-padding);

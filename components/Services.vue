@@ -2,12 +2,15 @@
   <v-container fluid>
     <v-row align="center" class="global-x-padding">
       <v-col v-if="$vuetify.breakpoint.mdAndUp" md="6">
-        <v-img
-          :src="activeImage"
-          :lazy-src="activeLazyImage"
-          aspect-ratio="1"
-          contain
-        ></v-img>
+        <v-fade-transition mode="out-in">
+          <v-img
+            :key="`service-image-${panel}`"
+            :src="activeImage"
+            :lazy-src="activeLazyImage"
+            aspect-ratio="1"
+            contain
+          ></v-img>
+        </v-fade-transition>
       </v-col>
 
       <v-col md="6">

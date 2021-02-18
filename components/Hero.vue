@@ -128,6 +128,7 @@
               />
             </g>
           </svg>
+
           <div class="global-right-padding">
             <div class="hero-image-container">
               <div class="hero-image-wrapper">
