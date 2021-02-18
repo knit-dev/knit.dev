@@ -30,12 +30,14 @@ export const actions: ActionTree<RootState, RootState> = {
   setDark({ commit }, { $vuetify, value, userDefinedColorScheme }) {
     $vuetify.theme.dark = value
 
-    if (userDefinedColorScheme) {
-      localStorage.setItem('dark', JSON.stringify(value))
-    } else {
-      const darkString = localStorage.getItem('dark')
-      if (darkString) {
-        localStorage.removeItem('dark')
+    if (process.browser) {
+      if (userDefinedColorScheme) {
+        localStorage.setItem('dark', JSON.stringify(value))
+      } else {
+        const darkString = localStorage.getItem('dark')
+        if (darkString) {
+          localStorage.removeItem('dark')
+        }
       }
     }
 
@@ -43,19 +45,21 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('SET_USER_DEFINED_COLOR_SCHEME', userDefinedColorScheme)
   },
   setLocalStorageDark({ dispatch }, { $vuetify }) {
-    const darkString = localStorage.getItem('dark')
+    if (process.browser) {
+      const darkString = localStorage.getItem('dark')
 
-    if (darkString) {
-      const dark = JSON.parse(darkString)
+      if (darkString) {
+        const dark = JSON.parse(darkString)
 
-      if (typeof dark === 'boolean') {
-        dispatch('setDark', {
-          $vuetify,
-          value: dark as boolean,
-          userDefinedColorScheme: true,
-        })
-      } else {
-        localStorage.removeItem('dark')
+        if (typeof dark === 'boolean') {
+          dispatch('setDark', {
+            $vuetify,
+            value: dark as boolean,
+            userDefinedColorScheme: true,
+          })
+        } else {
+          localStorage.removeItem('dark')
+        }
       }
     }
   },
