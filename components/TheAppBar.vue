@@ -16,11 +16,7 @@
         md="4"
         lg="3"
       >
-        <nuxt-link
-          exact
-          to="/"
-          :class="{ 'pr-2': true, 'pl-2': $vuetify.breakpoint.mobile }"
-        >
+        <nuxt-link exact to="/" class="pr-3">
           <v-img
             :src="siteLogo"
             contain
@@ -31,11 +27,7 @@
         </nuxt-link>
 
         <v-toolbar-title class="font-weight-bold">
-          <nuxt-link
-            class="text-decoration-none text--primary pl-1"
-            to="/"
-            exact
-          >
+          <nuxt-link class="text-decoration-none text--primary" to="/" exact>
             {{ siteName }}
           </nuxt-link>
         </v-toolbar-title>
