@@ -143,9 +143,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: { extractCSS: process.env.NODE_ENV === 'production' },
-
-  generate: {
-    fallback: true,
-    interval: 2000,
-  },
 }
