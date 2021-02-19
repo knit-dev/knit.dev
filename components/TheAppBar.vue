@@ -84,17 +84,11 @@ export default defineComponent({
 
       const pageCallToAction = document.getElementById('page-call-to-action')
       if (pageCallToAction) {
-        console.log(
-          'page-call-to-action exists',
-          top,
-          pageCallToAction.getBoundingClientRect().top + window.pageYOffset
-        )
         setShowCallToActionButton(
           top >
             pageCallToAction.getBoundingClientRect().top + window.pageYOffset
         )
       } else if (!showCallToActionButton.value) {
-        console.log('showCallToAction false')
         setShowCallToActionButton(true)
       }
     }
