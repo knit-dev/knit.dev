@@ -51,13 +51,13 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { store } = useContext()
+    const { store, $vuetify } = useContext()
 
     const localDrawer = ref(props.drawer)
 
     const siteName = computed(() => store.getters.getSiteName)
     const siteLogo = computed(() =>
-      store.getters['theme/isDark']
+      $vuetify.theme.dark
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )

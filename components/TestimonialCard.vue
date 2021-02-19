@@ -17,7 +17,7 @@
         <span
           class="text-highlighted"
           :class="{
-            'text-highlighted-dark': isDark,
+            'text-highlighted-dark': $vuetify.theme.dark,
           }"
           >{{ item.highlightedText }}</span
         >
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 import { Testimonial } from '~/types'
 
 export default defineComponent({
@@ -43,13 +43,6 @@ export default defineComponent({
       type: Object as () => Testimonial,
       required: true,
     },
-  },
-  setup() {
-    const { store } = useContext()
-
-    const isDark = computed(() => store.getters['theme/isDark'])
-
-    return { isDark }
   },
 })
 </script>

@@ -1,14 +1,13 @@
 <template>
   <span
-    class="heading-subtitle font-weight-regular text-uppercase"
-    :class="{ 'heading-subtitle-dark': isDark }"
+    class="heading-subtitle font-weight-regular text-uppercase accent--text"
   >
     {{ text }}
   </span>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'HeadingSubtitle',
@@ -17,13 +16,6 @@ export default defineComponent({
       type: String,
       required: true,
     },
-  },
-  setup() {
-    const { store } = useContext()
-
-    const isDark = computed(() => store.getters['theme/isDark'])
-
-    return { isDark }
   },
 })
 </script>

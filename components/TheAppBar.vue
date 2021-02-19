@@ -41,11 +41,13 @@
       </v-col>
 
       <v-col md="4" lg="3" class="d-flex justify-end">
-        <v-scale-transition mode="out-in" origin="center center">
-          <div :key="`call-to-action-${showCallToActionButton}`">
-            <CallToActionButton v-show="showCallToActionButton" />
-          </div>
-        </v-scale-transition>
+        <template v-if="$vuetify.breakpoint.mdAndUp">
+          <v-scale-transition mode="out-in" origin="center center">
+            <div :key="`call-to-action-${showCallToActionButton}`">
+              <CallToActionButton v-show="showCallToActionButton" />
+            </div>
+          </v-scale-transition>
+        </template>
 
         <v-app-bar-nav-icon
           class="hidden-md-and-up"
@@ -62,12 +64,11 @@ import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
-    const { store } = useContext()
+    const { store, $vuetify } = useContext()
 
     const siteName = computed(() => store.getters.getSiteName)
-    const isDark = computed(() => store.getters['theme/isDark'])
     const siteLogo = computed(() =>
-      isDark.value
+      $vuetify.theme.dark
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )

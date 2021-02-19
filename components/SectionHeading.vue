@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeadingSubtitle :text="subtitle" />
+
     <h2>
       {{ title }}
     </h2>

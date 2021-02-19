@@ -47,7 +47,7 @@
         >
           <v-img
             class="used-by-company"
-            :class="{ 'used-by-company-dark': isDark }"
+            :class="{ 'used-by-company-dark': $vuetify.theme.dark }"
             :src="company.image"
             :alt="company.name"
             contain
@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 import { TechStackItem } from '~/types'
 
 export default defineComponent({
@@ -71,13 +71,6 @@ export default defineComponent({
       type: Object as () => TechStackItem,
       required: true,
     },
-  },
-  setup() {
-    const { store } = useContext()
-
-    const isDark = computed(() => store.getters['theme/isDark'])
-
-    return { isDark }
   },
 })
 </script>

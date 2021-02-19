@@ -1,10 +1,21 @@
 <template>
   <div class="text-center d-flex align-center">
-    <v-switch v-model="isDark" aria-label="toggle dark mode">
-      <v-icon slot="prepend" :disabled="isDark">{{ lightModeIcon }}</v-icon>
-      <v-icon slot="append" :disabled="!isDark">{{ darkModeIcon }}</v-icon>
+    <v-switch
+      :input-value="$vuetify.theme.dark"
+      aria-label="toggle dark mode"
+      @click.stop.prevent="toggleColorMode()"
+    >
+      <v-icon slot="prepend" :disabled="$vuetify.theme.dark">{{
+        lightModeIcon
+      }}</v-icon>
+
+      <v-icon slot="append" :disabled="!$vuetify.theme.dark">{{
+        darkModeIcon
+      }}</v-icon>
     </v-switch>
+
     <v-divider vertical inset class="ml-2"></v-divider>
+
     <v-tooltip top>
       <template #activator="{ on }">
         <v-btn
@@ -12,26 +23,43 @@
           class="ml-2"
           aria-label="toggle use system color mode preference"
           v-on="on"
-          @click.stop.prevent="toggleDefault()"
+          @click.stop.prevent="toggleSystemColorMode()"
         >
-          <v-icon :disabled="isUserDefinedColorScheme">
-            {{ defaultIcon }}
-          </v-icon>
+          <template v-if="$colorMode.unknown">
+            <v-icon>
+              {{ systemOnIcon }}
+            </v-icon>
+          </template>
+
+          <template v-else>
+            <v-icon :disabled="$colorMode.preference !== 'system'">
+              {{
+                $colorMode.preference === 'system'
+                  ? systemOnIcon
+                  : systemOffIcon
+              }}
+            </v-icon>
+          </template>
         </v-btn>
       </template>
-      <span>{{ defaultText }}</span>
+      <span>System</span>
     </v-tooltip>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  useContext,
+  watch,
+  onMounted,
+} from '@nuxtjs/composition-api'
 import useIcons from '~/composables/useIcons'
 
 export default defineComponent({
   name: 'ColorSchemeToggles',
   setup() {
-    const { store, $vuetify } = useContext()
+    const { $colorMode, $vuetify } = useContext()
 
     const {
       systemOnIcon,
@@ -40,50 +68,38 @@ export default defineComponent({
       darkModeIcon,
     } = useIcons()
 
-    const isUserDefinedColorScheme = computed(
-      () => store.getters['theme/isUserDefinedColorScheme']
-    )
-    const isDark = computed({
-      get: () => store.getters['theme/isDark'],
-      set: () => {
-        toggleDark()
-      },
-    })
-    const isPrefersColorSchemeCapable = computed(
-      () => store.getters['theme/isPrefersColorSchemeCapable']
-    )
-
-    const defaultIcon = computed(() =>
-      isUserDefinedColorScheme.value ? systemOffIcon : systemOnIcon
-    )
-    const defaultText = 'System'
-
-    const toggleDark = () =>
-      store.dispatch('theme/setDark', {
-        $vuetify,
-        value: !isDark.value,
-        userDefinedColorScheme: true,
-      })
-    const toggleDefault = () => {
-      store.dispatch('theme/setDark', {
-        $vuetify,
-        value: isUserDefinedColorScheme.value
-          ? isPrefersColorSchemeCapable.value &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches
-          : isDark.value,
-        userDefinedColorScheme: !isUserDefinedColorScheme.value,
-      })
+    const toggleSystemColorMode = () => {
+      if ($colorMode.preference === 'system') {
+        $colorMode.preference = $colorMode.value === 'dark' ? 'dark' : 'light'
+      } else {
+        $colorMode.preference = 'system'
+      }
+    }
+    const toggleColorMode = () => {
+      $colorMode.preference = $vuetify.theme.dark ? 'light' : 'dark'
+    }
+    const setVuetifyThemeDark = (value: string) => {
+      $vuetify.theme.dark = value === 'dark'
     }
 
+    onMounted(() => {
+      setVuetifyThemeDark($colorMode.value)
+    })
+
+    watch(
+      () => $colorMode.value,
+      () => {
+        setVuetifyThemeDark($colorMode.value)
+      }
+    )
+
     return {
-      isDark,
-      isUserDefinedColorScheme,
-      defaultIcon,
-      defaultText,
+      systemOnIcon,
+      systemOffIcon,
       lightModeIcon,
       darkModeIcon,
-      toggleDark,
-      toggleDefault,
+      toggleSystemColorMode,
+      toggleColorMode,
     }
   },
 })

@@ -19,12 +19,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
 import { heroContent } from '~/data'
 
 export default defineComponent({
   name: 'Home',
   setup() {
+    const { store } = useContext()
+
+    store.dispatch('setShowCallToActionButton', false)
+
     return { heroContent }
   },
   head() {
