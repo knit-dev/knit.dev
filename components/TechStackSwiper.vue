@@ -5,6 +5,7 @@
       class="parallax-bg"
       data-swiper-parallax="-23%"
     ></div>
+
     <v-container
       class="swiper-heading"
       :class="{ 'swiper-heading-dark': isDark }"
@@ -33,60 +34,53 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from '@vue/composition-api'
-// eslint-disable-next-line import/named
-import TechStackCard from '~/components/TechStackCard.vue'
-import SectionHeading from '~/components/SectionHeading.vue'
-import { techStackItems as techStackItemsData } from '~/data'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { techStackItems } from '~/data'
+
+const swiperOptions = {
+  parallax: true,
+  centeredSlides: true,
+  centeredSlidesBounds: true,
+  slideToClickedSlide: true,
+  slidesPerView: 1,
+  spaceBetween: 0,
+  breakpoints: {
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
+    960: {
+      slidesPerView: 3,
+      spaceBetween: 0,
+    },
+    1264: {
+      slidesPerView: 4,
+      spaceBetween: 0,
+    },
+    1904: {
+      slidesPerView: 5,
+      spaceBetween: 0,
+    },
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',
+    draggable: true,
+  },
+}
 
 export default defineComponent({
   name: 'TechStackSwiper',
-  components: {
-    SectionHeading,
-    TechStackCard
-  },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const swiperOptions = {
-      parallax: true,
-      centeredSlides: true,
-      centeredSlidesBounds: true,
-      slideToClickedSlide: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
-      breakpoints: {
-        600: {
-          slidesPerView: 2,
-          spaceBetween: 0
-        },
-        960: {
-          slidesPerView: 3,
-          spaceBetween: 0
-        },
-        1264: {
-          slidesPerView: 4,
-          spaceBetween: 0
-        },
-        1904: {
-          slidesPerView: 5,
-          spaceBetween: 0
-        }
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true
-      }
-    }
+  setup() {
+    const { store } = useContext()
 
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
-    const techStackItems = ref(techStackItemsData)
+    const isDark = computed(() => store.getters['theme/isDark'])
 
     return {
       swiperOptions,
       isDark,
-      techStackItems
+      techStackItems,
     }
-  }
+  },
 })
 </script>
 
@@ -98,12 +92,14 @@ $swiper-bottom: 5rem;
   margin-top: $swiper-bottom / 3;
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 .swiper-heading ::v-deep .heading-subtitle {
   color: map-get(map-get($material-dark, 'text'), 'primary');
 }
 .swiper-heading-dark {
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 .swiper-heading-dark ::v-deep .heading-subtitle {
   color: map-get(map-get($material-light, 'text'), 'primary');
 }
@@ -124,10 +120,12 @@ $swiper-bottom: 5rem;
   padding-bottom: $swiper-bottom;
 }
 
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::v-deep .swiper-scrollbar {
   opacity: 1;
   background: rgb(239, 239, 239);
 }
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 ::v-deep .swiper-scrollbar-drag {
   background: #623de4;
 }

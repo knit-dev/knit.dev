@@ -3,8 +3,9 @@
     <v-container fluid class="pa-0">
       <v-row no-gutters class="global-x-padding pb-4">
         <v-col cols="12" md="6" align-self="center">
-          <div class="mx-auto pa-4" style="max-width: 700px;">
+          <div class="mx-auto pa-4" style="max-width: 700px">
             <PageHeading :text="heading" />
+
             <p class="pb-6 text--secondary text-h6 font-weight-regular">
               Tell us about your project, find out if we're a good fit and
               receive an estimate. We're excited to discover new startup
@@ -14,8 +15,10 @@
             <v-row class="pb-6">
               <v-col cols="12" sm="6">
                 <HeadingSubtitle text="Email" class="pb-2" />
+
                 <div>
                   <v-icon large class="mr-2">{{ emailIcon }}</v-icon>
+
                   <a
                     class="text-body-1 font-weight-medium text-decoration-none"
                     :href="`mailto:${callToAction.email}`"
@@ -23,11 +26,13 @@
                   >
                 </div>
               </v-col>
+
               <v-col cols="12" sm="6">
                 <HeadingSubtitle text="Headquarters" class="pb-2" />
+
                 <address
                   class="text-body-1 font-weight-medium"
-                  style="font-style: normal;"
+                  style="font-style: normal"
                 >
                   Knit LLC<br />
                   1724 Barry Ave<br />
@@ -55,6 +60,7 @@
             </div>
           </div>
         </v-col>
+
         <v-col cols="12" md="6" class="pa-0">
           <div>
             <v-img src="" lazy-src="" alt="headquarters map"></v-img>
@@ -66,18 +72,28 @@
 </template>
 
 <script>
-import { defineComponent, ref } from '@vue/composition-api'
-import { mdiEmailOutline } from '@mdi/js'
-import {
-  callToAction as callToActionData,
-  socials as socialsData
-} from '~/data'
-import HeadingSubtitle from '~/components/HeadingSubtitle.vue'
-import PageHeading from '~/components/PageHeading.vue'
-import useCallToActionButton from '~/composables/useCallToActionButton'
+import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
+import useIcons from '~/composables/useIcons'
+import { callToAction, socials } from '~/data'
 
 export default defineComponent({
   name: 'Contact',
+  setup() {
+    const { store } = useContext()
+
+    const { emailIcon } = useIcons()
+
+    const heading = ref("Let's chat")
+
+    store.dispatch('setShowCallToActionButton', true)
+
+    return {
+      heading,
+      emailIcon,
+      callToAction,
+      socials,
+    }
+  },
   head() {
     const description =
       'Contact Knit to see if we can help fulfill your software development needs'
@@ -87,37 +103,15 @@ export default defineComponent({
         {
           name: 'og:description',
           hid: 'og:description',
-          content: description
+          content: description,
         },
         {
           name: 'description',
           hid: 'description',
-          content: description
-        }
-      ]
+          content: description,
+        },
+      ],
     }
   },
-  components: {
-    HeadingSubtitle,
-    PageHeading
-  },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    useCallToActionButton(root)
-
-    const heading = ref("Let's chat")
-    const emailIcon = ref(mdiEmailOutline)
-    const callToAction = ref(callToActionData)
-    const socials = ref(socialsData)
-
-    return {
-      heading,
-      emailIcon,
-      callToAction,
-      socials
-    }
-  }
 })
 </script>
-
-<style lang="scss" scoped></style>

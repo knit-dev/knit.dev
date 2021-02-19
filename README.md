@@ -22,18 +22,6 @@ $ npm run start
 $ npm run generate
 ```
 
-## vue-devtools
-
-Command to run standalone electron version of vue-devtools in parallel with app. Debug app opened in mobile browser, safari, native script etc! Browser extension versions do not require these commands
-
-```bash
-# using dependency package (recommended)
-$ npm run dev-devtools
-
-# using global package (requires global install of vue-devtools)
-$ vue-devtools & env VUE_DEVTOOLS_GLOBAL=true npm run dev
-```
-
 ## Docker
 
 ```bash

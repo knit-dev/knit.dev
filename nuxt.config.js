@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-require('dotenv').config()
-
 export default {
-  mode: 'spa',
-  /*
-   ** Headers of the page
-   */
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'static',
+
+  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate:
       '%s - ' + process.env.LOCAL_SITE_NAME ||
@@ -16,18 +16,18 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0, viewport-fit=cover'
+        content: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
       },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: process.env.npm_package_description || '',
       },
       {
         hid: 'keywords',
         name: 'keywords',
-        content: 'software, development, startups, knit.dev, knit'
-      }
+        content: 'software, development, startups, knit.dev, knit',
+      },
     ],
     noscript: [{ innerHTML: 'This website requires JavaScript.' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
@@ -37,178 +37,159 @@ export default {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/_nuxt/fonts/e535f78.woff2',
-          crossorigin: true
+          href: '/_nuxt/fonts/poppins-latin-300.82a5357.woff2',
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/_nuxt/fonts/1a28052.woff2',
-          crossorigin: true
+          href: '/_nuxt/fonts/poppins-latin-300italic.e62b386.woff2',
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/_nuxt/fonts/61e2d96.woff2',
-          crossorigin: true
+          href: '/_nuxt/fonts/poppins-latin-400.5b8f3ba.woff2',
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/_nuxt/fonts/e059682.woff2',
-          crossorigin: true
+          href: '/_nuxt/fonts/poppins-latin-500.dc16a35.woff2',
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/_nuxt/fonts/e879481.woff2',
-          crossorigin: true
+          href: '/_nuxt/fonts/poppins-latin-700.9690ce6.woff2',
+          crossorigin: true,
         },
         {
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/_nuxt/fonts/263658a.woff2',
-          crossorigin: true
+          href: '/_nuxt/fonts/space-mono-latin-400.8f145ba.woff2',
+          crossorigin: true,
         },
-        {
-          rel: 'preload',
-          as: 'style',
-          href: '/_nuxt/d3215687e610a0329f7c.css'
-        }
-      ]
+      ],
     }),
-    ...(process.env.VUE_DEVTOOLS_GLOBAL === 'true' && {
-      script: [{ src: 'http://localhost:8098' }]
-    })
   },
+
   env: {
-    vueDevtoolsLocal: process.env.VUE_DEVTOOLS_LOCAL,
     siteName: process.env.LOCAL_SITE_NAME || process.env.npm_package_name,
     companyName:
       process.env.COMPANY_NAME ||
       process.env.LOCAL_SITE_NAME ||
       process.env.npm_package_name,
     tagline: process.env.TAGLINE,
-    siteUrl: process.env.LOCAL_SITE_URL || process.env.npm_package_homepage
+    siteUrl: process.env.LOCAL_SITE_URL || process.env.npm_package_homepage,
   },
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: {},
-  /*
-   ** Global CSS
-   */
+
+  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/fonts/poppins.css',
     '@/assets/fonts/space-mono.css',
     '@/assets/css/main.scss',
-    'swiper/css/swiper.css'
+    'swiper/css/swiper.css',
   ],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [
-    '~plugins/vue-devtools-local',
-    '~plugins/composition-api',
-    '~plugins/vue-awesome-swiper'
-  ],
-  /*
-   ** Nuxt.js dev-modules
-   */
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: ['~/plugins/vue-awesome-swiper.client.ts'],
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    // Doc: https://github.com/nuxt-community/stylelint-module
+    // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@aceforth/nuxt-optimized-images',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/composition-api',
+    // https://go.nuxtjs.dev/vuetify
+    '@nuxtjs/vuetify',
   ],
-  /*
-   ** Nuxt.js modules
-   */
+
+  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-    '@nuxtjs/sentry'
+    '@nuxtjs/sentry',
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
-  sentry: {},
+
   optimizedImages: {
-    optimizeImages: true
+    optimizeImages: true,
   },
-  /*
-   ** Build configuration
-   */
-  /*
-   ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
-   */
+
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  pwa: {
+    icon: {
+      fileName: 'favicon.png',
+    },
+    manifest: {
+      lang: 'en',
+      name: process.env.LOCAL_SITE_NAME || process.env.npm_package_name,
+      short_name: process.env.SITE_SHORT_NAME || process.env.npm_package_name,
+    },
+    meta: {
+      name: process.env.LOCAL_SITE_NAME || process.env.npm_package_name,
+      theme_color: '#FF6699',
+    },
+    workbox: {
+      clientsClaim: false,
+    },
+  },
+
+  sentry: {
+    dsn: process.env.SENTRY_DSN || '',
+  },
+
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/css/variables.scss'],
     treeShake: true,
     defaultAssets: {
       font: false,
-      icons: false
+      icons: false,
     },
     icons: { iconfont: 'mdiSvg' },
     theme: {
-      // options: {
-      //   customProperties: true
-      // },
       dark: false,
       themes: {
         light: {
-          primary: '#FF6699',
-          secondary: '#FFDF8E',
-          accent: '#C6BDEF',
+          primary: '#ff6699',
+          secondary: '#ffdf8e',
+          accent: '#6245e0',
 
-          success: '#BCE688',
-          error: '#FE6157',
-          warning: '#FEDE93',
-          info: '#7CB8FF'
+          success: '#bce688',
+          error: '#fe6157',
+          warning: '#fede93',
+          info: '#7cb8ff',
         },
         dark: {
-          primary: '#FF6699',
-          secondary: '#FFDF8E',
-          accent: '#C6BDEF',
+          primary: '#ff6699',
+          secondary: '#ffdf8e',
+          accent: '#c6beed',
 
-          success: '#BCE688',
-          error: '#FE6157',
-          warning: '#FEDE93',
-          info: '#7CB8FF'
-        }
-      }
-    }
+          success: '#bce688',
+          error: '#fe6157',
+          warning: '#fede93',
+          info: '#7cb8ff',
+        },
+      },
+    },
   },
-  build: {
-    extractCSS: process.env.NODE_ENV === 'production',
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {},
+
   generate: {
-    fallback: true
-  }
+    fallback: true,
+    interval: 2000,
+  },
 }

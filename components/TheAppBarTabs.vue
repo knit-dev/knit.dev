@@ -15,18 +15,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
+
+const items = [
+  { title: 'home', route: '/' },
+  { title: 'contact', route: '/contact' },
+]
 
 export default defineComponent({
   setup() {
-    const items = ref([
-      { title: 'home', route: '/' },
-      { title: 'contact', route: '/contact' }
-    ])
-
     return { items }
-  }
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

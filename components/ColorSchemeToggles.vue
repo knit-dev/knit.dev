@@ -1,16 +1,12 @@
 <template>
   <div class="text-center d-flex align-center">
-    <v-switch
-      v-model="isDark"
-      aria-label="toggle dark mode"
-      @click.stop.prevent="toggleDark()"
-    >
-      <v-icon slot="prepend" :disabled="isDark">{{ lightIcon }}</v-icon>
-      <v-icon slot="append" :disabled="!isDark">{{ darkIcon }}</v-icon>
+    <v-switch v-model="isDark" aria-label="toggle dark mode">
+      <v-icon slot="prepend" :disabled="isDark">{{ lightModeIcon }}</v-icon>
+      <v-icon slot="append" :disabled="!isDark">{{ darkModeIcon }}</v-icon>
     </v-switch>
     <v-divider vertical inset class="ml-2"></v-divider>
     <v-tooltip top>
-      <template v-slot:activator="{ on }">
+      <template #activator="{ on }">
         <v-btn
           icon
           class="ml-2"
@@ -29,49 +25,53 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from '@vue/composition-api'
-import {
-  mdiMonitor,
-  mdiMonitorOff,
-  mdiWeatherNight,
-  mdiWhiteBalanceSunny
-} from '@mdi/js'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import useIcons from '~/composables/useIcons'
 
 export default defineComponent({
   name: 'ColorSchemeToggles',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
+  setup() {
+    const { store, $vuetify } = useContext()
+
+    const {
+      systemOnIcon,
+      systemOffIcon,
+      lightModeIcon,
+      darkModeIcon,
+    } = useIcons()
+
     const isUserDefinedColorScheme = computed(
-      () => root.$store.getters['theme/isUserDefinedColorScheme']
+      () => store.getters['theme/isUserDefinedColorScheme']
     )
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+    const isDark = computed({
+      get: () => store.getters['theme/isDark'],
+      set: () => {
+        toggleDark()
+      },
+    })
     const isPrefersColorSchemeCapable = computed(
-      () => root.$store.getters['theme/isPrefersColorSchemeCapable']
+      () => store.getters['theme/isPrefersColorSchemeCapable']
     )
 
     const defaultIcon = computed(() =>
-      isUserDefinedColorScheme.value ? mdiMonitorOff : mdiMonitor
+      isUserDefinedColorScheme.value ? systemOffIcon : systemOnIcon
     )
     const defaultText = 'System'
 
-    const lightIcon = ref(mdiWhiteBalanceSunny)
-    const darkIcon = ref(mdiWeatherNight)
-
     const toggleDark = () =>
-      root.$store.dispatch('theme/setDark', {
-        vm: root,
+      store.dispatch('theme/setDark', {
+        $vuetify,
         value: !isDark.value,
-        userDefinedColorScheme: true
+        userDefinedColorScheme: true,
       })
-
     const toggleDefault = () => {
-      root.$store.dispatch('theme/setDark', {
-        vm: root,
+      store.dispatch('theme/setDark', {
+        $vuetify,
         value: isUserDefinedColorScheme.value
           ? isPrefersColorSchemeCapable.value &&
             window.matchMedia('(prefers-color-scheme: dark)').matches
           : isDark.value,
-        userDefinedColorScheme: !isUserDefinedColorScheme.value
+        userDefinedColorScheme: !isUserDefinedColorScheme.value,
       })
     }
 
@@ -80,13 +80,11 @@ export default defineComponent({
       isUserDefinedColorScheme,
       defaultIcon,
       defaultText,
-      lightIcon,
-      darkIcon,
+      lightModeIcon,
+      darkModeIcon,
       toggleDark,
-      toggleDefault
+      toggleDefault,
     }
-  }
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

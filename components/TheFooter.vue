@@ -21,20 +21,24 @@
             </nuxt-link>
           </v-col>
         </v-row>
+
         <v-row justify="center">
           <v-col cols="12">
             <div>
               <div class="font-weight-bold text-h5 pb-6">
                 Contact us to discuss your project and how we can collaborate
               </div>
+
               <CallToActionButton />
             </div>
           </v-col>
         </v-row>
+
         <v-row>
           <v-col order="1" class="d-flex align-self-center justify-center">
             <ColorSchemeToggles />
           </v-col>
+
           <v-col
             cols="12"
             sm=""
@@ -58,13 +62,14 @@
           </v-col>
         </v-row>
 
-        <v-row justify="center" no-gutters>
+        <v-row justify="center">
           <v-col col="12" md="10" lg="9" xl="8">
-            <v-row>
+            <v-row justify="center">
               <v-col
                 v-for="item in affiliates"
                 :key="item.name"
                 class="text-center"
+                cols="4"
               >
                 <div>
                   <div class="affiliate-text">{{ item.title }}</div>
@@ -92,7 +97,9 @@
           </v-col>
         </v-row>
       </v-card-text>
+
       <v-divider></v-divider>
+
       <v-card-text>
         <div>
           &copy; {{ new Date().getFullYear() }} {{ companyName }}.
@@ -101,27 +108,25 @@
             license.linkText
           }}</a>
         </div>
+
         <v-row no-gutters justify="center" class="text-center">
           <v-col class="d-flex justify-end"
             ><nuxt-link exact to="/privacy" class="text-decoration-none"
               >Privacy</nuxt-link
             ></v-col
           >
+
           <div class="mx-2">•</div>
-          <nuxt-link exact to="/terms" class="text-decoration-none"
-            >Terms of Use</nuxt-link
-          >
-          <div class="mx-2">•</div>
+
           <v-col class="d-flex justify-start"
-            ><a
-              href="https://angry-goldberg-c2fd92.netlify.app/"
-              class="text-decoration-none"
-              >Old Site</a
+            ><nuxt-link exact to="/terms" class="text-decoration-none"
+              >Terms of Use</nuxt-link
             ></v-col
           >
         </v-row>
       </v-card-text>
     </v-card>
+
     <div
       v-for="item in footerFloatingIcons"
       :key="item.image"
@@ -134,34 +139,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from '@vue/composition-api'
-import {
-  socials as socialsData,
-  affiliates as affiliatesData,
-  license as licenseData,
-  footerFloatingIcons as footerFloatingIconsData
-} from '~/data'
-import ColorSchemeToggles from '~/components/ColorSchemeToggles.vue'
-import CallToActionButton from '~/components/CallToActionButton.vue'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { socials, affiliates, license, footerFloatingIcons } from '~/data'
 
 export default defineComponent({
-  components: {
-    ColorSchemeToggles,
-    CallToActionButton
-  },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const companyName = computed(() => root.$store.getters.getCompanyName)
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+  setup() {
+    const { store } = useContext()
+
+    const companyName = computed(() => store.getters.getCompanyName)
+    const isDark = computed(() => store.getters['theme/isDark'])
     const siteLogo = computed(() =>
       isDark.value
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
-    const socials = ref(socialsData)
-    const affiliates = ref(affiliatesData)
-    const footerFloatingIcons = ref(footerFloatingIconsData)
-    const license = ref(licenseData)
 
     return {
       isDark,
@@ -170,9 +161,9 @@ export default defineComponent({
       socials,
       affiliates,
       license,
-      footerFloatingIcons
+      footerFloatingIcons,
     }
-  }
+  },
 })
 </script>
 
@@ -192,7 +183,7 @@ $icon-size: 4rem;
   box-shadow: 8px 8px 15px rgba(19, 6, 65, 0.1);
   border-radius: 10px;
   z-index: 4;
-  background: #ffffff;
+  background: #fff;
 }
 
 .affiliate-text {

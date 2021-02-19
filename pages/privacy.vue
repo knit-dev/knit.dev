@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <div class="mx-auto py-4" style="max-width: 800px;">
+    <div class="mx-auto py-4" style="max-width: 800px">
       <h2 class="pb-4">{{ companyName }} Privacy Policy</h2>
 
       <p>
@@ -114,20 +114,23 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed } from '@vue/composition-api'
-import { callToAction as callToActionData } from '~/data'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
+import { callToAction as contact } from '~/data'
 
 export default defineComponent({
   name: 'Privacy',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const siteUrl = computed(() => root.$store.getters.getSiteUrl)
-    const companyName = computed(() => root.$store.getters.getCompanyName)
-    const contact = ref(callToActionData)
+  setup() {
+    const { store } = useContext()
+
+    const siteUrl = computed(() => store.getters.getSiteUrl)
+    const companyName = computed(() => store.getters.getCompanyName)
 
     return { siteUrl, companyName, contact }
-  }
+  },
+  head() {
+    return {
+      title: 'Privacy',
+    }
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

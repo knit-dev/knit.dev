@@ -17,40 +17,37 @@ import {
   defineComponent,
   ref,
   computed,
-  onBeforeUnmount
-} from '@vue/composition-api'
-
-import TheNavigationDrawer from '~/components/TheNavigationDrawer.vue'
-import TheAppBar from '~/components/TheAppBar.vue'
-import TheFooter from '~/components/TheFooter.vue'
+  onBeforeUnmount,
+  useContext,
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'DefaultLayout',
-  components: { TheNavigationDrawer, TheAppBar, TheFooter },
+  setup() {
+    const { store, $vuetify } = useContext()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const drawer = ref(false)
+    const drawer = ref<boolean | null>(false)
+
+    store.dispatch('theme/setLocalStorageDark', { $vuetify })
+
+    const isUserDefinedColorScheme = computed(
+      () => store.getters['theme/isUserDefinedColorScheme']
+    )
+    const isPrefersColorSchemeCapable = computed(
+      () => store.getters['theme/isPrefersColorSchemeCapable']
+    )
+
     const toggleDrawer = () => {
       drawer.value = !drawer.value
     }
-
-    root.$store.dispatch('theme/setLocalStorageDark', root)
-
-    const isUserDefinedColorScheme = computed(
-      () => root.$store.getters['theme/isUserDefinedColorScheme']
-    )
-    const isPrefersColorSchemeCapable = computed(
-      () => root.$store.getters['theme/isPrefersColorSchemeCapable']
-    )
-
     const prefersColorSchemeCallback = () => {
       if (!isUserDefinedColorScheme.value) {
         const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
-        root.$store.dispatch('theme/setDark', {
-          vm: root,
+
+        store.dispatch('theme/setDark', {
+          $vuetify,
           value: mediaQueryList.matches,
-          userDefinedColorScheme: false
+          userDefinedColorScheme: false,
         })
       }
     }
@@ -60,23 +57,21 @@ export default defineComponent({
 
       window
         .matchMedia('(prefers-color-scheme: dark)')
-        .addListener(prefersColorSchemeCallback)
+        .addEventListener('change', prefersColorSchemeCallback)
     }
 
     onBeforeUnmount(() => {
       if (isPrefersColorSchemeCapable.value) {
         window
           .matchMedia('(prefers-color-scheme: dark)')
-          .removeListener(prefersColorSchemeCallback)
+          .removeEventListener('change', prefersColorSchemeCallback)
       }
     })
 
     return {
       drawer,
-      toggleDrawer
+      toggleDrawer,
     }
-  }
+  },
 })
 </script>
-
-<style lang="scss"></style>

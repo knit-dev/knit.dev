@@ -16,18 +16,21 @@
         md="4"
         lg="3"
       >
-        <nuxt-link exact to="/">
+        <nuxt-link exact to="/" class="pr-3">
           <v-img
             :src="siteLogo"
+            contain
             height="2.5rem"
             width="2.5rem"
             alt="site logo"
           ></v-img>
         </nuxt-link>
 
-        <v-toolbar-title class="ml-3 font-weight-bold">{{
-          siteName
-        }}</v-toolbar-title>
+        <v-toolbar-title class="font-weight-bold">
+          <nuxt-link class="text-decoration-none text--primary" to="/" exact>
+            {{ siteName }}
+          </nuxt-link>
+        </v-toolbar-title>
       </v-col>
 
       <v-col
@@ -39,7 +42,11 @@
 
       <v-col md="4" lg="3" class="d-flex justify-end">
         <template v-if="$vuetify.breakpoint.mdAndUp">
-          <CallToActionButton v-show="showCallToActionButton" />
+          <v-scale-transition mode="out-in" origin="center center">
+            <div :key="`call-to-action-${showCallToActionButton}`">
+              <CallToActionButton v-show="showCallToActionButton" />
+            </div>
+          </v-scale-transition>
         </template>
 
         <v-app-bar-nav-icon
@@ -53,30 +60,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
-import TheAppBarTabs from '~/components/TheAppBarTabs.vue'
-import CallToActionButton from '~/components/CallToActionButton.vue'
-import useCallToActionButton from '~/composables/useCallToActionButton'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  components: {
-    TheAppBarTabs,
-    CallToActionButton
-  },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const siteName = computed(() => root.$store.getters.getSiteName)
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+  setup() {
+    const { store } = useContext()
+
+    const siteName = computed(() => store.getters.getSiteName)
+    const isDark = computed(() => store.getters['theme/isDark'])
     const siteLogo = computed(() =>
       isDark.value
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
-
     const showCallToActionButton = computed(
-      () => root.$store.getters.getShowCallToActionButton
+      () => store.getters.getShowCallToActionButton
     )
-    const { setShowCallToActionButton } = useCallToActionButton(root)
+
+    const setShowCallToActionButton = (value: boolean) => {
+      store.dispatch('setShowCallToActionButton', value)
+    }
     const onScroll = (e: any) => {
       if (typeof window === 'undefined') return
       const top = window.pageYOffset || e.target.scrollTop || 0
@@ -96,9 +99,9 @@ export default defineComponent({
       showCallToActionButton,
       onScroll,
       siteName,
-      siteLogo
+      siteLogo,
     }
-  }
+  },
 })
 </script>
 
@@ -109,12 +112,14 @@ export default defineComponent({
   #the-app-bar {
     background-color: transparent;
   }
+  /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
   #the-app-bar ::v-deep > div:first-child {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
 }
 
+/* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 #the-app-bar.global-padded ::v-deep > div:first-child {
   padding-left: calc(var(--global-padding) + 1rem);
   padding-right: calc(var(--global-padding) + 1rem);

@@ -24,13 +24,19 @@
         ></v-img>
       </a>
     </v-card-text>
+
     <v-card-title class="pt-0">{{ item.name }}</v-card-title>
+
     <v-card-subtitle class="text-uppercase subtitle">{{
       item.category
     }}</v-card-subtitle>
+
     <v-card-text>{{ item.description }}</v-card-text>
+
     <v-card-text>Compares to {{ item.alternatives.join(', ') }}</v-card-text>
+
     <v-spacer></v-spacer>
+
     <v-card-text>
       <v-row no-gutters>
         <v-col
@@ -55,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 import { TechStackItem } from '~/types'
 
 export default defineComponent({
@@ -63,15 +69,16 @@ export default defineComponent({
   props: {
     item: {
       type: Object as () => TechStackItem,
-      required: true
-    }
+      required: true,
+    },
   },
+  setup() {
+    const { store } = useContext()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+    const isDark = computed(() => store.getters['theme/isDark'])
+
     return { isDark }
-  }
+  },
 })
 </script>
 
@@ -83,7 +90,7 @@ export default defineComponent({
   width: auto;
 }
 .subtitle {
-  font-family: 'Space Mono';
+  font-family: 'Space Mono', monospace;
 }
 
 .used-by-company {

@@ -11,13 +11,13 @@
         class="font-weight-bold"
         :class="{
           'text-h5': $vuetify.breakpoint.smAndDown,
-          'text-h4': $vuetify.breakpoint.mdAndUp
+          'text-h4': $vuetify.breakpoint.mdAndUp,
         }"
       >
         <span
           class="text-highlighted"
           :class="{
-            'text-highlighted-dark': isDark
+            'text-highlighted-dark': isDark,
           }"
           >{{ item.highlightedText }}</span
         >
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 import { Testimonial } from '~/types'
 
 export default defineComponent({
@@ -41,15 +41,16 @@ export default defineComponent({
   props: {
     item: {
       type: Object as () => Testimonial,
-      required: true
-    }
+      required: true,
+    },
   },
+  setup() {
+    const { store } = useContext()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+    const isDark = computed(() => store.getters['theme/isDark'])
+
     return { isDark }
-  }
+  },
 })
 </script>
 

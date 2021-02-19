@@ -1,29 +1,29 @@
 <template>
-  <h3
+  <span
     class="heading-subtitle font-weight-regular text-uppercase"
     :class="{ 'heading-subtitle-dark': isDark }"
   >
     {{ text }}
-  </h3>
+  </span>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'HeadingSubtitle',
   props: {
     text: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setup(props, { root }) {
-    const isDark = computed(() => root.$store.getters['theme/isDark'])
+  setup() {
+    const { store } = useContext()
+
+    const isDark = computed(() => store.getters['theme/isDark'])
+
     return { isDark }
-  }
+  },
 })
 </script>
-
-<style lang="scss" scoped></style>

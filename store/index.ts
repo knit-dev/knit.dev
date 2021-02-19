@@ -17,12 +17,13 @@ export const getters: GetterTree<RootState, RootState> = {
 }
 
 export const mutations: MutationTree<RootState> = {
-  SET_SHOW_CALL_TO_ACTION_BUTTON: (state, value: boolean) =>
-    (state.showCallToActionButton = value),
+  SET_SHOW_CALL_TO_ACTION_BUTTON(state, value: boolean) {
+    state.showCallToActionButton = value
+  },
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  setShowCallToActionButton: ({ commit, state }, value: boolean) => {
+  setShowCallToActionButton({ commit, state }, value: boolean) {
     if (state.showCallToActionButton !== value) {
       commit('SET_SHOW_CALL_TO_ACTION_BUTTON', value)
     }
