@@ -118,22 +118,22 @@ export const techStackItems: Array<TechStackItem> = [
   },
   {
     category: 'Database engine',
-    name: 'MySQL',
+    name: 'PostgreSQL',
     description:
-      'Holds the largest market share for relational database management systems. It is a stable, reliable, and powerful solution offering advanced features.',
-    logo: require('~/assets/images/tech-stack/mysql-logo.svg'),
-    alternatives: ['MongoDb', 'PostgreSQL'],
+      'Highly extensible, standards compliant, scalable, and truly open-source. It is a stable, reliable, and powerful solution offering advanced features.',
+    logo: require('~/assets/images/tech-stack/postgresql-logo.svg'),
+    alternatives: ['MongoDb', 'MySQL'],
     usedByCompanies: [
       {
-        name: 'Wikipedia',
-        image: require('~/assets/images/tech-stack/wikipedia-wordmark.svg'),
+        name: 'Spotify',
+        image: require('~/assets/images/tech-stack/spotify-combination-mark.svg'),
       },
       {
-        name: 'YouTube',
-        image: require('~/assets/images/tech-stack/youtube-combination-mark.svg'),
+        name: 'NASA',
+        image: require('~/assets/images/tech-stack/nasa-wordmark.svg'),
       },
     ],
-    link: 'https://www.mysql.com',
+    link: 'https://www.postgresql.org',
   },
   {
     category: 'Cloud hosting',
