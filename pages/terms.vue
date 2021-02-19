@@ -95,7 +95,7 @@ import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 import { callToAction as contact } from '~/data'
 
 export default defineComponent({
-  name: 'Privacy',
+  name: 'Terms',
   setup() {
     const { store } = useContext()
 
