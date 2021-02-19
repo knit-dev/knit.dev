@@ -27,7 +27,6 @@
       "@nuxt/types",
       "@types/node",
       "@nuxtjs/vuetify",
-      "@nuxtjs/color-mode",
     ]
   },
   "exclude": [

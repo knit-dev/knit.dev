@@ -72,20 +72,16 @@
 </template>
 
 <script>
-import { defineComponent, ref, useContext } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import useIcons from '~/composables/useIcons'
 import { callToAction, socials } from '~/data'
 
 export default defineComponent({
   name: 'Contact',
   setup() {
-    const { store } = useContext()
-
     const { emailIcon } = useIcons()
 
     const heading = ref("Let's chat")
-
-    store.dispatch('setShowCallToActionButton', true)
 
     return {
       heading,

@@ -1,4 +1,7 @@
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -95,10 +98,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/vue-awesome-swiper.client.ts',
-    '~/plugins/vuetify-color-mode.client.js',
-  ],
+  plugins: ['~/plugins/vue-awesome-swiper.client.ts'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -113,7 +113,6 @@ export default {
     '@nuxtjs/composition-api',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -171,8 +170,6 @@ export default {
           error: '#fe6157',
           warning: '#fede93',
           info: '#7cb8ff',
-
-          footer: '#f8f0ea',
         },
         dark: {
           primary: '#ff6699',
@@ -183,8 +180,6 @@ export default {
           error: '#fe6157',
           warning: '#fede93',
           info: '#7cb8ff',
-
-          footer: '#1e1e1e',
         },
       },
     },
@@ -192,4 +187,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  generate: {
+    fallback: true,
+    interval: 2000,
+  },
 }

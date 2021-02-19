@@ -8,7 +8,7 @@
 
     <v-container
       class="swiper-heading"
-      :class="{ 'swiper-heading-dark': $vuetify.theme.dark }"
+      :class="{ 'swiper-heading-dark': isDark }"
     >
       <SectionHeading
         class="global-left-padding"
@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, computed, useContext } from '@nuxtjs/composition-api'
 import { techStackItems } from '~/data'
 
 const swiperOptions = {
@@ -71,8 +71,13 @@ const swiperOptions = {
 export default defineComponent({
   name: 'TechStackSwiper',
   setup() {
+    const { store } = useContext()
+
+    const isDark = computed(() => store.getters['theme/isDark'])
+
     return {
       swiperOptions,
+      isDark,
       techStackItems,
     }
   },
@@ -96,7 +101,7 @@ $swiper-bottom: 5rem;
 }
 /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
 .swiper-heading-dark ::v-deep .heading-subtitle {
-  color: map-get(map-get($material-light, 'text'), 'primary') !important;
+  color: map-get(map-get($material-light, 'text'), 'primary');
 }
 
 .parallax-bg {

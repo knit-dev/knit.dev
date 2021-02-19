@@ -5,7 +5,7 @@
       flat
       tile
       width="100%"
-      color="footer"
+      :color="isDark ? '' : '#F8F0EA'"
       class="text-center"
     >
       <v-card-text>
@@ -81,16 +81,14 @@
                   >
                     <v-img
                       :src="
-                        item.darkImage && $vuetify.theme.dark
-                          ? item.darkImage
-                          : item.image
+                        item.darkImage && isDark ? item.darkImage : item.image
                       "
                       :alt="`${item.name}-logo-and-text`"
                       aspect-ratio="1"
                       contain
                       height="1.375rem"
                       class="affiliate-image"
-                      :class="{ 'affiliate-image-dark': $vuetify.theme.dark }"
+                      :class="{ 'affiliate-image-dark': isDark }"
                     />
                   </a>
                 </div>
@@ -146,17 +144,18 @@ import { socials, affiliates, license, footerFloatingIcons } from '~/data'
 
 export default defineComponent({
   setup() {
-    const { store, $vuetify } = useContext()
+    const { store } = useContext()
 
     const companyName = computed(() => store.getters.getCompanyName)
-
+    const isDark = computed(() => store.getters['theme/isDark'])
     const siteLogo = computed(() =>
-      $vuetify.theme.dark
+      isDark.value
         ? require('~/assets/images/knit/knit-logo-white.svg')
         : require('~/assets/images/knit/knit-logo-black.svg')
     )
 
     return {
+      isDark,
       companyName,
       siteLogo,
       socials,
