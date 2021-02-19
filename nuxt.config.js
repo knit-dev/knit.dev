@@ -31,52 +31,6 @@ export default {
     ],
     noscript: [{ innerHTML: 'This website requires JavaScript.' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
-    ...(process.env.NODE_ENV === 'production' && {
-      link: [
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/poppins-latin-300.82a5357.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/poppins-latin-300italic.e62b386.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/poppins-latin-400.5b8f3ba.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/poppins-latin-500.dc16a35.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/poppins-latin-700.9690ce6.woff2',
-          crossorigin: true,
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/_nuxt/fonts/space-mono-latin-400.8f145ba.woff2',
-          crossorigin: true,
-        },
-      ],
-    }),
   },
 
   env: {
@@ -91,9 +45,9 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/main.scss',
     '@/assets/fonts/poppins.css',
     '@/assets/fonts/space-mono.css',
-    '@/assets/css/main.scss',
     'swiper/css/swiper.css',
   ],
 
