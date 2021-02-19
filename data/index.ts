@@ -177,7 +177,7 @@ export const testimonials: Array<Testimonial> = [
     jobTitle: 'COO',
     fullName: 'Hema Nathan',
     highlightedText: `Knit's engineering expertise and guidance on industry best practices were invaluable. `,
-    text: `We needed to build an e-commerce platform that would serve our current business model as well as our growth plans. We had a great experience working with Knit, and would recommend them to anyone looking for web app development.`,
+    text: `We needed an e-commerce platform to serve both our current business model and growth plans. We had a great experience working with Knit, and recommend them to anyone looking for web app development.`,
   },
 ]
 
