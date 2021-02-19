@@ -127,5 +127,10 @@ export default defineComponent({
 
     return { siteUrl, companyName, contact }
   },
+  head() {
+    return {
+      title: 'Privacy',
+    }
+  },
 })
 </script>
