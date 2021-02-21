@@ -91,9 +91,9 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/main.scss',
     '@/assets/fonts/poppins.css',
     '@/assets/fonts/space-mono.css',
-    '@/assets/css/main.scss',
     'swiper/css/swiper.css',
   ],
 

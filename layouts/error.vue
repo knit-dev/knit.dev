@@ -13,13 +13,7 @@
           </div>
           <template v-if="statusCode === 404">
             <a v-if="typeof $route === 'undefined'" href="/">Back to home</a>
-            <v-btn
-              v-else
-              nuxt
-              to="/"
-              depressed
-              class="text-none"
-              color="secondary"
+            <v-btn v-else nuxt to="/" depressed class="text-none" color="accent"
               >Back to home</v-btn
             >
           </template>
