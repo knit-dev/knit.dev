@@ -57,7 +57,7 @@ export const techStackItems: Array<TechStackItem> = [
         image: require('~/assets/images/tech-stack/grammarly-combination-mark.svg'),
       },
     ],
-    link: 'https://vuejs.org',
+    link: 'https://v3.vuejs.org',
   },
   {
     category: 'Mobile frontend framework',
@@ -205,7 +205,7 @@ export const affiliates: Array<Affiliate> = [
     name: 'vue',
     title: 'Built with',
     image: require('~/assets/images/affiliates/vue-combination-mark.png'),
-    link: 'https://vuejs.org',
+    link: 'https://v3.vuejs.org',
   },
   {
     name: 'github',
