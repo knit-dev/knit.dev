@@ -34,7 +34,7 @@ export const actions: ActionTree<RootState, RootState> = {
       if (userDefinedColorScheme) {
         localStorage.setItem('dark', JSON.stringify(value))
       } else {
-        const darkString = localStorage.getItem('dark')
+        const darkString = localStorage?.getItem('dark')
         if (darkString) {
           localStorage.removeItem('dark')
         }
@@ -46,7 +46,7 @@ export const actions: ActionTree<RootState, RootState> = {
   },
   setLocalStorageDark({ dispatch }, { $vuetify }) {
     if (process.browser) {
-      const darkString = localStorage.getItem('dark')
+      const darkString = localStorage?.getItem('dark')
 
       if (darkString) {
         const dark = JSON.parse(darkString)
