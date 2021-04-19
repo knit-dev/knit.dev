@@ -20,15 +20,19 @@
           </div>
 
           <v-expansion-panels v-model="panel" mandatory accordion>
-            <v-expansion-panel v-for="item in services" :key="item.title">
-              <v-expansion-panel-header>
-                <h3>{{ item.title }}</h3>
-              </v-expansion-panel-header>
+            <template v-for="(item, index) in services">
+              <v-expansion-panel :key="item.title">
+                <v-expansion-panel-header
+                  :style="index === panel ? 'cursor: default' : ''"
+                >
+                  <h3>{{ item.title }}</h3>
+                </v-expansion-panel-header>
 
-              <v-expansion-panel-content>
-                <p>{{ item.text }}</p>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
+                <v-expansion-panel-content>
+                  <p>{{ item.text }}</p>
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </template>
           </v-expansion-panels>
         </div>
       </v-col>
