@@ -79,25 +79,6 @@ export const techStackItems: Array<TechStackItem> = [
     link: 'https://reactnative.dev',
   },
   {
-    category: 'UI design',
-    name: 'Figma',
-    description:
-      'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
-    logo: require('~/assets/images/tech-stack/figma-logo.svg'),
-    alternatives: ['Sketch', 'InVision'],
-    usedByCompanies: [
-      {
-        name: 'Slack',
-        image: require('~/assets/images/tech-stack/slack-combination-mark.svg'),
-      },
-      {
-        name: 'Square',
-        image: require('~/assets/images/tech-stack/square-combination-mark.svg'),
-      },
-    ],
-    link: 'https://www.figma.com',
-  },
-  {
     category: 'Backend framework',
     name: 'Node.js',
     description:
@@ -134,6 +115,25 @@ export const techStackItems: Array<TechStackItem> = [
       },
     ],
     link: 'https://www.postgresql.org',
+  },
+  {
+    category: 'UI design',
+    name: 'Figma',
+    description:
+      'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
+    logo: require('~/assets/images/tech-stack/figma-logo.svg'),
+    alternatives: ['Sketch', 'InVision'],
+    usedByCompanies: [
+      {
+        name: 'Slack',
+        image: require('~/assets/images/tech-stack/slack-combination-mark.svg'),
+      },
+      {
+        name: 'Square',
+        image: require('~/assets/images/tech-stack/square-combination-mark.svg'),
+      },
+    ],
+    link: 'https://www.figma.com',
   },
   {
     category: 'Cloud hosting',
