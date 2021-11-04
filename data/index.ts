@@ -165,14 +165,6 @@ export const testimonials: Array<Testimonial> = [
     text: `We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!`,
   },
   {
-    organizationName: 'Enklu',
-    jobTitle: 'CEO',
-    fullName: 'Ray Kallmeyer',
-    highlightedText: 'Knit delivers great results on time and on spec. ',
-    text:
-      'Working with the Knit team has been a game changer for our product team!',
-  },
-  {
     organizationName: 'Destinhaus',
     jobTitle: 'COO',
     fullName: 'Hema Nathan',
