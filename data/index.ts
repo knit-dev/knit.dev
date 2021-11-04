@@ -79,25 +79,6 @@ export const techStackItems: Array<TechStackItem> = [
     link: 'https://reactnative.dev',
   },
   {
-    category: 'UI design',
-    name: 'Figma',
-    description:
-      'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
-    logo: require('~/assets/images/tech-stack/figma-logo.svg'),
-    alternatives: ['Sketch', 'InVision'],
-    usedByCompanies: [
-      {
-        name: 'Slack',
-        image: require('~/assets/images/tech-stack/slack-combination-mark.svg'),
-      },
-      {
-        name: 'Square',
-        image: require('~/assets/images/tech-stack/square-combination-mark.svg'),
-      },
-    ],
-    link: 'https://www.figma.com',
-  },
-  {
     category: 'Backend framework',
     name: 'Node.js',
     description:
@@ -136,6 +117,25 @@ export const techStackItems: Array<TechStackItem> = [
     link: 'https://www.postgresql.org',
   },
   {
+    category: 'UI design',
+    name: 'Figma',
+    description:
+      'Cloud-based interface design and prototyping app where collaboration is baked-in. Includes industry standard design features, allowing for smooth integration with software engineering paradigms.',
+    logo: require('~/assets/images/tech-stack/figma-logo.svg'),
+    alternatives: ['Sketch', 'InVision'],
+    usedByCompanies: [
+      {
+        name: 'Slack',
+        image: require('~/assets/images/tech-stack/slack-combination-mark.svg'),
+      },
+      {
+        name: 'Square',
+        image: require('~/assets/images/tech-stack/square-combination-mark.svg'),
+      },
+    ],
+    link: 'https://www.figma.com',
+  },
+  {
     category: 'Cloud hosting',
     name: 'Amazon Web Services',
     description:
@@ -163,14 +163,6 @@ export const testimonials: Array<Testimonial> = [
     fullName: 'Sonya Petcavich',
     highlightedText: "The quality of Knit's work is top-notch. ",
     text: `We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!`,
-  },
-  {
-    organizationName: 'Enklu',
-    jobTitle: 'CEO',
-    fullName: 'Ray Kallmeyer',
-    highlightedText: 'Knit delivers great results on time and on spec. ',
-    text:
-      'Working with the Knit team has been a game changer for our product team!',
   },
   {
     organizationName: 'Destinhaus',

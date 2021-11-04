@@ -51,7 +51,7 @@
                 :key="item.name"
                 :href="item.link"
                 target="_blank"
-                rel="”noopener”"
+                rel="noopener"
                 class="mx-2"
                 icon
                 :aria-label="item.name"
@@ -76,7 +76,7 @@
                   <a
                     :href="item.link"
                     target="_blank"
-                    rel="”noopener”"
+                    rel="noopener"
                     :aria-label="`${item.title} ${item.name}`"
                   >
                     <v-img
@@ -104,7 +104,7 @@
         <div>
           &copy; {{ new Date().getFullYear() }} {{ companyName }}.
           {{ license.description }}
-          <a :href="license.link" target="_blank" rel="”noopener”">{{
+          <a :href="license.link" target="_blank" rel="noopener">{{
             license.linkText
           }}</a>
         </div>

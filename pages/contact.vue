@@ -49,7 +49,7 @@
                 :key="item.name"
                 :href="item.link"
                 target="_blank"
-                rel="”noopener”"
+                rel="noopener"
                 class="mr-2"
                 icon
                 large
