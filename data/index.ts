@@ -165,6 +165,13 @@ export const testimonials: Array<Testimonial> = [
     text: `We needed iOS and Android apps built from the ground up. Not only did Knit help guide our thinking from specifications to user experience, they delivered all milestones ahead of schedule. They were a pleasure to work with over the past 4 months!`,
   },
   {
+    organizationName: 'Archivs',
+    jobTitle: 'Founder/CEO',
+    fullName: 'Mason Kinkead',
+    highlightedText: `They reached their deadlines and were available to help however they could, which was exactly what my startup needed.`,
+    text: `Knit was a pleasure to work with and a great asset to have. Their experience in web dev helped Archivs hit the ground running as we built out our MVP and entered our beta. They reached their deadlines and were available to help however they could, which was exactly what my startup needed.`,
+  },
+  {
     organizationName: 'Destinhaus',
     jobTitle: 'COO',
     fullName: 'Hema Nathan',
