@@ -5,6 +5,7 @@
         v-for="item in items"
         :key="item.title"
         :to="item.route"
+        :href="item.href"
         exact
         nuxt
         class="text-capitalize"
@@ -19,6 +20,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 const items = [
   { title: 'home', route: '/' },
+  { title: 'blog', href: 'https://knit-dev.medium.com' },
   { title: 'contact', route: '/contact' },
 ]
 

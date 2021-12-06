@@ -4,6 +4,7 @@
       v-for="item in items"
       :key="item.title"
       :to="item.route"
+      :href="item.href"
       exact
       nuxt
       active-class="primary--text"
@@ -23,6 +24,7 @@ export default defineComponent({
   setup() {
     const items = ref([
       { title: 'home', route: '/' },
+      { title: 'blog', href: 'https://knit-dev.medium.com' },
       { title: 'contact', route: '/contact' },
     ])
 
