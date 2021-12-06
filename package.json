@@ -42,7 +42,7 @@
     "imagemin-pngquant": "^9.0.1",
     "imagemin-svgo": "^8.0.0",
     "nuxt": "^2.15.2",
-    "swiper": "^5.4.5",
+    "swiper": "^6.5.1",
     "typeface-poppins": "^1.1.13",
     "typeface-space-mono": "^1.1.13",
     "vue-awesome-swiper": "^4.1.1"
