@@ -24,7 +24,7 @@ export default defineComponent({
   setup() {
     const items = ref([
       { title: 'home', route: '/' },
-      { title: 'blog', href: 'https://knit-dev.medium.com' },
+      { title: 'blog', href: 'https://jeremy-knit.medium.com' },
       { title: 'contact', route: '/contact' },
     ])
 
